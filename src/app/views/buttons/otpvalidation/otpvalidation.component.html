@@ -1,0 +1,89 @@
+<div class="">
+    <div class="">
+  
+        <div class="login_box">
+            <div class="login_box_inner">
+  
+                <div class="container_login_form">
+                    <!-- <div class="logo">
+            <img
+              src="../../../assets/img/brand/logo2.png"
+              alt="">
+          </div> -->
+                    <div class="login_form">
+                        <div _ngcontent-c5="" class="col-md-12 grid-margin">
+                            <div _ngcontent-c5="" class="card">
+                                
+                                <div _ngcontent-c5="" class="card-body text-center">
+                                    <div class="logo">
+                                        <img src="../../../assets/img/brand/logo-png.png" alt="">
+                                    </div>
+  
+                                    <!-- <h4 _ngcontent-c5="" class="card-title">Login</h4> -->
+                                     <div >
+                                          <div class="text-danger"></div>
+                                         </div>
+  
+                                         <!-- <div  *ngIf = "loginError" class="alert alert-danger alert-dismissible fade show" role="alert">
+                                              {{loginErrorMsg}}
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                              <span aria-hidden="true">&times;</span>
+                                            </button>
+                                          </div> -->
+                                    <form  class="my-form forms-sample ng-untouched ng-pristine ng-valid">
+                                        <div class="form-group">
+                                            <label>Enter OTP</label>
+                                            <input  
+                                                class="form-control"
+                                                placeholder="Enter OTP"
+                                                type="text"  name="otpnumber"   
+                                                [(ngModel)]="otpnumber"                                           
+                                                >
+                                                
+                                            
+                                        </div>
+                                        <a href="" class="btn btn-primary">Resend OTP</a>
+                                        
+                                      
+                                        <button class="btn btn-success  mr-2" (click)="otpvalidation()" >Submit</button>
+                                    </form>
+  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+  
+            </div>
+        </div>
+  
+    </div>
+  </div>
+  <!-- <div class="alert-msgs" *ngIf="alertcon">
+    <div class="alert-msg">
+        <div class="alert-msg-con">
+  
+            <div class="alert-img" *ngIf="success">
+                <img src="assets/img/alert/success.png" width="45px" alt="">
+            </div>
+            <div class="alert-img" *ngIf="warning">
+                <img src="assets/img/alert/waring.png" width="45px" alt="">
+            </div>
+            <h4>
+                {{alertmsg}}
+            </h4>
+            <p>{{alertcont}}</p>
+  
+            <button class="alert-btn {{button}}" type="button" (click)="hidealert()"> ok </button>
+        </div>
+    </div>
+  </div>
+  <script>
+    // Automatically trigger the loading animation on click
+  Ladda.bind('button[type=submit]');
+  
+  // Same as the above but automatically stops after two seconds
+  Ladda.bind('button[type=submit]', { timeout: 2000 } );
+  
+  </script> -->
+  

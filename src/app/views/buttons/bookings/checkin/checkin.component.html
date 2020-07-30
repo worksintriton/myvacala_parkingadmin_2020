@@ -1,0 +1,113 @@
+<div class="animated fadeIn">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <strong>Check-In</strong>
+          </div>
+          <div class="card-body">
+            <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+              <div class="form-group row">
+              </div>
+              <div class="row">
+                <div class="col-md-6"> 
+                  <div class="form-group row">
+                    <label class="col-md-5 col-form-label" for="text-input">Vehicle Model</label>
+                    <div class="col-md-6">
+                      <input type="text" [(ngModel)]="VehicleModel" disabled="true" name ="VehicleModel" id="text-input" class="form-control" placeholder="Vehicle Model">
+                    </div>
+                  </div>  
+                  <div class="form-group row">
+                    <label class="col-md-5 col-form-label" for="text-input">Floor Name</label>
+                    <div class="col-md-6">
+                      <input type="text" [(ngModel)]="FloorName" disabled="true"  name ="FloorName" id="text-input"  class="form-control" placeholder="FloorName">
+                    </div>
+                  </div>    
+                  <div class="form-group row">
+                    <label class="col-md-5 col-form-label" for="text-input">Block Name</label>
+                    <div class="col-md-6">
+                     <input type="text" [(ngModel)]="SubFloorName" disabled="true" name ="SubFloorName" id="text-input"  class="form-control" placeholder="Block Name">
+                    </div>
+                  </div>    
+                  <div class="form-group row">
+                    <label class="col-md-5 col-form-label" for="text-input">Slot Number</label>
+                    <div class="col-md-6">
+                     <input type="text" [(ngModel)]="SlotNumber" disabled="true" name ="SlotNumber" id="text-input"  class="form-control" placeholder="Slot Number">
+                    </div>
+                  </div>  
+                     
+                  <div class="form-group row">
+                    <label class="col-md-5 col-form-label" for="text-input">Actual Booking Duration</label>
+                    <div class="col-md-6">
+                     <input type="text" [(ngModel)]="ActualBookingDuration" disabled="true"  name ="ActualBookingDuration" id="text-input"  class="form-control" placeholder="Actual Booking Duration">
+                    </div>
+                  </div>    
+                  <div class="form-group row">
+                    <label class="col-md-5 col-form-label" for="text-input">CheckIn Time</label>
+                    <div class="col-md-6">
+                     <input type="time" [(ngModel)]="ActualBookingDuration" disabled="true"  name ="ActualBookingDuration" id="text-input"  class="form-control" placeholder="CheckIn Time">
+                    </div>
+                  </div>  
+                  <div class="form-group row">
+                    <label style="font-weight: 600;" class="col-md-5 col-form-label" for="text-input">Actual Booking Amount</label>
+                    <div class="col-md-6">
+                     <input type="text" style="font-weight: 600; background-color:yellow; color:red;" value="500" disabled="true"  name ="ActualBookingAmount" id="text-input"  class="form-control" placeholder="Actual Booking Amount">
+                    </div>
+                  </div>   
+                </div>     
+                <div class="col-md-6"> 
+                    <div class="form-group row">
+                        <label class="col-md-5 col-form-label" for="text-input">Vehicle Manufacturer</label>
+                        <div class="col-md-6">
+                          <input type="text" [(ngModel)]="VehicleManufacturer" disabled="true"  name ="VehicleManufacturer" id="text-input"  class="form-control" placeholder="Vehicle Manufacturer">
+                        </div>
+                      </div>  
+                  <div class="form-group row">
+                    <label class="col-md-5 col-form-label" for="text-input">Actual Booking Date</label>
+                    <div class="col-md-6">
+                      <input type="date" placeholder="Actual Booking" disabled="true" class="form-control" [(ngModel)]="ActualBooking" name="ActualBooking">
+                        
+                      </div>
+                  </div>  
+                    <div class="form-group row">
+                      <label class="col-md-5 col-form-label" for="text-input">Actual Booking Start Time</label>
+                      <div class="col-md-6">
+                        <input type="text" [(ngModel)]="ActualBookingStartTime"  disabled="true" name ="ActualBookingStartTime" id="text-input"  class="form-control" placeholder="Actual Booking Start Time">
+                      </div>
+                    </div>      
+                    <div class="form-group row">
+                      <label class="col-md-5 col-form-label" for="text-input">Actual Booking End Time</label>
+                      <div class="col-md-6">
+                       <input type="text" [(ngModel)]="ActualBookingEndTime" disabled="true" name ="ActualBookingEndTime" id="text-input"  class="form-control" placeholder="Actual Booking End Time">
+                      </div>
+                    </div>    
+                    
+                  <div class="form-group row">
+                    <label class="col-md-5 col-form-label" for="text-input">Image Upload</label>
+                    <div class="col-md-6">
+                     <input type="file" [(ngModel)]="NomineePanCard"  name ="NomineePanCard" id="text-input"  class="form-control" placeholder="Nominee PanCard">
+                    </div>
+                  </div>      
+                  </div>                 
+            </div> 
+            </form>
+        </div>
+      </div>
+    </div><!--/.row-->
+  </div>
+        
+        <!-- <div class="row">                
+          <div class="col-md-6">
+              <div class="form-group">
+                  <button (click)="createEmployees()" class="btn btn-sm btn-primary float-right mt-5" ><i class="fa fa-dot-circle-o"></i> Submit</button>                
+                  </div>                  
+          </div> 
+           <div class="col-md-6">
+              <div class="form-group">
+                    <button type="reset"  class="btn btn-sm btn-danger mt-5"><i class="fa fa-ban"></i> Reset</button>  
+              </div>                  
+          </div> 
+      </div> -->
+  </div>
+  
+

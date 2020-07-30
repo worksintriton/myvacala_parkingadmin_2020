@@ -1,0 +1,106 @@
+<div class="animated fadeIn">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <strong>QR Code Generation </strong>
+        </div>
+          <div class="card-body">
+            <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="form-group row">
+                    <label class="col-md-4 col-form-label" for="text-input">Vendor Id</label>
+                    <div class="col-md-6">
+                      <input type="text" [(ngModel)]="Title" name ="Title" id="text-input" class="form-control" placeholder="Vendor Id">
+                    </div>
+                  </div> 
+                  <div class="form-group row">
+                    <label class="col-md-4 col-form-label" for="text-input">Vendor Name</label>
+                    <div class="col-md-6">
+                      <input type="text" [(ngModel)]="VendorName" name ="VendorName" id="text-input" class="form-control" placeholder="VendorName">
+                    </div>
+                  </div> 
+                  <div class="form-group row">
+                    <label class="col-md-4 col-form-label" for="text-input">Parking Area Name</label>
+                    <div class="col-md-6">
+                      <input type="text" [(ngModel)]="Title" name ="Title" id="text-input" class="form-control" placeholder="Parking Area Name">
+                    </div>
+                  </div> 
+                   <div class="form-group row">
+                    <label class="col-md-4 col-form-label" for="text-input">Block Name</label>
+                    <div class="col-md-6">
+                      <input type="text" [(ngModel)]="Title" name ="Title" id="text-input" class="form-control" placeholder="Block Name">
+                    </div>
+                  </div> 
+                  <div class="form-group row">
+                    <label class="col-md-4 col-form-label" for="text-input">Latitude</label>
+                    <div class="col-md-6">
+                      <input type="text" [(ngModel)]="Title" name ="Title" id="text-input" class="form-control" placeholder="Latitude">
+                    </div>
+                  </div> 
+                  <div class="form-group row">
+                    <label class="col-md-4 col-form-label" for="text-input">Longitude</label>
+                    <div class="col-md-6">
+                      <input type="text" [(ngModel)]="Title" name ="Title" id="text-input" class="form-control" placeholder="Longitude">
+                    </div>
+                  </div> 
+                  <div class="form-group row">
+                    <label class="col-md-4 col-form-label" for="text-input">Entry</label>
+                    <div class="col-md-6">
+                      <select class="form-control">
+                        <option>Select Option</option>
+                        <option>CehckIn</option>
+                        <option>CheckOut</option>
+                      </select>
+                    </div>
+                  </div> 
+                  <div class="form-group row">
+                    <label class="col-md-4 col-form-label" for="text-input">Date and Time</label>
+                    <div class="col-md-3">
+                      <input type="date" [(ngModel)]="Title" name ="Title" id="text-input" class="form-control" placeholder="Longitude">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="time" [(ngModel)]="Title" name ="Title" id="text-input" class="form-control" placeholder="Longitude">
+                      </div>
+                  </div> 
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group row">
+                    <div class="card">
+                        <div class="card-body">
+                    <img height="300px" width="300px" src="../../../../../assets/img/brand/qrcode.png">
+                    </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+              </div>
+                
+                 
+                 
+             
+                  <div class="row">                
+                    <div class="col-md-6">
+                        <div class="form-group">
+                          <button (click)="Banner_save()" class="btn btn-sm btn-primary float-right mt-5" ><i class="fa fa-save"></i>Save</button>               
+                        </div>                  
+                    </div>  
+                     <div class="col-md-6">
+                        <div class="form-group">
+                              <button type="reset"  class="btn btn-sm btn-danger mt-5"><i class="fa fa-ban"></i> Reset</button>  
+                        </div>                  
+                    </div> 
+                </div>
+            </form>
+            
+          </div>
+        </div>
+      </div>
+    </div><!--/.row-->
+ 
+  </div>
+
+  
+

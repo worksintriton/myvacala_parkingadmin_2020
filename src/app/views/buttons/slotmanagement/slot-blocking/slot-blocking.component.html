@@ -1,0 +1,104 @@
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <select name="service" class="form-control">
+                <option value="">Status</option>
+                <option value="checkin">Block</option>
+                <option value="checkout">Revoke</option>
+            </select>
+            </div>
+        </div>
+        
+       
+         <div class="col-md-4">
+          <div class="form-group">
+            <input type="text" class="form-control" name="Floor" placeholder="Floor"/>       
+        </div>
+        </div>
+        
+       <div class="col-md-4">
+        <div class="form-group">
+          <input type="text" class="form-control" name="SubFloor" placeholder="Sub Floor"/>       
+      </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <input type="text" class="form-control" name="SlotNumber" placeholder="Slot Number"/>       
+      </div>
+      </div>
+      <div class="col-md-2">
+        <div class="form-group">
+          <button (click)="VehicleModal_save()" class="btn btn-sm btn-primary" ><i class="fa fa-search"></i>Search</button>               
+        </div> 
+      </div>
+      </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <strong>Car Slot Bloking</strong>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered table-striped table-sm">
+                        <thead>
+                          <tr>
+                            <th>S.No</th>
+                            <th>Area </th>
+                            <th>Floor</th>
+                            <th>Slot</th>
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                
+                          <!-- <tr *ngFor="let dynamic5 of include_bike1; let i = index;"> -->
+                              <tr>
+                            <td>1</td>
+                            <td>Chennai </td>
+                            <td>2nd Floor</td>
+                            <td>B-1</td>
+                            <td>
+                              <button (click)="deletebike(i)" class="btn btn-sm btn-primary">Revoke</button></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <strong>Bike Slot Bloking</strong>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered table-striped table-sm">
+                        <thead>
+                          <tr>
+                            <th>S.No</th>
+                            <th>Area </th>
+                            <th>Floor</th>
+                            <th>Slot</th>
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                
+                          <!-- <tr *ngFor="let dynamic5 of include_bike1; let i = index;"> -->
+                              <tr>
+                            <td>1</td>
+                            <td>Chennai </td>
+                            <td>2nd Floor</td>
+                            <td>B-1</td>
+                            <td>
+                              <button (click)="deletebike(i)" class="btn btn-sm btn-primary">Revoke</button></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
