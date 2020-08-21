@@ -67,7 +67,20 @@ export class LoginComponent implements OnInit {
       this.passwordError = false;
     }
     }
-  
+    mobileValidator(data){
+      if (data === undefined || data === '' || data === null) {
+        this.phError = true;
+        this.phErrorMsg = "Please enter valid phone number"
+      } else if (isNaN(data)){
+        this.phError = true;
+        this.phErrorMsg = "Please enter valid phone number"
+      }else if (data.length !== 10){
+        this.phError = true;
+        this.phErrorMsg = "Please enter valid phone number"
+      }else {
+        this.phError = false;
+      }
+    }
   emailChange(data){
     //console.log(data);
     this.email = data;
@@ -89,7 +102,16 @@ export class LoginComponent implements OnInit {
     }
   }
 onLogin() {
-     this.router.navigate(['Home/buttons/view_bookings']);
+  if(this.phError == false && this.phonenumber == 9876543210){
+    this.router.navigate(['Home/buttons/view_bookings']);
+  }
+  else if(this.phError == false && this.phonenumber != 9876543210){
+    alert( "Invalid phone number")
+  }
+  else{
+    alert( "Please enter valid phone number")
+  }
+     
 this.validator();
 if (this.validation) {
   // let loginObj ={

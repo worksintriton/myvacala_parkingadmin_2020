@@ -42,15 +42,15 @@ export const navItems: NavData[] = [
  
   {
     name: 'Bookings',
-    url: '/dashboard',
+    url: '/Home/buttons/view_bookings',
     icon: 'icon-notebook',
-    children: [
-      {
-        name: 'View Bookings',
-        url: '/Home/buttons/view_bookings',
-        icon: 'icon-plus'
-      },
-    ]
+    // children: [
+    //   {
+    //     name: 'View Bookings',
+    //     url: '/Home/buttons/view_bookings',
+    //     icon: 'icon-plus'
+    //   },
+    // ]
   },
   
   
@@ -61,20 +61,20 @@ export const navItems: NavData[] = [
   },
   {
     name: 'Slot Management',
-    url: '/dashboard',
+    url: '/Home/buttons/slotbooking',
     icon: 'fa fa-gear',
-    children: [
-      {
-        name: 'Slot Booking',
-        url: '/Home/buttons/slotbooking',
-        icon: 'icon-notebook'
-      },
-      {
-        name: 'Slot Blocking',
-        url: '/Home/buttons/slotblocking',
-        icon: 'icon-ban'
-      },
-    ]
+    // children: [
+    //   {
+    //     name: 'Slot Booking',
+    //     url: '/Home/buttons/slotbooking',
+    //     icon: 'icon-notebook'
+    //   },
+    //   {
+    //     name: 'Slot Blocking',
+    //     url: '/Home/buttons/slotblocking',
+    //     icon: 'icon-ban'
+    //   },
+    // ]
     
   },
   {
@@ -82,16 +82,16 @@ export const navItems: NavData[] = [
     url: '/Home/buttons/QRCodeGeneration',
     icon: 'fa fa-qrcode'
   },
-  {
-    name: 'Notifications',
-    url: '/Home/buttons/notifications',
-    icon: 'icon-bell'
-  },
-  {
-    name: 'Downloads',
-    url: '/Home/buttons/downloads',
-    icon: 'fa fa-download'
-  },
+  // {
+  //   name: 'Notifications',
+  //   url: '/Home/buttons/notifications',
+  //   icon: 'icon-bell'
+  // },
+  // {
+  //   name: 'Downloads',
+  //   url: '/Home/buttons/downloads',
+  //   icon: 'fa fa-download'
+  // },
   
  
 ];

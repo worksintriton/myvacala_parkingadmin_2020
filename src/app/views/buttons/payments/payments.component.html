@@ -1,73 +1,107 @@
 <div class="animated fadeIn">
-    <div class="card">
-        <div class="card-body">
-    <div class="row">
-      <div class="col-md-3">
-        <div class="input-group date" id="reservationdate_to" data-target-input="nearest">
-          <input type="text" class="form-control datetimepicker-input" name="todate" data-target="#reservationdate_to" required/>
-          <div class="input-group-append" data-target="#reservationdate_to" data-toggle="datetimepicker">
-              <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        
+        <div class="col-md-3">
+          <div class="form-group">
+              <input type="text" class="form-control" name="Bookingid" placeholder="Booking ID" />
           </div>
       </div>
-      </div>
-      <div class="col-md-2">
-        <div class="form-group">
-          <select name="service" class="form-control">
-              <option value="">Status</option>
-          </select>
+        <div class="col-md-3">
+          <div class="form-group">
+            <ng-datepicker [(ngModel)]="date" [options]="options"></ng-datepicker>
           </div>
-      </div>
-      <div class="col-md-2">
-        <div class="form-group">
-          <select name="service" class="form-control">
-              <option value="">Booking Type</option>
-          </select>
-          </div>
-      </div>
-      <div class="col-md-3">
-        <form class="form-inline">
-            <div class="input-group input-group-sm">
-              <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-              <div class="input-group-append">
-                <button class="btn btn-navbar" type="submit">
-                  <i class="fa fa-search"></i>
-                </button>
-              </div>
-            </div>
-          </form>
-      </div>      
-      <div class="col-md-2">
-        <button><li class="fa fa-download"></li></button>
-      </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <h4 class="card-title pt-4">Payments</h4>
-                <table class="table table-bordered table-striped table-sm">
-                    <thead>
-                      <tr>
-                        <th>S.No</th>
-                        <th>Check_In_Date_Time</th>
-                        <th>Check_Out_Date_Time</th>
-                        <th>Total_Amount_Paid</th>
-                        <th>UTR</th>
-                        <th>Amount_Paid_Date_to_Vendor</th>
-                      </tr>
-                      
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>TN 36 9876</td>
-                            <td>15-07-2020 3.45PM</td>
-                            <td>15-07-2020 6.45PM</td>
-                            <td>1200</td>
-                            <td>0</td>
-                            <td>27-05-2020</td>
-                         </tr>
-                    </tbody>
-                  </table>
-                </div>
-    </div>
         </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <ng-datepicker [(ngModel)]="date_out" [options]="option"></ng-datepicker>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+              <button (click)="filter()" style="margin-top: 4px;" class="btn btn-sm btn-primary"><i
+                      class="fa fa-search"></i>Search</button>
+          </div>
+      </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h4 class="card-title pt-4">Payments</h4>
+          <table class="table table-bordered table-striped table-sm">
+            <thead>
+              <tr>
+                <th rowspan="2">S.No</th>
+                <th rowspan="2">Booking ID</th>
+                <th rowspan="2">Vehicle No</th>
+                <th colspan="2" style="text-align: center;">Check In</th>
+                <th colspan="2"  style="text-align: center;">Check Out</th>
+                <th rowspan="2">Total Amount Paid</th>
+                <th rowspan="2">UTR</th>
+                <th rowspan="2">Amount Paid Date to Vendor</th>
+              </tr>
+              <tr>
+                
+                <th>Date</th>
+                <th>Time</th>
+                <th>Date</th>
+                <th>Time</th>
+              </tr>
+
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>SDGJ2536J</td>
+                <td>TN 36 9876</td>
+                <td>15-07-2020</td>
+                <td>3.45PM</td>
+                <td>15-07-2020 </td>
+                <td>6.45PM</td>
+                <td>1200</td>
+                <td>0</td>
+                <td>27-05-2020</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>SDGJ2536J</td>
+                <td>TN 36 9876</td>
+                <td>15-07-2020</td>
+                <td>3.45PM</td>
+                <td>15-07-2020 </td>
+                <td>6.45PM</td>
+                <td>1200</td>
+                <td>0</td>
+                <td>27-05-2020</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>SDGJ2536J</td>
+                <td>TN 36 9876</td>
+                <td>15-07-2020</td>
+                <td>3.45PM</td>
+                <td>15-07-2020 </td>
+                <td>6.45PM</td>
+                <td>1200</td>
+                <td>0</td>
+                <td>27-05-2020</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>SDGJ2536J</td>
+                <td>TN 36 9876</td>
+                <td>15-07-2020</td>
+                <td>3.45PM</td>
+                <td>15-07-2020 </td>
+                <td>6.45PM</td>
+                <td>1200</td>
+                <td>0</td>
+                <td>27-05-2020</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
+  </div>
 </div>

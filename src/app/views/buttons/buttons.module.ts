@@ -32,7 +32,9 @@ import { SlotBookingComponent } from './slotmanagement/slot-booking/slot-booking
 import { CheckinComponent } from './bookings/checkin/checkin.component';
 import { CheckoutComponent } from './bookings/checkout/checkout.component';
 import { QrcodegenerationComponent } from './qrcode/qrcodegeneration/qrcodegeneration.component';
-
+import { NgDatepickerModule } from 'ng2-datepicker';
+import {CalendarModule} from 'primeng/calendar';
+import { UpcomingComponent } from './bookings/upcoming/upcoming.component';
 // Angular
 
 @NgModule({
@@ -41,7 +43,9 @@ import { QrcodegenerationComponent } from './qrcode/qrcodegeneration/qrcodegener
     StorageServiceModule,
     ButtonsRoutingModule,
     BsDropdownModule.forRoot(),
-    FormsModule
+    FormsModule,
+    NgDatepickerModule,
+    CalendarModule
   ],
   declarations: [
     AdminuserlistComponent,
@@ -63,6 +67,8 @@ import { QrcodegenerationComponent } from './qrcode/qrcodegeneration/qrcodegener
     CheckinComponent,
     CheckoutComponent,
     QrcodegenerationComponent,
+    UpcomingComponent,
+  
   ]
 })
 export class ButtonsModule { }

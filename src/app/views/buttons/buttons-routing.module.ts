@@ -23,6 +23,7 @@ import { CheckoutComponent } from './bookings/checkout/checkout.component';
 import { SlotBookingComponent } from './slotmanagement/slot-booking/slot-booking.component';
 import { SlotBlockingComponent } from './slotmanagement/slot-blocking/slot-blocking.component';
 import { QrcodegenerationComponent } from './qrcode/qrcodegeneration/qrcodegeneration.component';
+import { UpcomingComponent } from './bookings/upcoming/upcoming.component';
 const routes: Routes = [
   {
     path: '',
@@ -105,6 +106,13 @@ const routes: Routes = [
       {
         path: 'view_estimation',
         component: ViewbookingestimationComponent,
+        data: {
+          title: 'Brand buttons'
+        }
+      },
+      {
+        path: 'upcoming',
+        component: UpcomingComponent,
         data: {
           title: 'Brand buttons'
         }

@@ -1,0 +1,7 @@
+:host::ng-deep .ngx-datepicker-container .ngx-datepicker-calendar-container {
+    z-index: 9;
+}
+:host::ng-deep  .ngx-datepicker-container .ngx-datepicker-input{
+    width: 100% !important;
+    padding: 10px 10px !important;
+}

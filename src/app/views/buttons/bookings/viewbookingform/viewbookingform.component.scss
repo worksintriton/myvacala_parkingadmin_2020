@@ -37,3 +37,14 @@ a:hover
     background-repeat: no-repeat;
     opacity: 0.3;
   }
+  :host::ng-deep .p-calendar .p-inputtext {
+    padding: 5px;
+  }
+  :host::ng-deep .p-calendar ::placeholder{
+      font-size: 14px;
+      color: #333;
+      padding:0px !important;
+  }
+  .card-body h6{
+    font-weight: 600;
+  }
