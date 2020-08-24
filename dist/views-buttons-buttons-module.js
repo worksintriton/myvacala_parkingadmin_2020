@@ -12117,7 +12117,7 @@ module.exports = "<div class=\"animated fadeIn\">\r\n    <div class=\"row\">\r\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"animated fadeIn\">\r\n\r\n    <div class=\"row\">\r\n        <!-- <div class=\"col-md-4\">\r\n          <div class=\"form-group\">\r\n            <select name=\"service\" class=\"form-control\">\r\n                <option value=\"\">Status</option>\r\n                <option value=\"checkin\">Block</option>\r\n                <option value=\"checkout\">Revoke</option>\r\n            </select>\r\n            </div>\r\n        </div> -->\r\n\r\n\r\n        <div class=\"col-md-3\">\r\n            <div class=\"form-group\">\r\n                <input type=\"text\" class=\"form-control\" name=\"Floor\" placeholder=\"Floor\" />\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"col-md-3\">\r\n            <div class=\"form-group\">\r\n                <input type=\"text\" class=\"form-control\" name=\"Block\" placeholder=\"Block\" />\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"form-group\">\r\n                <input type=\"text\" class=\"form-control\" name=\"SlotNumber\" placeholder=\"Slot\" />\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-2\">\r\n            <div class=\"form-group\">\r\n                <button (click)=\"filter()\" style=\"margin-top: 4px;\" class=\"btn btn-sm btn-primary\"><i\r\n                        class=\"fa fa-search\"></i>Search</button>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"row\">\r\n        <div class=\"col-md-12\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                    <strong>Bike Slot Booking</strong>\r\n                    <button (click)=\"showbikeslot()\" class=\"btn btn-sm btn-primary float-right\">Add More</button>\r\n                </div>\r\n                <div class=\"card-body\">\r\n                    <div *ngIf=\"bikeslot\">\r\n\r\n                        <div class=\"form-group row\">\r\n                            <label class=\"col-md-3 col-form-label\" for=\"text-input\">Bike Slots</label>\r\n                            <div class=\"col-md-6\">\r\n                                <input type=\"text\" [(ngModel)]=\"bikeslots\" name=\"bikeslots\" id=\"text-input\"\r\n                                    class=\"form-control\" placeholder=\"Bike Slots\">\r\n                            </div>\r\n                            <div class=\"col-md-3\">\r\n                                <button (click)=\"addbikeslot()\" class=\"btn btn-primary\">Create</button>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"form-group row\">\r\n                            <!-- <label class=\"col-md-3 col-form-label\" for=\"text-input\"></label> -->\r\n                            <div class=\"col-md-12 mt-3\">\r\n                                <table class=\"table table-bordered table-striped table-sm\">\r\n                                    <thead>\r\n                                        <tr>\r\n                                            <th>S.No</th>\r\n                                            <th>Area </th>\r\n                                            <th>Floor</th>\r\n                                            <th>Slot</th>\r\n                                            <th>Add_Action</th>\r\n                                            <th>Delete_Action</th>\r\n                                        </tr>\r\n                                    </thead>\r\n                                    <tbody>\r\n\r\n                                        <tr *ngFor=\"let dynamic5 of include_bike1; let i = index;\">\r\n                                            <td>{{i+1}}</td>\r\n                                            <td> <input type=\"text\" [(ngModel)]=\"area\" name=\"area\" id=\"text-input\"\r\n                                                    class=\"form-control\" placeholder=\"Area\"></td>\r\n                                            <td> <input type=\"text\" [(ngModel)]=\"floor\" name=\"flooe\" id=\"text-input\"\r\n                                                    class=\"form-control\" placeholder=\"Floor\"></td>\r\n                                            <td><input type=\"text\" [(ngModel)]=\"slot\" name=\"slot\" id=\"text-input\"\r\n                                                    class=\"form-control\" placeholder=\"Slot Number\"></td>\r\n                                            <td> <button (click)=\"addcar(i)\" class=\"btn btn-sm btn-primary\">Add</button>\r\n                                            </td>\r\n                                            <td> <button (click)=\"deletcar(i)\"\r\n                                                    class=\"btn btn-sm btn-primary\">Delete</button></td>\r\n                                        </tr>\r\n                                    </tbody>\r\n                                </table>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                    <table class=\"table table-bordered table-striped table-sm\">\r\n\r\n                        <thead>\r\n                            <tr>\r\n                                <th>S.No</th>\r\n                                <th>Floor </th>\r\n                                <th>Block</th>\r\n                                <th>Slot</th>\r\n                                <th>Action</th>\r\n                            </tr>\r\n                        </thead>\r\n                        <tbody>\r\n                            <tr>\r\n                                <td>1</td>\r\n                                <td>2nd Floor</td>\r\n                                <td>2 Block</td>\r\n                                <td>4</td>\r\n                                <td>\r\n                                    <button *ngIf=\"blk\" (click)=\"block()\" class=\"btn btn-sm btn-primary\">Block</button>\r\n                                    <button *ngIf=\"rvk\" (click)=\"revoke()\"\r\n                                        class=\"btn btn-sm btn-success\">Rovoke</button>\r\n                                </td>\r\n\r\n                            </tr>\r\n\r\n                            <!-- <tr *ngFor=\"let dynamic5 of include_bike1; let i = index;\">\r\n                            <td>{{i+1}}</td>\r\n                            <td> <input type=\"text\" [(ngModel)]=\"area\" name=\"area\" id=\"text-input\" class=\"form-control\"\r\n                                placeholder=\"Area\"></td>\r\n                            <td> <input type=\"text\" [(ngModel)]=\"floor\" name=\"flooe\" id=\"text-input\" class=\"form-control\"\r\n                                placeholder=\"Floor\"></td>\r\n                            <td><input type=\"text\" [(ngModel)]=\"slot\" name=\"slot\" id=\"text-input\" class=\"form-control\"\r\n                                placeholder=\"Slot Number\"></td>\r\n                            <td>\r\n                              <button (click)=\"deletebike(i)\" class=\"btn btn-sm btn-primary\">Block</button></td>\r\n                          </tr> -->\r\n                        </tbody>\r\n                    </table>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"row\">\r\n        <div class=\"col-md-12\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                    <strong>Car Slot Booking</strong>\r\n                    <button (click)=\"showcarslot()\" class=\"btn btn-sm btn-primary float-right\">Add More</button>\r\n                </div>\r\n                <div class=\"card-body\">\r\n                    <div *ngIf=\"carslot\">\r\n                        <div class=\"form-group row\">\r\n                            <label class=\"col-md-3 col-form-label\" for=\"text-input\">Car Slots</label>\r\n                            <div class=\"col-md-6\">\r\n                                <input type=\"text\" [(ngModel)]=\"carslots\" name=\"carslots\" id=\"text-input\"\r\n                                    class=\"form-control\" placeholder=\"Car Slots\">\r\n                            </div>\r\n                            <div class=\"col-md-3\">\r\n                                <button (click)=\"addcarslot()\" class=\"btn btn-primary\">Create</button>\r\n                            </div>\r\n                        </div>\r\n\r\n                        <div class=\"form-group row\">\r\n                            <!-- <label class=\"col-md-3 col-form-label\" for=\"text-input\"></label> -->\r\n                            <div class=\"col-md-12 mt-3\">\r\n                                <table class=\"table table-bordered table-striped table-sm\">\r\n                                    <thead>\r\n                                        <tr>\r\n                                            <th>S.No</th>\r\n                                            <th>Select</th>\r\n                                            <th>Area </th>\r\n                                            <th>Floor</th>\r\n                                            <th>Slot</th>\r\n                                            <th>Add_Action</th>\r\n                                            <th>Delete_Action</th>\r\n                                        </tr>\r\n                                    </thead>\r\n                                    <tbody>\r\n\r\n                                        <tr *ngFor=\"let dynamic5 of include_bike2; let i = index;\">\r\n                                            <td>{{i+1}}</td>\r\n                                            <td><input type=\"checkbox\" name=\"\" [(ngModel)]=\"name\"> </td>\r\n                                            <td> <input type=\"text\" [(ngModel)]=\"area\" name=\"area\" id=\"text-input\"\r\n                                                    class=\"form-control\" placeholder=\"Area\"></td>\r\n                                            <td> <input type=\"text\" [(ngModel)]=\"floor\" name=\"flooe\" id=\"text-input\"\r\n                                                    class=\"form-control\" placeholder=\"Floor\"></td>\r\n                                            <td><input type=\"text\" [(ngModel)]=\"slot\" name=\"slot\" id=\"text-input\"\r\n                                                    class=\"form-control\" placeholder=\"Slot Number\"></td>\r\n                                            <td> <button (click)=\"addcar(i)\" class=\"btn btn-sm btn-primary\">Add</button>\r\n                                            </td>\r\n                                            <td> <button (click)=\"deletcar(i)\"\r\n                                                    class=\"btn btn-sm btn-primary\">Delete</button></td>\r\n                                        </tr>\r\n                                    </tbody>\r\n                                </table>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                    <table class=\"table table-bordered table-striped table-sm\">\r\n\r\n                        <thead>\r\n                            <tr>\r\n                                <th>S.No</th>\r\n                                <th>Floor </th>\r\n                                <th>Block</th>\r\n                                <th>Slot</th>\r\n                                <th>Action</th>\r\n                            </tr>\r\n                        </thead>\r\n                        <tbody>\r\n                            <tr>\r\n                                <td>1</td>\r\n                                <td>2nd Floor</td>\r\n                                <td>2 Block</td>\r\n                                <td>4</td>\r\n                                <td>\r\n                                    <button *ngIf=\"blkk\" (click)=\"block1()\"\r\n                                        class=\"btn btn-sm btn-primary\">Block</button>\r\n                                    <button *ngIf=\"rvkk\" (click)=\"revoke1()\"\r\n                                        class=\"btn btn-sm btn-success\">Rovoke</button>\r\n                                </td>\r\n\r\n                            </tr>\r\n\r\n                            <!-- <tr *ngFor=\"let dynamic5 of include_bike1; let i = index;\">\r\n                            <td>{{i+1}}</td>\r\n                            <td> <input type=\"text\" [(ngModel)]=\"area\" name=\"area\" id=\"text-input\" class=\"form-control\"\r\n                                placeholder=\"Area\"></td>\r\n                            <td> <input type=\"text\" [(ngModel)]=\"floor\" name=\"flooe\" id=\"text-input\" class=\"form-control\"\r\n                                placeholder=\"Floor\"></td>\r\n                            <td><input type=\"text\" [(ngModel)]=\"slot\" name=\"slot\" id=\"text-input\" class=\"form-control\"\r\n                                placeholder=\"Slot Number\"></td>\r\n                            <td>\r\n                              <button (click)=\"deletebike(i)\" class=\"btn btn-sm btn-primary\">Block</button></td>\r\n                          </tr> -->\r\n                        </tbody>\r\n                    </table>\r\n\r\n\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n"
+module.exports = "<div class=\"animated fadeIn\">\r\n\r\n    <div class=\"row\">\r\n        <!-- <div class=\"col-md-4\">\r\n          <div class=\"form-group\">\r\n            <select name=\"service\" class=\"form-control\">\r\n                <option value=\"\">Status</option>\r\n                <option value=\"checkin\">Block</option>\r\n                <option value=\"checkout\">Revoke</option>\r\n            </select>\r\n            </div>\r\n        </div> -->\r\n\r\n\r\n        <div class=\"col-md-3\">\r\n            <div class=\"form-group\">\r\n                <input type=\"text\" class=\"form-control\" [(ngModel)]=\"Floor_val\"name=\"Floor\" placeholder=\"Floor\" />\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"col-md-3\">\r\n            <div class=\"form-group\">\r\n                <input type=\"text\" class=\"form-control\" [(ngModel)]=\"Block_val\" name=\"Block\" placeholder=\"Block\" />\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"form-group\">\r\n                <input type=\"text\" class=\"form-control\" [(ngModel)]=\"Slot_val\" name=\"SlotNumber\" placeholder=\"Slot\" />\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-2\">\r\n            <div class=\"form-group\">\r\n                <button (click)=\"filter()\" style=\"margin-top: 4px;\" class=\"btn btn-sm btn-primary\"><i\r\n                        class=\"fa fa-search\"></i>Search</button>\r\n                        <button (click)=\"reset()\" style=\"margin-top: 4px;\" class=\"btn btn-sm btn-primary\">refresh</button>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"row\">\r\n        <div class=\"col-md-12\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                    <strong>Bike Slot Booking</strong>\r\n                    <button (click)=\"showbikeslot()\" class=\"btn btn-sm btn-primary float-right\"><ng-container *ngIf=\"!bikeslot\">Add More</ng-container><ng-container *ngIf=\"bikeslot\">Cancel</ng-container></button>\r\n                </div>\r\n                <div class=\"card-body\">\r\n                    <div *ngIf=\"bikeslot\">\r\n\r\n                        <div class=\"form-group row\">\r\n                            <label class=\"col-md-3 col-form-label\" for=\"text-input\">Bike Slots</label>\r\n                            <div class=\"col-md-6\">\r\n                                <input type=\"text\" [(ngModel)]=\"bikeslots\" name=\"bikeslots\" id=\"text-input\"\r\n                                    class=\"form-control\" placeholder=\"Bike Slots\">\r\n                            </div>\r\n                            <div class=\"col-md-3\">\r\n                                <button (click)=\"addbikeslot()\" class=\"btn btn-primary\">Create</button>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"form-group row\">\r\n                            <!-- <label class=\"col-md-3 col-form-label\" for=\"text-input\"></label> -->\r\n                            <div class=\"col-md-12 mt-3\">\r\n                               \r\n                                <table class=\"table table-bordered table-striped table-sm\">\r\n                                    <thead>\r\n                                        <tr>\r\n                                            <th>S.No</th>\r\n                                            <th>Block </th>\r\n                                            <th>Floor</th>\r\n                                            <th>Slot</th>\r\n                                            <th>Delete_Action</th>\r\n                                        </tr>\r\n                                    </thead>\r\n                                    <tbody>\r\n\r\n                                        <tr *ngFor=\"let dynamic of include_bike1; let i = index;\">\r\n                                            <td>{{i+1}}</td>\r\n                                            <!-- <td><input type=\"checkbox\" name=\"name\" [(ngModel)]=\"name\"> </td> -->\r\n                                            <td> <input type=\"text\" [(ngModel)]=\"dynamic.area\" name=\"Block\"\r\n                                                    class=\"form-control\" placeholder=\"Block\"></td>\r\n                                            <td> <input type=\"text\" [(ngModel)]=\"dynamic.floor\" name=\"flooe\"\r\n                                                    class=\"form-control\" placeholder=\"Floor\"></td>\r\n                                            <td><input type=\"text\" [(ngModel)]=\"dynamic.slot\" name=\"slot\"\r\n                                                    class=\"form-control\" placeholder=\"Slot Number\"></td>\r\n                                            <td> <button (click)=\"deletebike(i)\"\r\n                                                    class=\"btn btn-sm btn-primary\">Delete</button></td>\r\n                                        </tr>\r\n                                    </tbody>\r\n                                </table>\r\n                                <button (click)=\"addbike()\" style=\"float:right;\" class=\"btn btn-sm btn-primary\">Add</button>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                    <table class=\"table table-bordered table-striped table-sm\">\r\n\r\n                        <thead>\r\n                            <tr>\r\n                                <th>S.No</th>\r\n                                <th>Floor </th>\r\n                                <th>Block</th>\r\n                                <th>Slot</th>\r\n                                <th>Action</th>\r\n                            </tr>\r\n                        </thead>\r\n                        <tbody>\r\n                            <tr *ngFor=\"let slo of bike_slot ; let i=index\">\r\n                                <td>{{i+1}}</td>\r\n                                <td>{{slo.floor}}</td>\r\n                                <td>{{slo.area}}</td>\r\n                                <td>{{slo.slot}}</td>\r\n                                <td>\r\n                                    <button *ngIf=\"slo.status == 'enable'\" (click)=\"bikeblock(i)\"\r\n                                        class=\"btn btn-sm btn-primary\">Block</button>\r\n                                    <button *ngIf=\"slo.status == 'disable'\" (click)=\"bikerevoke(i)\"\r\n                                        class=\"btn btn-sm btn-success\">Revoke</button>\r\n                                </td>\r\n\r\n                            </tr>\r\n\r\n                            <!-- <tr *ngFor=\"let dynamic5 of include_bike1; let i = index;\">\r\n                            <td>{{i+1}}</td>\r\n                            <td> <input type=\"text\" [(ngModel)]=\"area\" name=\"area\" id=\"text-input\" class=\"form-control\"\r\n                                placeholder=\"Area\"></td>\r\n                            <td> <input type=\"text\" [(ngModel)]=\"floor\" name=\"flooe\" id=\"text-input\" class=\"form-control\"\r\n                                placeholder=\"Floor\"></td>\r\n                            <td><input type=\"text\" [(ngModel)]=\"slot\" name=\"slot\" id=\"text-input\" class=\"form-control\"\r\n                                placeholder=\"Slot Number\"></td>\r\n                            <td>\r\n                              <button (click)=\"deletebike(i)\" class=\"btn btn-sm btn-primary\">Block</button></td>\r\n                          </tr> -->\r\n                        </tbody>\r\n                    </table>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"row\">\r\n        <div class=\"col-md-12\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                    <strong>Car Slot Booking</strong>\r\n                    <button (click)=\"showcarslot()\" class=\"btn btn-sm btn-primary float-right\"><ng-container *ngIf=\"!carslot\">Add More</ng-container><ng-container *ngIf=\"carslot\">Cancel</ng-container></button>\r\n                </div>\r\n                <div class=\"card-body\">\r\n                    <div *ngIf=\"carslot\">\r\n                        <div class=\"form-group row\">\r\n                            <label class=\"col-md-3 col-form-label\" for=\"text-input\">Car Slots</label>\r\n                            <div class=\"col-md-6\">\r\n                                <input type=\"text\" [(ngModel)]=\"carslots\" name=\"carslots\" id=\"text-input\"\r\n                                    class=\"form-control\" placeholder=\"Car Slots\">\r\n                            </div>\r\n                            <div class=\"col-md-3\">\r\n                                <button (click)=\"addcarslot()\" class=\"btn btn-primary\">Create</button>\r\n                            </div>\r\n                        </div>\r\n\r\n                        <div class=\"form-group row\">\r\n                            <!-- <label class=\"col-md-3 col-form-label\" for=\"text-input\"></label> -->\r\n                            <div class=\"col-md-12 mt-3\">\r\n                                <table class=\"table table-bordered table-striped table-sm\">\r\n                                    <thead>\r\n                                        <tr>\r\n                                            <th>S.No</th>\r\n                                            <!-- <th>Select</th> -->\r\n                                            <th>Block </th>\r\n                                            <th>Floor</th>\r\n                                            <th>Slot</th>\r\n                                            <!-- <th>Add_Action</th> -->\r\n                                            <th>Delete_Action</th>\r\n                                        </tr>\r\n                                    </thead>\r\n                                    <tbody>\r\n\r\n                                        <tr *ngFor=\"let dyna of include_bike2; let i = index;\">\r\n                                            <td>{{i+1}}</td>\r\n                                            <!-- <td><input type=\"checkbox\" name=\"name\" [(ngModel)]=\"name\"> </td> -->\r\n                                            <td> <input type=\"text\" [(ngModel)]=\"dyna.area\" name=\"Block1\"\r\n                                                    class=\"form-control\" placeholder=\"Block\"></td>\r\n                                            <td> <input type=\"text\" [(ngModel)]=\"dyna.floor\" name=\"flooe1\"\r\n                                                    class=\"form-control\" placeholder=\"Floor\"></td>\r\n                                            <td><input type=\"text\" [(ngModel)]=\"dyna.slot\" name=\"slot3\"\r\n                                                    class=\"form-control\" placeholder=\"Slot Number\"></td>\r\n                                        \r\n                                           \r\n                                            <td> <button (click)=\"deletcar(i)\"\r\n                                                    class=\"btn btn-sm btn-primary\">Delete</button></td>\r\n                                        </tr>\r\n                                    </tbody>\r\n                                </table>\r\n                                <button (click)=\"addcar()\" style=\"float:right;\" class=\"btn btn-sm btn-primary\">Add</button>\r\n\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                    <table class=\"table table-bordered table-striped table-sm\">\r\n\r\n                        <thead>\r\n                            <tr>\r\n                                <th>S.No</th>\r\n                                <th>Floor </th>\r\n                                <th>Block</th>\r\n                                <th>Slot</th>\r\n                                <th>Action</th>\r\n                            </tr>\r\n                        </thead>\r\n                        <tbody>\r\n                            <tr *ngFor=\"let slo of car_slot ; let i=index\">\r\n                                <td>{{i+1}}</td>\r\n                                <td>{{slo.floor}}</td>\r\n                                <td>{{slo.area}}</td>\r\n                                <td>{{slo.slot}}</td>\r\n                                <td>\r\n                                    <button *ngIf=\"slo.status == 'enable'\" (click)=\"carblock(i)\"\r\n                                        class=\"btn btn-sm btn-primary\">Block</button>\r\n                                    <button *ngIf=\"slo.status == 'disable'\" (click)=\"carrevoke(i)\"\r\n                                        class=\"btn btn-sm btn-success\">Revoke</button>\r\n                                </td>\r\n\r\n                            </tr>\r\n\r\n                            <!-- <tr *ngFor=\"let dynamic5 of include_bike1; let i = index;\">\r\n                            <td>{{i+1}}</td>\r\n                            <td> <input type=\"text\" [(ngModel)]=\"area\" name=\"area\" id=\"text-input\" class=\"form-control\"\r\n                                placeholder=\"Area\"></td>\r\n                            <td> <input type=\"text\" [(ngModel)]=\"floor\" name=\"flooe\" id=\"text-input\" class=\"form-control\"\r\n                                placeholder=\"Floor\"></td>\r\n                            <td><input type=\"text\" [(ngModel)]=\"slot\" name=\"slot\" id=\"text-input\" class=\"form-control\"\r\n                                placeholder=\"Slot Number\"></td>\r\n                            <td>\r\n                              <button (click)=\"deletebike(i)\" class=\"btn btn-sm btn-primary\">Block</button></td>\r\n                          </tr> -->\r\n                        </tbody>\r\n                    </table>\r\n\r\n\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -16196,7 +16196,7 @@ var UpcomingComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".head-color {\n  background-color: #45c37a;\n  text-align: center;\n  font-weight: 600;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdmlld3MvYnV0dG9ucy9ib29raW5ncy92aWV3Ym9va2luZ2VzdGltYXRpb24vRDpcXERvY3VtZW50c1xcbXl2YWNhbGFfcGFya2luZ2FkbWluXzIwMjAvc3JjXFxhcHBcXHZpZXdzXFxidXR0b25zXFxib29raW5nc1xcdmlld2Jvb2tpbmdlc3RpbWF0aW9uXFx2aWV3Ym9va2luZ2VzdGltYXRpb24uY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL3ZpZXdzL2J1dHRvbnMvYm9va2luZ3Mvdmlld2Jvb2tpbmdlc3RpbWF0aW9uL3ZpZXdib29raW5nZXN0aW1hdGlvbi5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUVJLHlCQUFBO0VBQ0Esa0JBQUE7RUFDQSxnQkFBQTtBQ0FKIiwiZmlsZSI6InNyYy9hcHAvdmlld3MvYnV0dG9ucy9ib29raW5ncy92aWV3Ym9va2luZ2VzdGltYXRpb24vdmlld2Jvb2tpbmdlc3RpbWF0aW9uLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmhlYWQtY29sb3Jcclxue1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjojNDVjMzdhIDtcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICAgIGZvbnQtd2VpZ2h0OiA2MDA7XHJcbn0iLCIuaGVhZC1jb2xvciB7XG4gIGJhY2tncm91bmQtY29sb3I6ICM0NWMzN2E7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgZm9udC13ZWlnaHQ6IDYwMDtcbn0iXX0= */"
+module.exports = ".head-color {\n  background-color: #45c37a;\n  text-align: center;\n  font-weight: 600;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdmlld3MvYnV0dG9ucy9ib29raW5ncy92aWV3Ym9va2luZ2VzdGltYXRpb24vRDpcXE1ZX09GRklDRVxcbXl2YWNhbGFfcGFya2luZ2FkbWluXzIwMjAvc3JjXFxhcHBcXHZpZXdzXFxidXR0b25zXFxib29raW5nc1xcdmlld2Jvb2tpbmdlc3RpbWF0aW9uXFx2aWV3Ym9va2luZ2VzdGltYXRpb24uY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL3ZpZXdzL2J1dHRvbnMvYm9va2luZ3Mvdmlld2Jvb2tpbmdlc3RpbWF0aW9uL3ZpZXdib29raW5nZXN0aW1hdGlvbi5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUVJLHlCQUFBO0VBQ0Esa0JBQUE7RUFDQSxnQkFBQTtBQ0FKIiwiZmlsZSI6InNyYy9hcHAvdmlld3MvYnV0dG9ucy9ib29raW5ncy92aWV3Ym9va2luZ2VzdGltYXRpb24vdmlld2Jvb2tpbmdlc3RpbWF0aW9uLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmhlYWQtY29sb3Jcclxue1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjojNDVjMzdhIDtcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICAgIGZvbnQtd2VpZ2h0OiA2MDA7XHJcbn0iLCIuaGVhZC1jb2xvciB7XG4gIGJhY2tncm91bmQtY29sb3I6ICM0NWMzN2E7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgZm9udC13ZWlnaHQ6IDYwMDtcbn0iXX0= */"
 
 /***/ }),
 
@@ -16241,7 +16241,7 @@ var ViewbookingestimationComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".head-color {\n  background-color: #45c37a;\n  text-align: center;\n  font-weight: 600;\n}\n\nli {\n  list-style-type: none;\n}\n\nspan {\n  margin-left: 10px;\n}\n\na {\n  text-decoration: none;\n  color: black;\n}\n\na:hover {\n  color: black;\n}\n\n.hideoption {\n  display: none;\n  visibility: hidden;\n  height: 0;\n  font-size: 0;\n}\n\n.watermarked {\n  position: relative;\n}\n\n.watermarked:after {\n  content: \"\";\n  display: block;\n  width: 100%;\n  height: 100%;\n  position: absolute;\n  top: 0px;\n  left: 0px;\n  background-image: url('checkout.jpg');\n  background-size: 200px 200px;\n  background-repeat: no-repeat;\n  opacity: 0.3;\n}\n\n:host::ng-deep .p-calendar .p-inputtext {\n  padding: 5px;\n}\n\n:host::ng-deep .p-calendar ::-webkit-input-placeholder {\n  font-size: 14px;\n  color: #333;\n  padding: 0px !important;\n}\n\n:host::ng-deep .p-calendar ::-moz-placeholder {\n  font-size: 14px;\n  color: #333;\n  padding: 0px !important;\n}\n\n:host::ng-deep .p-calendar :-ms-input-placeholder {\n  font-size: 14px;\n  color: #333;\n  padding: 0px !important;\n}\n\n:host::ng-deep .p-calendar ::-ms-input-placeholder {\n  font-size: 14px;\n  color: #333;\n  padding: 0px !important;\n}\n\n:host::ng-deep .p-calendar ::placeholder {\n  font-size: 14px;\n  color: #333;\n  padding: 0px !important;\n}\n\n.card-body h6 {\n  font-weight: 600;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdmlld3MvYnV0dG9ucy9ib29raW5ncy92aWV3Ym9va2luZ2Zvcm0vRDpcXERvY3VtZW50c1xcbXl2YWNhbGFfcGFya2luZ2FkbWluXzIwMjAvc3JjXFxhcHBcXHZpZXdzXFxidXR0b25zXFxib29raW5nc1xcdmlld2Jvb2tpbmdmb3JtXFx2aWV3Ym9va2luZ2Zvcm0uY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL3ZpZXdzL2J1dHRvbnMvYm9va2luZ3Mvdmlld2Jvb2tpbmdmb3JtL3ZpZXdib29raW5nZm9ybS5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUVJLHlCQUFBO0VBQ0Esa0JBQUE7RUFDQSxnQkFBQTtBQ0FKOztBREVBO0VBRUkscUJBQUE7QUNBSjs7QURFQTtFQUNJLGlCQUFBO0FDQ0o7O0FEQ0E7RUFDSSxxQkFBQTtFQUNBLFlBQUE7QUNFSjs7QURBQTtFQUVJLFlBQUE7QUNFSjs7QURBQTtFQUFjLGFBQUE7RUFBYyxrQkFBQTtFQUFtQixTQUFBO0VBQVUsWUFBQTtBQ096RDs7QUROQTtFQUNJLGtCQUFBO0FDU0o7O0FETkU7RUFDRSxXQUFBO0VBQ0EsY0FBQTtFQUNBLFdBQUE7RUFDQSxZQUFBO0VBQ0Esa0JBQUE7RUFDQSxRQUFBO0VBQ0EsU0FBQTtFQUNBLHFDQUFBO0VBQ0EsNEJBQUE7RUFDQSw0QkFBQTtFQUNBLFlBQUE7QUNTSjs7QURQRTtFQUNFLFlBQUE7QUNVSjs7QURSRTtFQUNJLGVBQUE7RUFDQSxXQUFBO0VBQ0EsdUJBQUE7QUNXTjs7QURkRTtFQUNJLGVBQUE7RUFDQSxXQUFBO0VBQ0EsdUJBQUE7QUNXTjs7QURkRTtFQUNJLGVBQUE7RUFDQSxXQUFBO0VBQ0EsdUJBQUE7QUNXTjs7QURkRTtFQUNJLGVBQUE7RUFDQSxXQUFBO0VBQ0EsdUJBQUE7QUNXTjs7QURkRTtFQUNJLGVBQUE7RUFDQSxXQUFBO0VBQ0EsdUJBQUE7QUNXTjs7QURURTtFQUNFLGdCQUFBO0FDWUoiLCJmaWxlIjoic3JjL2FwcC92aWV3cy9idXR0b25zL2Jvb2tpbmdzL3ZpZXdib29raW5nZm9ybS92aWV3Ym9va2luZ2Zvcm0uY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuaGVhZC1jb2xvclxyXG57XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiM0NWMzN2EgO1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgZm9udC13ZWlnaHQ6IDYwMDtcclxufVxyXG5saVxyXG57XHJcbiAgICBsaXN0LXN0eWxlLXR5cGU6IG5vbmU7XHJcbn1cclxuc3BhbntcclxuICAgIG1hcmdpbi1sZWZ0OiAxMHB4O1xyXG59XHJcbmF7XHJcbiAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XHJcbiAgICBjb2xvcjpibGFjaztcclxufVxyXG5hOmhvdmVyXHJcbntcclxuICAgIGNvbG9yOmJsYWNrO1xyXG59XHJcbi5oaWRlb3B0aW9uIHsgZGlzcGxheTpub25lOyB2aXNpYmlsaXR5OmhpZGRlbjsgaGVpZ2h0OjA7IGZvbnQtc2l6ZTowOyB9XHJcbi53YXRlcm1hcmtlZCB7XHJcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbiAgfVxyXG4gIFxyXG4gIC53YXRlcm1hcmtlZDphZnRlciB7XHJcbiAgICBjb250ZW50OiBcIlwiO1xyXG4gICAgZGlzcGxheTogYmxvY2s7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIGhlaWdodDogMTAwJTtcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIHRvcDogMHB4O1xyXG4gICAgbGVmdDogMHB4O1xyXG4gICAgYmFja2dyb3VuZC1pbWFnZTogdXJsKFwiLi4vLi4vLi4vLi4vLi4vYXNzZXRzL2ltZy9icmFuZC9jaGVja291dC5qcGdcIik7XHJcbiAgICBiYWNrZ3JvdW5kLXNpemU6IDIwMHB4IDIwMHB4O1xyXG4gICAgYmFja2dyb3VuZC1yZXBlYXQ6IG5vLXJlcGVhdDtcclxuICAgIG9wYWNpdHk6IDAuMztcclxuICB9XHJcbiAgOmhvc3Q6Om5nLWRlZXAgLnAtY2FsZW5kYXIgLnAtaW5wdXR0ZXh0IHtcclxuICAgIHBhZGRpbmc6IDVweDtcclxuICB9XHJcbiAgOmhvc3Q6Om5nLWRlZXAgLnAtY2FsZW5kYXIgOjpwbGFjZWhvbGRlcntcclxuICAgICAgZm9udC1zaXplOiAxNHB4O1xyXG4gICAgICBjb2xvcjogIzMzMztcclxuICAgICAgcGFkZGluZzowcHggIWltcG9ydGFudDtcclxuICB9XHJcbiAgLmNhcmQtYm9keSBoNntcclxuICAgIGZvbnQtd2VpZ2h0OiA2MDA7XHJcbiAgfSIsIi5oZWFkLWNvbG9yIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzQ1YzM3YTtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBmb250LXdlaWdodDogNjAwO1xufVxuXG5saSB7XG4gIGxpc3Qtc3R5bGUtdHlwZTogbm9uZTtcbn1cblxuc3BhbiB7XG4gIG1hcmdpbi1sZWZ0OiAxMHB4O1xufVxuXG5hIHtcbiAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xuICBjb2xvcjogYmxhY2s7XG59XG5cbmE6aG92ZXIge1xuICBjb2xvcjogYmxhY2s7XG59XG5cbi5oaWRlb3B0aW9uIHtcbiAgZGlzcGxheTogbm9uZTtcbiAgdmlzaWJpbGl0eTogaGlkZGVuO1xuICBoZWlnaHQ6IDA7XG4gIGZvbnQtc2l6ZTogMDtcbn1cblxuLndhdGVybWFya2VkIHtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xufVxuXG4ud2F0ZXJtYXJrZWQ6YWZ0ZXIge1xuICBjb250ZW50OiBcIlwiO1xuICBkaXNwbGF5OiBibG9jaztcbiAgd2lkdGg6IDEwMCU7XG4gIGhlaWdodDogMTAwJTtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICB0b3A6IDBweDtcbiAgbGVmdDogMHB4O1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoXCIuLi8uLi8uLi8uLi8uLi9hc3NldHMvaW1nL2JyYW5kL2NoZWNrb3V0LmpwZ1wiKTtcbiAgYmFja2dyb3VuZC1zaXplOiAyMDBweCAyMDBweDtcbiAgYmFja2dyb3VuZC1yZXBlYXQ6IG5vLXJlcGVhdDtcbiAgb3BhY2l0eTogMC4zO1xufVxuXG46aG9zdDo6bmctZGVlcCAucC1jYWxlbmRhciAucC1pbnB1dHRleHQge1xuICBwYWRkaW5nOiA1cHg7XG59XG5cbjpob3N0OjpuZy1kZWVwIC5wLWNhbGVuZGFyIDo6cGxhY2Vob2xkZXIge1xuICBmb250LXNpemU6IDE0cHg7XG4gIGNvbG9yOiAjMzMzO1xuICBwYWRkaW5nOiAwcHggIWltcG9ydGFudDtcbn1cblxuLmNhcmQtYm9keSBoNiB7XG4gIGZvbnQtd2VpZ2h0OiA2MDA7XG59Il19 */"
+module.exports = ".head-color {\n  background-color: #45c37a;\n  text-align: center;\n  font-weight: 600;\n}\n\nli {\n  list-style-type: none;\n}\n\nspan {\n  margin-left: 10px;\n}\n\na {\n  text-decoration: none;\n  color: black;\n}\n\na:hover {\n  color: black;\n}\n\n.hideoption {\n  display: none;\n  visibility: hidden;\n  height: 0;\n  font-size: 0;\n}\n\n.watermarked {\n  position: relative;\n}\n\n.watermarked:after {\n  content: \"\";\n  display: block;\n  width: 100%;\n  height: 100%;\n  position: absolute;\n  top: 0px;\n  left: 0px;\n  background-image: url('checkout.jpg');\n  background-size: 200px 200px;\n  background-repeat: no-repeat;\n  opacity: 0.3;\n}\n\n:host::ng-deep .p-calendar .p-inputtext {\n  padding: 5px;\n}\n\n:host::ng-deep .p-calendar ::-webkit-input-placeholder {\n  font-size: 14px;\n  color: #333;\n  padding: 0px !important;\n}\n\n:host::ng-deep .p-calendar ::-moz-placeholder {\n  font-size: 14px;\n  color: #333;\n  padding: 0px !important;\n}\n\n:host::ng-deep .p-calendar :-ms-input-placeholder {\n  font-size: 14px;\n  color: #333;\n  padding: 0px !important;\n}\n\n:host::ng-deep .p-calendar ::-ms-input-placeholder {\n  font-size: 14px;\n  color: #333;\n  padding: 0px !important;\n}\n\n:host::ng-deep .p-calendar ::placeholder {\n  font-size: 14px;\n  color: #333;\n  padding: 0px !important;\n}\n\n.card-body h6 {\n  font-weight: 600;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdmlld3MvYnV0dG9ucy9ib29raW5ncy92aWV3Ym9va2luZ2Zvcm0vRDpcXE1ZX09GRklDRVxcbXl2YWNhbGFfcGFya2luZ2FkbWluXzIwMjAvc3JjXFxhcHBcXHZpZXdzXFxidXR0b25zXFxib29raW5nc1xcdmlld2Jvb2tpbmdmb3JtXFx2aWV3Ym9va2luZ2Zvcm0uY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL3ZpZXdzL2J1dHRvbnMvYm9va2luZ3Mvdmlld2Jvb2tpbmdmb3JtL3ZpZXdib29raW5nZm9ybS5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUVJLHlCQUFBO0VBQ0Esa0JBQUE7RUFDQSxnQkFBQTtBQ0FKOztBREVBO0VBRUkscUJBQUE7QUNBSjs7QURFQTtFQUNJLGlCQUFBO0FDQ0o7O0FEQ0E7RUFDSSxxQkFBQTtFQUNBLFlBQUE7QUNFSjs7QURBQTtFQUVJLFlBQUE7QUNFSjs7QURBQTtFQUFjLGFBQUE7RUFBYyxrQkFBQTtFQUFtQixTQUFBO0VBQVUsWUFBQTtBQ096RDs7QUROQTtFQUNJLGtCQUFBO0FDU0o7O0FETkU7RUFDRSxXQUFBO0VBQ0EsY0FBQTtFQUNBLFdBQUE7RUFDQSxZQUFBO0VBQ0Esa0JBQUE7RUFDQSxRQUFBO0VBQ0EsU0FBQTtFQUNBLHFDQUFBO0VBQ0EsNEJBQUE7RUFDQSw0QkFBQTtFQUNBLFlBQUE7QUNTSjs7QURQRTtFQUNFLFlBQUE7QUNVSjs7QURSRTtFQUNJLGVBQUE7RUFDQSxXQUFBO0VBQ0EsdUJBQUE7QUNXTjs7QURkRTtFQUNJLGVBQUE7RUFDQSxXQUFBO0VBQ0EsdUJBQUE7QUNXTjs7QURkRTtFQUNJLGVBQUE7RUFDQSxXQUFBO0VBQ0EsdUJBQUE7QUNXTjs7QURkRTtFQUNJLGVBQUE7RUFDQSxXQUFBO0VBQ0EsdUJBQUE7QUNXTjs7QURkRTtFQUNJLGVBQUE7RUFDQSxXQUFBO0VBQ0EsdUJBQUE7QUNXTjs7QURURTtFQUNFLGdCQUFBO0FDWUoiLCJmaWxlIjoic3JjL2FwcC92aWV3cy9idXR0b25zL2Jvb2tpbmdzL3ZpZXdib29raW5nZm9ybS92aWV3Ym9va2luZ2Zvcm0uY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuaGVhZC1jb2xvclxyXG57XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiM0NWMzN2EgO1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgZm9udC13ZWlnaHQ6IDYwMDtcclxufVxyXG5saVxyXG57XHJcbiAgICBsaXN0LXN0eWxlLXR5cGU6IG5vbmU7XHJcbn1cclxuc3BhbntcclxuICAgIG1hcmdpbi1sZWZ0OiAxMHB4O1xyXG59XHJcbmF7XHJcbiAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XHJcbiAgICBjb2xvcjpibGFjaztcclxufVxyXG5hOmhvdmVyXHJcbntcclxuICAgIGNvbG9yOmJsYWNrO1xyXG59XHJcbi5oaWRlb3B0aW9uIHsgZGlzcGxheTpub25lOyB2aXNpYmlsaXR5OmhpZGRlbjsgaGVpZ2h0OjA7IGZvbnQtc2l6ZTowOyB9XHJcbi53YXRlcm1hcmtlZCB7XHJcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbiAgfVxyXG4gIFxyXG4gIC53YXRlcm1hcmtlZDphZnRlciB7XHJcbiAgICBjb250ZW50OiBcIlwiO1xyXG4gICAgZGlzcGxheTogYmxvY2s7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIGhlaWdodDogMTAwJTtcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIHRvcDogMHB4O1xyXG4gICAgbGVmdDogMHB4O1xyXG4gICAgYmFja2dyb3VuZC1pbWFnZTogdXJsKFwiLi4vLi4vLi4vLi4vLi4vYXNzZXRzL2ltZy9icmFuZC9jaGVja291dC5qcGdcIik7XHJcbiAgICBiYWNrZ3JvdW5kLXNpemU6IDIwMHB4IDIwMHB4O1xyXG4gICAgYmFja2dyb3VuZC1yZXBlYXQ6IG5vLXJlcGVhdDtcclxuICAgIG9wYWNpdHk6IDAuMztcclxuICB9XHJcbiAgOmhvc3Q6Om5nLWRlZXAgLnAtY2FsZW5kYXIgLnAtaW5wdXR0ZXh0IHtcclxuICAgIHBhZGRpbmc6IDVweDtcclxuICB9XHJcbiAgOmhvc3Q6Om5nLWRlZXAgLnAtY2FsZW5kYXIgOjpwbGFjZWhvbGRlcntcclxuICAgICAgZm9udC1zaXplOiAxNHB4O1xyXG4gICAgICBjb2xvcjogIzMzMztcclxuICAgICAgcGFkZGluZzowcHggIWltcG9ydGFudDtcclxuICB9XHJcbiAgLmNhcmQtYm9keSBoNntcclxuICAgIGZvbnQtd2VpZ2h0OiA2MDA7XHJcbiAgfSIsIi5oZWFkLWNvbG9yIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzQ1YzM3YTtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBmb250LXdlaWdodDogNjAwO1xufVxuXG5saSB7XG4gIGxpc3Qtc3R5bGUtdHlwZTogbm9uZTtcbn1cblxuc3BhbiB7XG4gIG1hcmdpbi1sZWZ0OiAxMHB4O1xufVxuXG5hIHtcbiAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xuICBjb2xvcjogYmxhY2s7XG59XG5cbmE6aG92ZXIge1xuICBjb2xvcjogYmxhY2s7XG59XG5cbi5oaWRlb3B0aW9uIHtcbiAgZGlzcGxheTogbm9uZTtcbiAgdmlzaWJpbGl0eTogaGlkZGVuO1xuICBoZWlnaHQ6IDA7XG4gIGZvbnQtc2l6ZTogMDtcbn1cblxuLndhdGVybWFya2VkIHtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xufVxuXG4ud2F0ZXJtYXJrZWQ6YWZ0ZXIge1xuICBjb250ZW50OiBcIlwiO1xuICBkaXNwbGF5OiBibG9jaztcbiAgd2lkdGg6IDEwMCU7XG4gIGhlaWdodDogMTAwJTtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICB0b3A6IDBweDtcbiAgbGVmdDogMHB4O1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoXCIuLi8uLi8uLi8uLi8uLi9hc3NldHMvaW1nL2JyYW5kL2NoZWNrb3V0LmpwZ1wiKTtcbiAgYmFja2dyb3VuZC1zaXplOiAyMDBweCAyMDBweDtcbiAgYmFja2dyb3VuZC1yZXBlYXQ6IG5vLXJlcGVhdDtcbiAgb3BhY2l0eTogMC4zO1xufVxuXG46aG9zdDo6bmctZGVlcCAucC1jYWxlbmRhciAucC1pbnB1dHRleHQge1xuICBwYWRkaW5nOiA1cHg7XG59XG5cbjpob3N0OjpuZy1kZWVwIC5wLWNhbGVuZGFyIDo6cGxhY2Vob2xkZXIge1xuICBmb250LXNpemU6IDE0cHg7XG4gIGNvbG9yOiAjMzMzO1xuICBwYWRkaW5nOiAwcHggIWltcG9ydGFudDtcbn1cblxuLmNhcmQtYm9keSBoNiB7XG4gIGZvbnQtd2VpZ2h0OiA2MDA7XG59Il19 */"
 
 /***/ }),
 
@@ -16808,7 +16808,7 @@ var NotificationsComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".login_box {\n  position: relative;\n  top: 0px;\n  width: 100%;\n  height: 100vh;\n  max-height: 100vh;\n  text-align: center;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background-color: #f1f1f1;\n  background-image: url('Professional-Car-Mechanic.jpg');\n  background-repeat: no-repeat;\n  background-size: cover;\n  background-position: center;\n}\n\n.login_box_inner {\n  display: contents;\n  background-color: #fff;\n  padding: 50px;\n  border-radius: 8px;\n  box-shadow: 0px 0px 10px 0px #dadada;\n}\n\n.form-control {\n  border: 1px solid #323b92;\n}\n\n.login_form {\n  margin: 10px 0px;\n}\n\n.card .card-body {\n  text-align: left !important;\n}\n\n.form-control {\n  width: 300px !important;\n}\n\n.logo img {\n  margin: 0px 0px 24px 32%;\n  width: 100px;\n}\n\n.justify-center {\n  display: flex;\n  justify-content: center;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdmlld3MvYnV0dG9ucy9vdHBsb2dpbi9EOlxcRG9jdW1lbnRzXFxteXZhY2FsYV9wYXJraW5nYWRtaW5fMjAyMC9zcmNcXGFwcFxcdmlld3NcXGJ1dHRvbnNcXG90cGxvZ2luXFxvdHBsb2dpbi5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvdmlld3MvYnV0dG9ucy9vdHBsb2dpbi9vdHBsb2dpbi5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGtCQUFBO0VBQ0EsUUFBQTtFQUNBLFdBQUE7RUFDQSxhQUFBO0VBQ0EsaUJBQUE7RUFDQSxrQkFBQTtFQUNBLGFBQUE7RUFDQSxtQkFBQTtFQUNBLHVCQUFBO0VBQ0EseUJBQUE7RUFDQSxzREFBQTtFQUNBLDRCQUFBO0VBQ0Esc0JBQUE7RUFDQSwyQkFBQTtBQ0NKOztBREVFO0VBQ0UsaUJBQUE7RUFDQSxzQkFBQTtFQUNBLGFBQUE7RUFDQSxrQkFBQTtFQUNBLG9DQUFBO0FDQ0o7O0FERUU7RUFDRSx5QkFBQTtBQ0NKOztBRENFO0VBQ0UsZ0JBQUE7QUNFSjs7QURBRTtFQUNFLDJCQUFBO0FDR0o7O0FEQ0U7RUFDRSx1QkFBQTtBQ0VKOztBREFFO0VBQ0Usd0JBQUE7RUFDQyxZQUFBO0FDR0w7O0FEQ0U7RUFDRSxhQUFBO0VBQ0EsdUJBQUE7QUNFSiIsImZpbGUiOiJzcmMvYXBwL3ZpZXdzL2J1dHRvbnMvb3RwbG9naW4vb3RwbG9naW4uY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubG9naW5fYm94IHtcclxuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICAgIHRvcDogMHB4O1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBoZWlnaHQ6IDEwMHZoO1xyXG4gICAgbWF4LWhlaWdodDogMTAwdmg7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2YxZjFmMTtcclxuICAgIGJhY2tncm91bmQtaW1hZ2U6IHVybCguLi8uLi8uLi8uLi9hc3NldHMvaW1nL2JyYW5kL1Byb2Zlc3Npb25hbC1DYXItTWVjaGFuaWMuanBnKTtcclxuICAgIGJhY2tncm91bmQtcmVwZWF0OiBuby1yZXBlYXQ7XHJcbiAgICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xyXG4gICAgYmFja2dyb3VuZC1wb3NpdGlvbjogY2VudGVyO1xyXG4gIH1cclxuICBcclxuICAubG9naW5fYm94X2lubmVyIHtcclxuICAgIGRpc3BsYXk6IGNvbnRlbnRzO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2ZmZjtcclxuICAgIHBhZGRpbmc6IDUwcHg7XHJcbiAgICBib3JkZXItcmFkaXVzOiA4cHg7XHJcbiAgICBib3gtc2hhZG93OiAwcHggMHB4IDEwcHggMHB4ICNkYWRhZGE7XHJcbiAgfVxyXG4gIFxyXG4gIC5mb3JtLWNvbnRyb2wge1xyXG4gICAgYm9yZGVyOiAxcHggc29saWQgIzMyM2I5MjtcclxuICB9XHJcbiAgLmxvZ2luX2Zvcm0ge1xyXG4gICAgbWFyZ2luOiAxMHB4IDBweDtcclxuICB9XHJcbiAgLmNhcmQgLmNhcmQtYm9keSB7XHJcbiAgICB0ZXh0LWFsaWduOiBsZWZ0ICFpbXBvcnRhbnQ7XHJcbiAgICAvLyBwYWRkaW5nOiAwcHggIWltcG9ydGFudDtcclxuICAgLy8gYm94LXNoYWRvdzogMCAwIDM2cHggI2ZmMDAwMDtcclxuICB9XHJcbiAgLmZvcm0tY29udHJvbCB7XHJcbiAgICB3aWR0aDogMzAwcHggIWltcG9ydGFudDtcclxuICB9XHJcbiAgLmxvZ28gaW1nIHtcclxuICAgIG1hcmdpbjogMHB4IDBweCAyNHB4IDMyJTtcclxuICAgICB3aWR0aDogMTAwcHg7XHJcbiAgICBcclxuICBcclxuICB9XHJcbiAgLmp1c3RpZnktY2VudGVyIHtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICB9XHJcbiAgLy8gLmxvZ28ge1xyXG4gIC8vICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIC8vICAgd2lkdGg6IDUwMHB4O1xyXG4gIC8vICAgaGVpZ2h0OiAyMDBweDtcclxuICAvLyAgIGJhY2tncm91bmQ6IHVybChcIi4uLy4uLy4uL2Fzc2V0cy9pbWcvYnJhbmQvbG9nbzEucG5nXCIpIG5vLXJlcGVhdDtcclxuICAvLyAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICAvLyB9XHJcbiAgLy8gLmxvZ286aG92ZXIge1xyXG4gIC8vICAgYmFja2dyb3VuZDogdXJsKFwiLi4vLi4vLi4vYXNzZXRzL2ltZy9icmFuZC9sb2dvMi5wbmdcIikgbm8tcmVwZWF0O1xyXG4gIC8vIH0iLCIubG9naW5fYm94IHtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICB0b3A6IDBweDtcbiAgd2lkdGg6IDEwMCU7XG4gIGhlaWdodDogMTAwdmg7XG4gIG1heC1oZWlnaHQ6IDEwMHZoO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZjFmMWYxO1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoLi4vLi4vLi4vLi4vYXNzZXRzL2ltZy9icmFuZC9Qcm9mZXNzaW9uYWwtQ2FyLU1lY2hhbmljLmpwZyk7XG4gIGJhY2tncm91bmQtcmVwZWF0OiBuby1yZXBlYXQ7XG4gIGJhY2tncm91bmQtc2l6ZTogY292ZXI7XG4gIGJhY2tncm91bmQtcG9zaXRpb246IGNlbnRlcjtcbn1cblxuLmxvZ2luX2JveF9pbm5lciB7XG4gIGRpc3BsYXk6IGNvbnRlbnRzO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmO1xuICBwYWRkaW5nOiA1MHB4O1xuICBib3JkZXItcmFkaXVzOiA4cHg7XG4gIGJveC1zaGFkb3c6IDBweCAwcHggMTBweCAwcHggI2RhZGFkYTtcbn1cblxuLmZvcm0tY29udHJvbCB7XG4gIGJvcmRlcjogMXB4IHNvbGlkICMzMjNiOTI7XG59XG5cbi5sb2dpbl9mb3JtIHtcbiAgbWFyZ2luOiAxMHB4IDBweDtcbn1cblxuLmNhcmQgLmNhcmQtYm9keSB7XG4gIHRleHQtYWxpZ246IGxlZnQgIWltcG9ydGFudDtcbn1cblxuLmZvcm0tY29udHJvbCB7XG4gIHdpZHRoOiAzMDBweCAhaW1wb3J0YW50O1xufVxuXG4ubG9nbyBpbWcge1xuICBtYXJnaW46IDBweCAwcHggMjRweCAzMiU7XG4gIHdpZHRoOiAxMDBweDtcbn1cblxuLmp1c3RpZnktY2VudGVyIHtcbiAgZGlzcGxheTogZmxleDtcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG59Il19 */"
+module.exports = ".login_box {\n  position: relative;\n  top: 0px;\n  width: 100%;\n  height: 100vh;\n  max-height: 100vh;\n  text-align: center;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background-color: #f1f1f1;\n  background-image: url('Professional-Car-Mechanic.jpg');\n  background-repeat: no-repeat;\n  background-size: cover;\n  background-position: center;\n}\n\n.login_box_inner {\n  display: contents;\n  background-color: #fff;\n  padding: 50px;\n  border-radius: 8px;\n  box-shadow: 0px 0px 10px 0px #dadada;\n}\n\n.form-control {\n  border: 1px solid #323b92;\n}\n\n.login_form {\n  margin: 10px 0px;\n}\n\n.card .card-body {\n  text-align: left !important;\n}\n\n.form-control {\n  width: 300px !important;\n}\n\n.logo img {\n  margin: 0px 0px 24px 32%;\n  width: 100px;\n}\n\n.justify-center {\n  display: flex;\n  justify-content: center;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdmlld3MvYnV0dG9ucy9vdHBsb2dpbi9EOlxcTVlfT0ZGSUNFXFxteXZhY2FsYV9wYXJraW5nYWRtaW5fMjAyMC9zcmNcXGFwcFxcdmlld3NcXGJ1dHRvbnNcXG90cGxvZ2luXFxvdHBsb2dpbi5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvdmlld3MvYnV0dG9ucy9vdHBsb2dpbi9vdHBsb2dpbi5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGtCQUFBO0VBQ0EsUUFBQTtFQUNBLFdBQUE7RUFDQSxhQUFBO0VBQ0EsaUJBQUE7RUFDQSxrQkFBQTtFQUNBLGFBQUE7RUFDQSxtQkFBQTtFQUNBLHVCQUFBO0VBQ0EseUJBQUE7RUFDQSxzREFBQTtFQUNBLDRCQUFBO0VBQ0Esc0JBQUE7RUFDQSwyQkFBQTtBQ0NKOztBREVFO0VBQ0UsaUJBQUE7RUFDQSxzQkFBQTtFQUNBLGFBQUE7RUFDQSxrQkFBQTtFQUNBLG9DQUFBO0FDQ0o7O0FERUU7RUFDRSx5QkFBQTtBQ0NKOztBRENFO0VBQ0UsZ0JBQUE7QUNFSjs7QURBRTtFQUNFLDJCQUFBO0FDR0o7O0FEQ0U7RUFDRSx1QkFBQTtBQ0VKOztBREFFO0VBQ0Usd0JBQUE7RUFDQyxZQUFBO0FDR0w7O0FEQ0U7RUFDRSxhQUFBO0VBQ0EsdUJBQUE7QUNFSiIsImZpbGUiOiJzcmMvYXBwL3ZpZXdzL2J1dHRvbnMvb3RwbG9naW4vb3RwbG9naW4uY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubG9naW5fYm94IHtcclxuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICAgIHRvcDogMHB4O1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBoZWlnaHQ6IDEwMHZoO1xyXG4gICAgbWF4LWhlaWdodDogMTAwdmg7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2YxZjFmMTtcclxuICAgIGJhY2tncm91bmQtaW1hZ2U6IHVybCguLi8uLi8uLi8uLi9hc3NldHMvaW1nL2JyYW5kL1Byb2Zlc3Npb25hbC1DYXItTWVjaGFuaWMuanBnKTtcclxuICAgIGJhY2tncm91bmQtcmVwZWF0OiBuby1yZXBlYXQ7XHJcbiAgICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xyXG4gICAgYmFja2dyb3VuZC1wb3NpdGlvbjogY2VudGVyO1xyXG4gIH1cclxuICBcclxuICAubG9naW5fYm94X2lubmVyIHtcclxuICAgIGRpc3BsYXk6IGNvbnRlbnRzO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2ZmZjtcclxuICAgIHBhZGRpbmc6IDUwcHg7XHJcbiAgICBib3JkZXItcmFkaXVzOiA4cHg7XHJcbiAgICBib3gtc2hhZG93OiAwcHggMHB4IDEwcHggMHB4ICNkYWRhZGE7XHJcbiAgfVxyXG4gIFxyXG4gIC5mb3JtLWNvbnRyb2wge1xyXG4gICAgYm9yZGVyOiAxcHggc29saWQgIzMyM2I5MjtcclxuICB9XHJcbiAgLmxvZ2luX2Zvcm0ge1xyXG4gICAgbWFyZ2luOiAxMHB4IDBweDtcclxuICB9XHJcbiAgLmNhcmQgLmNhcmQtYm9keSB7XHJcbiAgICB0ZXh0LWFsaWduOiBsZWZ0ICFpbXBvcnRhbnQ7XHJcbiAgICAvLyBwYWRkaW5nOiAwcHggIWltcG9ydGFudDtcclxuICAgLy8gYm94LXNoYWRvdzogMCAwIDM2cHggI2ZmMDAwMDtcclxuICB9XHJcbiAgLmZvcm0tY29udHJvbCB7XHJcbiAgICB3aWR0aDogMzAwcHggIWltcG9ydGFudDtcclxuICB9XHJcbiAgLmxvZ28gaW1nIHtcclxuICAgIG1hcmdpbjogMHB4IDBweCAyNHB4IDMyJTtcclxuICAgICB3aWR0aDogMTAwcHg7XHJcbiAgICBcclxuICBcclxuICB9XHJcbiAgLmp1c3RpZnktY2VudGVyIHtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICB9XHJcbiAgLy8gLmxvZ28ge1xyXG4gIC8vICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIC8vICAgd2lkdGg6IDUwMHB4O1xyXG4gIC8vICAgaGVpZ2h0OiAyMDBweDtcclxuICAvLyAgIGJhY2tncm91bmQ6IHVybChcIi4uLy4uLy4uL2Fzc2V0cy9pbWcvYnJhbmQvbG9nbzEucG5nXCIpIG5vLXJlcGVhdDtcclxuICAvLyAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICAvLyB9XHJcbiAgLy8gLmxvZ286aG92ZXIge1xyXG4gIC8vICAgYmFja2dyb3VuZDogdXJsKFwiLi4vLi4vLi4vYXNzZXRzL2ltZy9icmFuZC9sb2dvMi5wbmdcIikgbm8tcmVwZWF0O1xyXG4gIC8vIH0iLCIubG9naW5fYm94IHtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICB0b3A6IDBweDtcbiAgd2lkdGg6IDEwMCU7XG4gIGhlaWdodDogMTAwdmg7XG4gIG1heC1oZWlnaHQ6IDEwMHZoO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZjFmMWYxO1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoLi4vLi4vLi4vLi4vYXNzZXRzL2ltZy9icmFuZC9Qcm9mZXNzaW9uYWwtQ2FyLU1lY2hhbmljLmpwZyk7XG4gIGJhY2tncm91bmQtcmVwZWF0OiBuby1yZXBlYXQ7XG4gIGJhY2tncm91bmQtc2l6ZTogY292ZXI7XG4gIGJhY2tncm91bmQtcG9zaXRpb246IGNlbnRlcjtcbn1cblxuLmxvZ2luX2JveF9pbm5lciB7XG4gIGRpc3BsYXk6IGNvbnRlbnRzO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmO1xuICBwYWRkaW5nOiA1MHB4O1xuICBib3JkZXItcmFkaXVzOiA4cHg7XG4gIGJveC1zaGFkb3c6IDBweCAwcHggMTBweCAwcHggI2RhZGFkYTtcbn1cblxuLmZvcm0tY29udHJvbCB7XG4gIGJvcmRlcjogMXB4IHNvbGlkICMzMjNiOTI7XG59XG5cbi5sb2dpbl9mb3JtIHtcbiAgbWFyZ2luOiAxMHB4IDBweDtcbn1cblxuLmNhcmQgLmNhcmQtYm9keSB7XG4gIHRleHQtYWxpZ246IGxlZnQgIWltcG9ydGFudDtcbn1cblxuLmZvcm0tY29udHJvbCB7XG4gIHdpZHRoOiAzMDBweCAhaW1wb3J0YW50O1xufVxuXG4ubG9nbyBpbWcge1xuICBtYXJnaW46IDBweCAwcHggMjRweCAzMiU7XG4gIHdpZHRoOiAxMDBweDtcbn1cblxuLmp1c3RpZnktY2VudGVyIHtcbiAgZGlzcGxheTogZmxleDtcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG59Il19 */"
 
 /***/ }),
 
@@ -16853,7 +16853,7 @@ var OtploginComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host::ng-deep .ngx-datepicker-container .ngx-datepicker-calendar-container {\n  z-index: 9;\n}\n\n:host::ng-deep .ngx-datepicker-container .ngx-datepicker-input {\n  width: 100% !important;\n  padding: 10px 10px !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdmlld3MvYnV0dG9ucy9wYXltZW50cy9EOlxcRG9jdW1lbnRzXFxteXZhY2FsYV9wYXJraW5nYWRtaW5fMjAyMC9zcmNcXGFwcFxcdmlld3NcXGJ1dHRvbnNcXHBheW1lbnRzXFxwYXltZW50cy5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvdmlld3MvYnV0dG9ucy9wYXltZW50cy9wYXltZW50cy5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFVBQUE7QUNDSjs7QURDQTtFQUNJLHNCQUFBO0VBQ0EsNkJBQUE7QUNFSiIsImZpbGUiOiJzcmMvYXBwL3ZpZXdzL2J1dHRvbnMvcGF5bWVudHMvcGF5bWVudHMuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyI6aG9zdDo6bmctZGVlcCAubmd4LWRhdGVwaWNrZXItY29udGFpbmVyIC5uZ3gtZGF0ZXBpY2tlci1jYWxlbmRhci1jb250YWluZXIge1xyXG4gICAgei1pbmRleDogOTtcclxufVxyXG46aG9zdDo6bmctZGVlcCAgLm5neC1kYXRlcGlja2VyLWNvbnRhaW5lciAubmd4LWRhdGVwaWNrZXItaW5wdXR7XHJcbiAgICB3aWR0aDogMTAwJSAhaW1wb3J0YW50O1xyXG4gICAgcGFkZGluZzogMTBweCAxMHB4ICFpbXBvcnRhbnQ7XHJcbn0iLCI6aG9zdDo6bmctZGVlcCAubmd4LWRhdGVwaWNrZXItY29udGFpbmVyIC5uZ3gtZGF0ZXBpY2tlci1jYWxlbmRhci1jb250YWluZXIge1xuICB6LWluZGV4OiA5O1xufVxuXG46aG9zdDo6bmctZGVlcCAubmd4LWRhdGVwaWNrZXItY29udGFpbmVyIC5uZ3gtZGF0ZXBpY2tlci1pbnB1dCB7XG4gIHdpZHRoOiAxMDAlICFpbXBvcnRhbnQ7XG4gIHBhZGRpbmc6IDEwcHggMTBweCAhaW1wb3J0YW50O1xufSJdfQ== */"
+module.exports = ":host::ng-deep .ngx-datepicker-container .ngx-datepicker-calendar-container {\n  z-index: 9;\n}\n\n:host::ng-deep .ngx-datepicker-container .ngx-datepicker-input {\n  width: 100% !important;\n  padding: 10px 10px !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdmlld3MvYnV0dG9ucy9wYXltZW50cy9EOlxcTVlfT0ZGSUNFXFxteXZhY2FsYV9wYXJraW5nYWRtaW5fMjAyMC9zcmNcXGFwcFxcdmlld3NcXGJ1dHRvbnNcXHBheW1lbnRzXFxwYXltZW50cy5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvdmlld3MvYnV0dG9ucy9wYXltZW50cy9wYXltZW50cy5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFVBQUE7QUNDSjs7QURDQTtFQUNJLHNCQUFBO0VBQ0EsNkJBQUE7QUNFSiIsImZpbGUiOiJzcmMvYXBwL3ZpZXdzL2J1dHRvbnMvcGF5bWVudHMvcGF5bWVudHMuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyI6aG9zdDo6bmctZGVlcCAubmd4LWRhdGVwaWNrZXItY29udGFpbmVyIC5uZ3gtZGF0ZXBpY2tlci1jYWxlbmRhci1jb250YWluZXIge1xyXG4gICAgei1pbmRleDogOTtcclxufVxyXG46aG9zdDo6bmctZGVlcCAgLm5neC1kYXRlcGlja2VyLWNvbnRhaW5lciAubmd4LWRhdGVwaWNrZXItaW5wdXR7XHJcbiAgICB3aWR0aDogMTAwJSAhaW1wb3J0YW50O1xyXG4gICAgcGFkZGluZzogMTBweCAxMHB4ICFpbXBvcnRhbnQ7XHJcbn0iLCI6aG9zdDo6bmctZGVlcCAubmd4LWRhdGVwaWNrZXItY29udGFpbmVyIC5uZ3gtZGF0ZXBpY2tlci1jYWxlbmRhci1jb250YWluZXIge1xuICB6LWluZGV4OiA5O1xufVxuXG46aG9zdDo6bmctZGVlcCAubmd4LWRhdGVwaWNrZXItY29udGFpbmVyIC5uZ3gtZGF0ZXBpY2tlci1pbnB1dCB7XG4gIHdpZHRoOiAxMDAlICFpbXBvcnRhbnQ7XG4gIHBhZGRpbmc6IDEwcHggMTBweCAhaW1wb3J0YW50O1xufSJdfQ== */"
 
 /***/ }),
 
@@ -17047,9 +17047,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var ngx_webstorage_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-webstorage-service */ "./node_modules/ngx-webstorage-service/fesm5/ngx-webstorage-service.js");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_6__);
-
 
 
 
@@ -17086,22 +17083,39 @@ var SlotBookingComponent = /** @class */ (function () {
         this.rvk = false;
         this.blkk = true;
         this.rvkk = false;
+        this.parking_detail = [];
+        this.bike_slot = [];
+        this.car_slot = [];
+        this.parking = [];
     }
     SlotBookingComponent.prototype.ngOnInit = function () {
-        this.carslot = false;
-        this.bikeslot = false;
-        this.VehicleType = " ";
-        this.AreaName = " ";
-        this.SubAreaName = "";
-        this.RentperTime = "";
-        this.SlotNumber = "";
-        this.timefor = "";
+        var _this = this;
+        this.parking = this.getFromLocal("parking_detail");
+        var id = {
+            "_id": this.parking._id
+        };
+        console.log(id);
+        this._api.Parking_Detail_by_id(id).subscribe(function (res) {
+            console.log(res);
+            _this.parking_detail = res.Data;
+            _this.bike_slot = _this.parking_detail[0].parking_details_slots_Bike_details;
+            _this.car_slot = _this.parking_detail[0].parking_details_slots_Car_details;
+            console.log(_this.parking_detail);
+            console.log(_this.bike_slot);
+            console.log(_this.car_slot);
+        });
     };
     SlotBookingComponent.prototype.showbikeslot = function () {
-        this.bikeslot = true;
+        this.bikeslot = !this.bikeslot;
+        if (this.bikeslot == false) {
+            this.include_bike1 = [];
+        }
     };
     SlotBookingComponent.prototype.showcarslot = function () {
-        this.carslot = true;
+        this.carslot = !this.carslot;
+        if (this.carslot == false) {
+            this.include_bike2 = [];
+        }
     };
     SlotBookingComponent.prototype.openmechanicbookings = function () {
         this.router.navigate(['Home/buttons/slotblocking']);
@@ -17109,7 +17123,7 @@ var SlotBookingComponent = /** @class */ (function () {
     SlotBookingComponent.prototype.addbikeslot = function () {
         this.bikeslot1 = this.bikeslots;
         for (var a = 0; a < this.bikeslot1; a++) {
-            this.include_bike1.push(this.bikeslot1);
+            this.include_bike1.push({ "area": '', "floor": '', "slot": '', "status": "enable" });
             console.log(this.include_bike1);
         }
         this.bikeslots = "";
@@ -17117,10 +17131,25 @@ var SlotBookingComponent = /** @class */ (function () {
     SlotBookingComponent.prototype.deletebike = function (i) {
         this.include_bike1.splice(i, 1);
     };
+    SlotBookingComponent.prototype.addbike = function () {
+        var _this = this;
+        this.bike_slot = this.bike_slot.concat(this.include_bike1);
+        var data = {
+            "_id": this.parking._id,
+            "parking_details_slots_Bike_details": this.bike_slot,
+        };
+        console.log(data);
+        this._api.Parking_owner_edit(data).subscribe(function (res) {
+            console.log(res);
+            alert(res.Message);
+            _this.include_bike1 = [];
+            _this.ngOnInit();
+        });
+    };
     SlotBookingComponent.prototype.addcarslot = function () {
         this.bikeslot2 = this.carslots;
         for (var a = 0; a < this.bikeslot2; a++) {
-            this.include_bike2.push(this.bikeslot2);
+            this.include_bike2.push({ "area": '', "floor": '', "slot": '', "status": "enable" });
             console.log(this.include_bike2);
         }
         this.carslots = "";
@@ -17128,66 +17157,146 @@ var SlotBookingComponent = /** @class */ (function () {
     SlotBookingComponent.prototype.deletcar = function (i) {
         this.include_bike2.splice(i, 1);
     };
-    SlotBookingComponent.prototype.filter = function () { };
-    SlotBookingComponent.prototype.block = function () {
+    SlotBookingComponent.prototype.addcar = function () {
         var _this = this;
-        sweetalert2__WEBPACK_IMPORTED_MODULE_6___default.a.fire({
-            title: 'Are you sure?',
-            text: 'You want to Block this slot!',
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonText: 'Yes',
-            cancelButtonText: 'No'
-        }).then(function (result) {
-            if (result.value) {
-                _this.blk = false;
-                _this.rvk = true;
-                sweetalert2__WEBPACK_IMPORTED_MODULE_6___default.a.fire('Done', 
-                // 'Your imaginary file has been deleted.',
-                'success');
-                // For more information about handling dismissals please visit
-                // https://sweetalert2.github.io/#handling-dismissals
-            }
-            else if (result.dismiss === sweetalert2__WEBPACK_IMPORTED_MODULE_6___default.a.DismissReason.cancel) {
-                sweetalert2__WEBPACK_IMPORTED_MODULE_6___default.a.fire('Cancelled', 
-                // 'Your imaginary file is safe :)',
-                'error');
-            }
+        this.car_slot = this.car_slot.concat(this.include_bike2);
+        var data = {
+            "_id": this.parking._id,
+            "parking_details_slots_Car_details": this.car_slot,
+        };
+        console.log(data);
+        this._api.Parking_owner_edit(data).subscribe(function (res) {
+            console.log(res);
+            alert(res.Message);
+            _this.include_bike2 = [];
+            _this.ngOnInit();
         });
     };
-    SlotBookingComponent.prototype.revoke = function () {
-        this.blk = true;
-        this.rvk = false;
-    };
-    SlotBookingComponent.prototype.block1 = function () {
+    SlotBookingComponent.prototype.bikeblock = function (i) {
         var _this = this;
-        sweetalert2__WEBPACK_IMPORTED_MODULE_6___default.a.fire({
-            title: 'Are you sure?',
-            text: 'You want to Block this slot!',
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonText: 'Yes',
-            cancelButtonText: 'No'
-        }).then(function (result) {
-            if (result.value) {
-                _this.blkk = false;
-                _this.rvkk = true;
-                sweetalert2__WEBPACK_IMPORTED_MODULE_6___default.a.fire('Done', 
-                // 'Your imaginary file has been deleted.',
-                'success');
-                // For more information about handling dismissals please visit
-                // https://sweetalert2.github.io/#handling-dismissals
-            }
-            else if (result.dismiss === sweetalert2__WEBPACK_IMPORTED_MODULE_6___default.a.DismissReason.cancel) {
-                sweetalert2__WEBPACK_IMPORTED_MODULE_6___default.a.fire('Cancelled', 
-                // 'Your imaginary file is safe :)',
-                'error');
-            }
+        this.bike_slot[i].status = "disable";
+        var data = {
+            "_id": this.parking._id,
+            "parking_details_slots_Bike_details": this.bike_slot,
+        };
+        console.log(data);
+        this._api.Parking_owner_edit(data).subscribe(function (res) {
+            console.log(res);
+            alert(res.Message);
+            _this.ngOnInit();
+        });
+        // Swal.fire({
+        //   title: 'Are you sure?',
+        //   text: 'You want to Block this slot!',
+        //   icon: 'warning',
+        //   showCancelButton: true,
+        //   confirmButtonText: 'Yes',
+        //   cancelButtonText: 'No'
+        // }).then((result) => {
+        //   if (result.value) {
+        //     this.blk = false;
+        //     this.rvk = true;
+        //     Swal.fire(
+        //       'Done',
+        //       'Your imaginary file has been deleted.',
+        //       'success'
+        //     )
+        //   } else if (result.dismiss === Swal.DismissReason.cancel) {
+        //     Swal.fire(
+        //       'Cancelled',
+        //       'Your imaginary file is safe :)',
+        //       'error'
+        //     )
+        //   }
+        // })
+    };
+    SlotBookingComponent.prototype.bikerevoke = function (i) {
+        var _this = this;
+        this.bike_slot[i].status = "enable";
+        var data = {
+            "_id": this.parking._id,
+            "parking_details_slots_Bike_details": this.bike_slot,
+        };
+        console.log(data);
+        this._api.Parking_owner_edit(data).subscribe(function (res) {
+            console.log(res);
+            alert(res.Message);
+            _this.ngOnInit();
         });
     };
-    SlotBookingComponent.prototype.revoke1 = function () {
-        this.blkk = true;
-        this.rvkk = false;
+    SlotBookingComponent.prototype.carblock = function (i) {
+        var _this = this;
+        this.car_slot[i].status = "disable";
+        var data = {
+            "_id": this.parking._id,
+            "parking_details_slots_Car_details": this.car_slot,
+        };
+        console.log(data);
+        this._api.Parking_owner_edit(data).subscribe(function (res) {
+            console.log(res);
+            alert(res.Message);
+            _this.ngOnInit();
+        });
+    };
+    SlotBookingComponent.prototype.carrevoke = function (i) {
+        var _this = this;
+        this.car_slot[i].status = "enable";
+        var data = {
+            "_id": this.parking._id,
+            "parking_details_slots_Car_details": this.car_slot,
+        };
+        console.log(data);
+        this._api.Parking_owner_edit(data).subscribe(function (res) {
+            console.log(res);
+            alert(res.Message);
+            _this.ngOnInit();
+        });
+    };
+    // parkingCreation() {
+    //   let data = {
+    //     "_id": this.parking_detail._id,
+    //     "parking_details_slots_Bike_details": this.include_bike1,
+    //     "parking_details_slots_Car_details": this.include_bike2,
+    //     "parking_details_slots_count_Bike": this.include_bike1.length,
+    //     "parking_details_slots_count_Car": this.include_bike2.length,
+    //   }
+    //   console.log(data)
+    //   this._api.Parking_owner_edit(data).subscribe((res: any) => {
+    //     console.log(res)
+    //     alert(res.Message);
+    //   });
+    // }
+    SlotBookingComponent.prototype.saveInLocal = function (key, val) {
+        this.storage.set(key, val);
+    };
+    SlotBookingComponent.prototype.getFromLocal = function (key) {
+        return this.storage.get(key);
+    };
+    SlotBookingComponent.prototype.filter = function () {
+        var _this = this;
+        console.log(this.Floor_val);
+        console.log(this.Slot_val);
+        console.log(this.Block_val);
+        if ((this.Floor_val != undefined && this.Floor_val != '') || (this.Slot_val != undefined && this.Slot_val != '') || (this.Block_val != undefined && this.Block_val != '')) {
+            if ((this.Floor_val != undefined && this.Floor_val != '')) {
+                this.bike_slot = this.bike_slot.filter(function (x) { return x.floor == _this.Floor_val; });
+                this.car_slot = this.car_slot.filter(function (x) { return x.floor == _this.Floor_val; });
+            }
+            if ((this.Slot_val != undefined && this.Slot_val != '')) {
+                this.bike_slot = this.bike_slot.filter(function (x) { return x.slot == _this.Slot_val; });
+                this.car_slot = this.car_slot.filter(function (x) { return x.slot == _this.Slot_val; });
+            }
+            if ((this.Block_val != undefined && this.Block_val != '')) {
+                this.bike_slot = this.bike_slot.filter(function (x) { return x.area == _this.Block_val; });
+                this.car_slot = this.car_slot.filter(function (x) { return x.area == _this.Block_val; });
+            }
+        }
+    };
+    SlotBookingComponent.prototype.reset = function () {
+        this.ngOnInit();
+        this.Floor_val = undefined;
+        this.Block_val = undefined;
+        this.Slot_val = undefined;
     };
     SlotBookingComponent.ctorParameters = function () { return [
         { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },

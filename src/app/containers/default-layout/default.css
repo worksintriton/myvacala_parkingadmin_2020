@@ -1,0 +1,18 @@
+:host::ng-deep .app-header .navbar-toggler {
+    display: none !important;
+}
+.park-name{
+    font-size: 13px;
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    color: #2196f3;
+}
+.logout{
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    color: #fd0000;
+}
+:host::ng-deep  .app-header .navbar-brand {
+    margin-bottom: 10px !important;
+}

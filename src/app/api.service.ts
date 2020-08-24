@@ -152,5 +152,14 @@ export class ApiService {
     return this.http.post('http://3.101.31.129:3000/mechanicweb/bookinglist', {"Primary_Contact": 9884239966});
   }
 
-
+  Login(data){
+    
+    return this.http.post(this.apiUrl + 'parking/owner/parking_vendor_login',data);
+  }
+  Parking_owner_edit(data){
+    return this.http.post(this.apiUrl + 'parking/parkingareadetails/edit', data);
+  }
+  Parking_Detail_by_id(data){
+    return this.http.post(this.apiUrl + 'parking/parkingareadetails/getlist', data);
+  }
 }

@@ -14,24 +14,25 @@
 
         <div class="col-md-3">
             <div class="form-group">
-                <input type="text" class="form-control" name="Floor" placeholder="Floor" />
+                <input type="text" class="form-control" [(ngModel)]="Floor_val"name="Floor" placeholder="Floor" />
             </div>
         </div>
 
         <div class="col-md-3">
             <div class="form-group">
-                <input type="text" class="form-control" name="Block" placeholder="Block" />
+                <input type="text" class="form-control" [(ngModel)]="Block_val" name="Block" placeholder="Block" />
             </div>
         </div>
         <div class="col-md-3">
             <div class="form-group">
-                <input type="text" class="form-control" name="SlotNumber" placeholder="Slot" />
+                <input type="text" class="form-control" [(ngModel)]="Slot_val" name="SlotNumber" placeholder="Slot" />
             </div>
         </div>
         <div class="col-md-2">
             <div class="form-group">
                 <button (click)="filter()" style="margin-top: 4px;" class="btn btn-sm btn-primary"><i
                         class="fa fa-search"></i>Search</button>
+                        <button (click)="reset()" style="margin-top: 4px;" class="btn btn-sm btn-primary">refresh</button>
             </div>
         </div>
     </div>
@@ -40,7 +41,7 @@
             <div class="card">
                 <div class="card-header">
                     <strong>Bike Slot Booking</strong>
-                    <button (click)="showbikeslot()" class="btn btn-sm btn-primary float-right">Add More</button>
+                    <button (click)="showbikeslot()" class="btn btn-sm btn-primary float-right"><ng-container *ngIf="!bikeslot">Add More</ng-container><ng-container *ngIf="bikeslot">Cancel</ng-container></button>
                 </div>
                 <div class="card-body">
                     <div *ngIf="bikeslot">
@@ -58,34 +59,34 @@
                         <div class="form-group row">
                             <!-- <label class="col-md-3 col-form-label" for="text-input"></label> -->
                             <div class="col-md-12 mt-3">
+                               
                                 <table class="table table-bordered table-striped table-sm">
                                     <thead>
                                         <tr>
                                             <th>S.No</th>
-                                            <th>Area </th>
+                                            <th>Block </th>
                                             <th>Floor</th>
                                             <th>Slot</th>
-                                            <th>Add_Action</th>
                                             <th>Delete_Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
 
-                                        <tr *ngFor="let dynamic5 of include_bike1; let i = index;">
+                                        <tr *ngFor="let dynamic of include_bike1; let i = index;">
                                             <td>{{i+1}}</td>
-                                            <td> <input type="text" [(ngModel)]="area" name="area" id="text-input"
-                                                    class="form-control" placeholder="Area"></td>
-                                            <td> <input type="text" [(ngModel)]="floor" name="flooe" id="text-input"
+                                            <!-- <td><input type="checkbox" name="name" [(ngModel)]="name"> </td> -->
+                                            <td> <input type="text" [(ngModel)]="dynamic.area" name="Block"
+                                                    class="form-control" placeholder="Block"></td>
+                                            <td> <input type="text" [(ngModel)]="dynamic.floor" name="flooe"
                                                     class="form-control" placeholder="Floor"></td>
-                                            <td><input type="text" [(ngModel)]="slot" name="slot" id="text-input"
+                                            <td><input type="text" [(ngModel)]="dynamic.slot" name="slot"
                                                     class="form-control" placeholder="Slot Number"></td>
-                                            <td> <button (click)="addcar(i)" class="btn btn-sm btn-primary">Add</button>
-                                            </td>
-                                            <td> <button (click)="deletcar(i)"
+                                            <td> <button (click)="deletebike(i)"
                                                     class="btn btn-sm btn-primary">Delete</button></td>
                                         </tr>
                                     </tbody>
                                 </table>
+                                <button (click)="addbike()" style="float:right;" class="btn btn-sm btn-primary">Add</button>
                             </div>
                         </div>
                     </div>
@@ -101,15 +102,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>2nd Floor</td>
-                                <td>2 Block</td>
-                                <td>4</td>
+                            <tr *ngFor="let slo of bike_slot ; let i=index">
+                                <td>{{i+1}}</td>
+                                <td>{{slo.floor}}</td>
+                                <td>{{slo.area}}</td>
+                                <td>{{slo.slot}}</td>
                                 <td>
-                                    <button *ngIf="blk" (click)="block()" class="btn btn-sm btn-primary">Block</button>
-                                    <button *ngIf="rvk" (click)="revoke()"
-                                        class="btn btn-sm btn-success">Rovoke</button>
+                                    <button *ngIf="slo.status == 'enable'" (click)="bikeblock(i)"
+                                        class="btn btn-sm btn-primary">Block</button>
+                                    <button *ngIf="slo.status == 'disable'" (click)="bikerevoke(i)"
+                                        class="btn btn-sm btn-success">Revoke</button>
                                 </td>
 
                             </tr>
@@ -136,7 +138,7 @@
             <div class="card">
                 <div class="card-header">
                     <strong>Car Slot Booking</strong>
-                    <button (click)="showcarslot()" class="btn btn-sm btn-primary float-right">Add More</button>
+                    <button (click)="showcarslot()" class="btn btn-sm btn-primary float-right"><ng-container *ngIf="!carslot">Add More</ng-container><ng-container *ngIf="carslot">Cancel</ng-container></button>
                 </div>
                 <div class="card-body">
                     <div *ngIf="carslot">
@@ -158,32 +160,34 @@
                                     <thead>
                                         <tr>
                                             <th>S.No</th>
-                                            <th>Select</th>
-                                            <th>Area </th>
+                                            <!-- <th>Select</th> -->
+                                            <th>Block </th>
                                             <th>Floor</th>
                                             <th>Slot</th>
-                                            <th>Add_Action</th>
+                                            <!-- <th>Add_Action</th> -->
                                             <th>Delete_Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
 
-                                        <tr *ngFor="let dynamic5 of include_bike2; let i = index;">
+                                        <tr *ngFor="let dyna of include_bike2; let i = index;">
                                             <td>{{i+1}}</td>
-                                            <td><input type="checkbox" name="" [(ngModel)]="name"> </td>
-                                            <td> <input type="text" [(ngModel)]="area" name="area" id="text-input"
-                                                    class="form-control" placeholder="Area"></td>
-                                            <td> <input type="text" [(ngModel)]="floor" name="flooe" id="text-input"
+                                            <!-- <td><input type="checkbox" name="name" [(ngModel)]="name"> </td> -->
+                                            <td> <input type="text" [(ngModel)]="dyna.area" name="Block1"
+                                                    class="form-control" placeholder="Block"></td>
+                                            <td> <input type="text" [(ngModel)]="dyna.floor" name="flooe1"
                                                     class="form-control" placeholder="Floor"></td>
-                                            <td><input type="text" [(ngModel)]="slot" name="slot" id="text-input"
+                                            <td><input type="text" [(ngModel)]="dyna.slot" name="slot3"
                                                     class="form-control" placeholder="Slot Number"></td>
-                                            <td> <button (click)="addcar(i)" class="btn btn-sm btn-primary">Add</button>
-                                            </td>
+                                        
+                                           
                                             <td> <button (click)="deletcar(i)"
                                                     class="btn btn-sm btn-primary">Delete</button></td>
                                         </tr>
                                     </tbody>
                                 </table>
+                                <button (click)="addcar()" style="float:right;" class="btn btn-sm btn-primary">Add</button>
+
                             </div>
                         </div>
                     </div>
@@ -199,16 +203,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>2nd Floor</td>
-                                <td>2 Block</td>
-                                <td>4</td>
+                            <tr *ngFor="let slo of car_slot ; let i=index">
+                                <td>{{i+1}}</td>
+                                <td>{{slo.floor}}</td>
+                                <td>{{slo.area}}</td>
+                                <td>{{slo.slot}}</td>
                                 <td>
-                                    <button *ngIf="blkk" (click)="block1()"
+                                    <button *ngIf="slo.status == 'enable'" (click)="carblock(i)"
                                         class="btn btn-sm btn-primary">Block</button>
-                                    <button *ngIf="rvkk" (click)="revoke1()"
-                                        class="btn btn-sm btn-success">Rovoke</button>
+                                    <button *ngIf="slo.status == 'disable'" (click)="carrevoke(i)"
+                                        class="btn btn-sm btn-success">Revoke</button>
                                 </td>
 
                             </tr>
@@ -233,41 +237,3 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { SESSION_STORAGE, StorageService } from 'ngx-webstorage-service';
 import Swal from 'sweetalert2'
+import { resetFakeAsyncZone } from '@angular/core/testing';
 @Component({
   selector: 'app-slot-booking',
   templateUrl: './slot-booking.component.html',
@@ -115,6 +116,13 @@ export class SlotBookingComponent implements OnInit {
   rvk: boolean = false;
   blkk: boolean = true;
   rvkk: boolean = false;
+  parking_detail: any = [];
+  bike_slot: any = [];
+  car_slot: any = [];
+  parking: any = [];
+  Floor_val: any;
+  Block_val: any;
+  Slot_val: any;
   constructor(
     private router: Router,
 
@@ -125,21 +133,34 @@ export class SlotBookingComponent implements OnInit {
 
 
   ngOnInit() {
-    this.carslot = false;
-    this.bikeslot = false;
-    this.VehicleType = " ";
-    this.AreaName = " ";
-    this.SubAreaName = "";
-    this.RentperTime = "";
-    this.SlotNumber = "";
-    this.timefor = "";
+    this.parking = this.getFromLocal("parking_detail");
+    let id = {
+      "_id": this.parking._id
+    }
+    console.log(id)
+    this._api.Parking_Detail_by_id(id).subscribe((res: any) => {
+      console.log(res)
+      this.parking_detail = res.Data;
+      this.bike_slot = this.parking_detail[0].parking_details_slots_Bike_details;
+      this.car_slot = this.parking_detail[0].parking_details_slots_Car_details;
+      console.log(this.parking_detail)
+      console.log(this.bike_slot)
+      console.log(this.car_slot)
+    });
+
   }
   showbikeslot() {
-    this.bikeslot = true;
+    this.bikeslot = !this.bikeslot;
+    if (this.bikeslot == false) {
+      this.include_bike1 = []
+    }
   }
   showcarslot() {
 
-    this.carslot = true;
+    this.carslot = !this.carslot;
+    if (this.carslot == false) {
+      this.include_bike2 = []
+    }
   }
   openmechanicbookings() {
     this.router.navigate(['Home/buttons/slotblocking']);
@@ -147,7 +168,7 @@ export class SlotBookingComponent implements OnInit {
   addbikeslot() {
     this.bikeslot1 = this.bikeslots;
     for (let a = 0; a < this.bikeslot1; a++) {
-      this.include_bike1.push(this.bikeslot1);
+      this.include_bike1.push({ "area": '', "floor": '', "slot": '', "status": "enable" });
       console.log(this.include_bike1);
     }
     this.bikeslots = "";
@@ -155,10 +176,24 @@ export class SlotBookingComponent implements OnInit {
   deletebike(i) {
     this.include_bike1.splice(i, 1);
   }
+  addbike() {
+    this.bike_slot = this.bike_slot.concat(this.include_bike1);
+    let data = {
+      "_id": this.parking._id,
+      "parking_details_slots_Bike_details": this.bike_slot,
+    }
+    console.log(data)
+    this._api.Parking_owner_edit(data).subscribe((res: any) => {
+      console.log(res)
+      alert(res.Message);
+      this.include_bike1 = [];
+      this.ngOnInit();
+    });
+  }
   addcarslot() {
     this.bikeslot2 = this.carslots;
     for (let a = 0; a < this.bikeslot2; a++) {
-      this.include_bike2.push(this.bikeslot2);
+      this.include_bike2.push({ "area": '', "floor": '', "slot": '', "status": "enable" });
       console.log(this.include_bike2);
     }
     this.carslots = "";
@@ -166,76 +201,159 @@ export class SlotBookingComponent implements OnInit {
   deletcar(i) {
     this.include_bike2.splice(i, 1);
   }
-  filter() { }
 
-  block() {
-    Swal.fire({
-      title: 'Are you sure?',
-      text: 'You want to Block this slot!',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Yes',
-      cancelButtonText: 'No'
-    }).then((result) => {
-      if (result.value) {
-        this.blk = false;
-        this.rvk = true;
-        Swal.fire(
-          'Done',
-          // 'Your imaginary file has been deleted.',
-          'success'
-        )
-      // For more information about handling dismissals please visit
-      // https://sweetalert2.github.io/#handling-dismissals
-      } else if (result.dismiss === Swal.DismissReason.cancel) {
-        
-        Swal.fire(
-          'Cancelled',
-          // 'Your imaginary file is safe :)',
-          'error'
-        )
+  addcar() {
+    this.car_slot = this.car_slot.concat(this.include_bike2);
+    let data = {
+      "_id": this.parking._id,
+      "parking_details_slots_Car_details": this.car_slot,
+    }
+    console.log(data)
+    this._api.Parking_owner_edit(data).subscribe((res: any) => {
+      console.log(res)
+      alert(res.Message);
+      this.include_bike2 = [];
+      this.ngOnInit();
+    });
+  }
+
+
+  bikeblock(i) {
+    this.bike_slot[i].status = "disable"
+    let data = {
+      "_id": this.parking._id,
+      "parking_details_slots_Bike_details": this.bike_slot,
+    }
+    console.log(data)
+    this._api.Parking_owner_edit(data).subscribe((res: any) => {
+      console.log(res)
+      alert(res.Message);
+      this.ngOnInit();
+    });
+
+    // Swal.fire({
+    //   title: 'Are you sure?',
+    //   text: 'You want to Block this slot!',
+    //   icon: 'warning',
+    //   showCancelButton: true,
+    //   confirmButtonText: 'Yes',
+    //   cancelButtonText: 'No'
+    // }).then((result) => {
+    //   if (result.value) {
+    //     this.blk = false;
+    //     this.rvk = true;
+    //     Swal.fire(
+    //       'Done',
+    //       'Your imaginary file has been deleted.',
+    //       'success'
+    //     )
+    //   } else if (result.dismiss === Swal.DismissReason.cancel) {
+
+    //     Swal.fire(
+    //       'Cancelled',
+    //       'Your imaginary file is safe :)',
+    //       'error'
+    //     )
+    //   }
+    // })
+  }
+
+
+
+  bikerevoke(i) {
+    this.bike_slot[i].status = "enable"
+    let data = {
+      "_id": this.parking._id,
+      "parking_details_slots_Bike_details": this.bike_slot,
+    }
+    console.log(data)
+    this._api.Parking_owner_edit(data).subscribe((res: any) => {
+      console.log(res)
+      alert(res.Message);
+      this.ngOnInit();
+    });
+  }
+
+
+  carblock(i) {
+    this.car_slot[i].status = "disable"
+    let data = {
+      "_id": this.parking._id,
+      "parking_details_slots_Car_details": this.car_slot,
+    }
+    console.log(data)
+    this._api.Parking_owner_edit(data).subscribe((res: any) => {
+      console.log(res)
+      alert(res.Message);
+      this.ngOnInit();
+    });
+  }
+
+
+  carrevoke(i) {
+    this.car_slot[i].status = "enable"
+    let data = {
+      "_id": this.parking._id,
+      "parking_details_slots_Car_details": this.car_slot,
+    }
+    console.log(data)
+    this._api.Parking_owner_edit(data).subscribe((res: any) => {
+      console.log(res)
+      alert(res.Message);
+      this.ngOnInit();
+    });
+  }
+
+
+  // parkingCreation() {
+  //   let data = {
+  //     "_id": this.parking_detail._id,
+  //     "parking_details_slots_Bike_details": this.include_bike1,
+  //     "parking_details_slots_Car_details": this.include_bike2,
+  //     "parking_details_slots_count_Bike": this.include_bike1.length,
+  //     "parking_details_slots_count_Car": this.include_bike2.length,
+  //   }
+  //   console.log(data)
+  //   this._api.Parking_owner_edit(data).subscribe((res: any) => {
+  //     console.log(res)
+  //     alert(res.Message);
+  //   });
+  // }
+
+
+
+  saveInLocal(key, val): void {
+    this.storage.set(key, val);
+  }
+  getFromLocal(key): any {
+    return this.storage.get(key);
+  }
+
+  filter() {
+    console.log(this.Floor_val)
+    console.log(this.Slot_val)
+    console.log(this.Block_val)
+    if ((this.Floor_val != undefined && this.Floor_val != '') || (this.Slot_val != undefined && this.Slot_val != '') || (this.Block_val != undefined && this.Block_val != '')) {
+
+      if ((this.Floor_val != undefined && this.Floor_val != '')) {
+        this.bike_slot = this.bike_slot.filter((x: any) => x.floor == this.Floor_val);
+        this.car_slot = this.car_slot.filter((x: any) => x.floor == this.Floor_val);
       }
-    })
-    
-    
-  }
-  revoke() {
-    this.blk = true;
-    this.rvk = false;
-  }
-  block1() {
-    Swal.fire({
-      title: 'Are you sure?',
-      text: 'You want to Block this slot!',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Yes',
-      cancelButtonText: 'No'
-    }).then((result) => {
-      if (result.value) {
-        this.blkk = false;
-        this.rvkk = true;
-        Swal.fire(
-          'Done',
-          // 'Your imaginary file has been deleted.',
-          'success'
-        )
-      // For more information about handling dismissals please visit
-      // https://sweetalert2.github.io/#handling-dismissals
-      } else if (result.dismiss === Swal.DismissReason.cancel) {
-        
-        Swal.fire(
-          'Cancelled',
-          // 'Your imaginary file is safe :)',
-          'error'
-        )
+      if ((this.Slot_val != undefined && this.Slot_val != '')) {
+        this.bike_slot = this.bike_slot.filter((x: any) => x.slot == this.Slot_val);
+        this.car_slot = this.car_slot.filter((x: any) => x.slot == this.Slot_val);
       }
-    })
-    
-    
+      if ((this.Block_val != undefined && this.Block_val != '')) {
+        this.bike_slot = this.bike_slot.filter((x: any) => x.area == this.Block_val);
+        this.car_slot = this.car_slot.filter((x: any) => x.area == this.Block_val);
+      }
+    }
   }
-  revoke1() {
-    this.blkk = true;
-    this.rvkk = false;
+
+  reset() {
+    this.ngOnInit();
+    this.Floor_val=undefined;
+    this.Block_val = undefined;
+    this.Slot_val = undefined;
   }
 }
