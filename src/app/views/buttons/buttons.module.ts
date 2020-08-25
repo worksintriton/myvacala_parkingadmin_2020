@@ -35,6 +35,7 @@ import { QrcodegenerationComponent } from './qrcode/qrcodegeneration/qrcodegener
 import { NgDatepickerModule } from 'ng2-datepicker';
 import {CalendarModule} from 'primeng/calendar';
 import { UpcomingComponent } from './bookings/upcoming/upcoming.component';
+import { DataTableModule } from 'ng-angular8-datatable';
 // Angular
 
 @NgModule({
@@ -45,7 +46,8 @@ import { UpcomingComponent } from './bookings/upcoming/upcoming.component';
     BsDropdownModule.forRoot(),
     FormsModule,
     NgDatepickerModule,
-    CalendarModule
+    CalendarModule,
+    DataTableModule
   ],
   declarations: [
     AdminuserlistComponent,
@@ -68,6 +70,7 @@ import { UpcomingComponent } from './bookings/upcoming/upcoming.component';
     CheckoutComponent,
     QrcodegenerationComponent,
     UpcomingComponent,
+
   
   ]
 })

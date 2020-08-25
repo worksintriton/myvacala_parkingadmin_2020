@@ -103,6 +103,47 @@
               </div>
             </div>
           </form> -->
+          <table class="table table-striped table-bordered table-sm" [svData]="Qrlist" #sv="svDataTable"
+          [svRowsOnPage]="10" svSortBy="name" svSortOrder="asc">
+          <thead>
+              <tr>
+                <th>S.No</th>
+                <th>Vendor Id</th>
+                <th>Vendor Name</th>
+                <th>Parking Area Name</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+                <th>Entry</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Action</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let item of sv.data ; let i = index;">
+                  <td>{{i+1}}</td>
+                  <td>{{item.Vendor_id}}</td>
+                  <td>{{item.Vendor_Name}}</td>
+                  <td>{{item.Parking_Area_Name}}</td>
+                  <td>{{item.Lat}}</td>
+                  <td>{{item.Long}}</td>
+                  <td>{{item.Entry}}</td>
+                  <td>{{item.updatedAt | date:'mediumDate'}}  </td>
+                  <td>{{item.updatedAt | date:'shortTime'}}</td>
+                  <td>
+                    <a  (click)="downloadimg(item.QRcode_Image_URL)"><i class="fa fa-download btn btn-success" aria-hidden="true"></i></a>
+                  <i class="fa fa-qrcode btn btn-warning" (click)="open(item)" aria-hidden="true"></i>
+                  </td>
+              </tr>
+          </tbody>
+          <tfoot>
+              <tr>
+                  <td colspan="10">
+                      <sv-bootstrap-paginator [rowsOnPageSet]="[5, 10, 25]"></sv-bootstrap-paginator>
+                  </td>
+              </tr>
+          </tfoot>
+      </table>
           <table class="table table-bordered table-striped table-sm">
             <thead>
               <tr>
