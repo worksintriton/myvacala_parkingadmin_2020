@@ -100,7 +100,7 @@ const routes: Routes = [
         path: 'view_bookings',
         component: ViewbookingformComponent,
         data: {
-          title: 'Brand buttons'
+          title: 'Booking List'
         }
       },
       {
@@ -114,7 +114,7 @@ const routes: Routes = [
         path: 'upcoming',
         component: UpcomingComponent,
         data: {
-          title: 'Brand buttons'
+          title: 'Upcoming'
         }
       },
       {

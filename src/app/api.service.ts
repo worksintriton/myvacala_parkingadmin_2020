@@ -165,4 +165,10 @@ export class ApiService {
   vendor_qrcode_list(data){
     return this.http.post(this.apiUrl + 'parking/parkingareadetails/qrgetlist_vendor_id', data);
   }
+  parking_bookinglist(data){
+    return this.http.post(this.apiUrl + 'parking/parkingbooking/getlist_vendor_id', data);
+  }
+  parking_statusedit(data){
+    return this.http.post(this.apiUrl + 'parking/parkingbooking/edit', data);
+  }
 }

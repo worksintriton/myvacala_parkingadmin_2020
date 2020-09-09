@@ -48,3 +48,6 @@ a:hover
   .card-body h6{
     font-weight: 600;
   }
+  :host::ng-deep.p-dialog-header {
+display: none;
+  }

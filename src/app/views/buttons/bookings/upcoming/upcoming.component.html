@@ -15,42 +15,42 @@
                     <label class="col-md-5 col-form-label" for="text-input">Vehicle Model</label>
                     <div class="col-md-6">
                       <input type="text" [(ngModel)]="VehicleModel"  name="VehicleModel" id="text-input"
-                        class="form-control" placeholder="Vehicle Model">
+                        class="form-control" placeholder="Vehicle Model" disabled>
                     </div>
                   </div>
                   <div class="form-group row">
                     <label class="col-md-5 col-form-label" for="text-input">Customer Mobile No</label>
                     <div class="col-md-6">
-                      <input type="text"  name="Mobile" id="text-input" class="form-control"
-                        placeholder="Phone">
+                      <input type="text"  [(ngModel)]="customerMobile"  name="Mobile" id="text-input" class="form-control"
+                        placeholder="Phone" disabled>
                     </div>
                   </div>
                   <div class="form-group row">
                     <label class="col-md-5 col-form-label" for="text-input">Floor </label>
                     <div class="col-md-6">
                       <input type="text" [(ngModel)]="FloorName"  name="FloorName" id="text-input"
-                        class="form-control" placeholder="FloorName">
+                        class="form-control" placeholder="FloorName" disabled>
                     </div>
                   </div>
                   <div class="form-group row">
                     <label class="col-md-5 col-form-label" for="text-input">Block</label>
                     <div class="col-md-6">
-                      <input type="text" [(ngModel)]="SubFloorName"  name="SubFloorName" id="text-input"
-                        class="form-control" placeholder="Block Name">
+                      <input type="text" [(ngModel)]="Block"  name="SubFloorName" id="text-input"
+                        class="form-control" placeholder="Block Name" disabled>
                     </div>
                   </div>
                   <div class="form-group row">
                     <label class="col-md-5 col-form-label" for="text-input">Slot</label>
                     <div class="col-md-6">
                       <input type="text" [(ngModel)]="SlotNumber"  name="SlotNumber" id="text-input"
-                        class="form-control" placeholder="Slot Number">
+                        class="form-control" placeholder="Slot Number" disabled>
                     </div>
                   </div>
                   <div class="form-group row">
                     <label class="col-md-5 col-form-label" for="text-input">Booking Date</label>
                     <div class="col-md-6">
-                      <input type="date" placeholder="Actual Booking"  class="form-control"
-                        [(ngModel)]="ActualBooking" name="ActualBooking">
+                      <input type="date" placeholder="Actual Booking"  class="form-control" [ngModel] ="Booking_Date | date:'yyyy-MM-dd'" (ngModelChange)="Booking_Date = $event"
+                    name="Booking_Date" disabled>
   
                     </div>
                   </div>
@@ -58,7 +58,7 @@
                     <label class="col-md-5 col-form-label" for="text-input">Check In date</label>
                     <div class="col-md-6">
                       <input type="date" placeholder="Actual Booking"  class="form-control"
-                        [(ngModel)]="ActualBooking" name="ActualBooking">
+                         name="Check_In_date" [ngModel] ="Check_In_date | date:'yyyy-MM-dd'" (ngModelChange)="Check_In_date = $event" disabled>
   
                     </div>
                   </div>
@@ -102,15 +102,15 @@
                     <label class="col-md-5 col-form-label" for="text-input">Check Out date</label>
                     <div class="col-md-6">
                       <input type="date" placeholder="Actual Booking"  class="form-control"
-                        [(ngModel)]="ActualBooking" name="ActualBooking">
+                      [ngModel] ="Check_Out_date | date:'yyyy-MM-dd'" (ngModelChange)="Check_Out_date = $event" name="Check_Out_date" disabled>
   
                     </div>
                   </div>
                   <div class="form-group row">
                     <label class="col-md-5 col-form-label" for="text-input">Check In Time</label>
                     <div class="col-md-6">
-                      <input type="time" [(ngModel)]="ActualBookingDuration"  name="ActualBookingDuration"
-                        id="text-input" class="form-control" placeholder="CheckIn Time">
+                      <input type="time" [(ngModel)]="Check_In_Time"  name="Check_In_Time"
+                        id="text-input" class="form-control" placeholder="CheckIn Time" disabled>
                     </div>
                    
                   </div>
@@ -118,32 +118,32 @@
                    
                     <label class="col-md-5 col-form-label" for="text-input">Check Out Time</label>
                     <div class="col-md-6">
-                      <input type="time" [(ngModel)]="ActualBookingDuration"  name="ActualBookingDuration"
-                        id="text-input" class="form-control" placeholder="CheckIn Time">
+                      <input type="time" [(ngModel)]="Check_Out_Time"  name="Check_Out_Time"
+                        id="text-input" class="form-control" placeholder="CheckIn Time" disabled>
                     </div>
                   </div>
                   <div class="form-group row">
                     <label style="font-weight: 600;" class="col-md-5 col-form-label" for="text-input">Booking
                       Amount</label>
                     <div class="col-md-6">
-                      <input type="text" style="font-weight: 600; background-color:yellow; color:red;" value="500"
+                      <input type="text" style="font-weight: 600; background-color:yellow; color:red;" [(ngModel)]="ActualBookingAmount"
                          name="ActualBookingAmount" id="text-input" class="form-control"
-                        placeholder="Actual Booking Amount">
+                        placeholder="Actual Booking Amount" disabled>
                     </div>
                   </div>
                   <div class="form-group row">
                     <label style="font-weight: 600;" class="col-md-5 col-form-label" for="text-input">Final payable amount </label>
                     <div class="col-md-6">
-                      <input type="text" style="font-weight: 600; background-color:yellow; color:red;" value="500"
-                         name="ActualBookingAmount" id="text-input" class="form-control"
-                        placeholder="Actual Booking Amount">
+                      <input type="text" style="font-weight: 600; background-color:yellow; color:red;"  [(ngModel)]="finalamount"
+                         name="ActualBookingAmount_1" id="text-input" class="form-control"
+                        placeholder="Actual Booking Amount" disabled>
                     </div>
                   </div>
                   <div class="form-group row">
                     <label class="col-md-5 col-form-label" for="text-input"> Booking Duration</label>
                     <div class="col-md-6">
                       <input type="text" [(ngModel)]="ActualBookingDuration"  name="ActualBookingDuration"
-                        id="text-input" class="form-control" placeholder="Actual Booking Duration">
+                        id="text-input" class="form-control" placeholder="Actual Booking Duration" disabled>
                     </div>
                   </div>
                   <!-- <div class="form-group row">

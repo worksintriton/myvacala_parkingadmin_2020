@@ -24,7 +24,8 @@
       <div class="form-group">
         <!-- <input type="date" class="form-control datetimepicker-input" name="todate" data-target="#reservationdate_to"
           required /> -->
-          <p-calendar [(ngModel)]="rangeDates" selectionMode="range" dateFormat="dd/mm/yy" [showIcon]="true" placeholder="Select Date" inputId="range"></p-calendar>
+        <p-calendar [(ngModel)]="rangeDates" selectionMode="range" dateFormat="dd/mm/yy" [showIcon]="true"
+          placeholder="Select Date" inputId="range"></p-calendar>
       </div>
     </div>
     <div class="col-md-4">
@@ -49,7 +50,8 @@
       <div class="col-sm-6 col-lg-3">
         <div class="card">
           <div class="card-header">
-            <button style="width: 100%; height:40px;" class="btn btn-success" (click)="upcoming_change()">{{umpcomin_text}}</button>
+            <button style="width: 100%; height:40px;" class="btn btn-success"
+              (click)="upcoming_change(item)">{{item.Booking_status}}</button>
             <!-- <select style="width: 100%; height:40px;" class="btn btn-success">
               <option selected>Upcoming</option>
               <option>Check In</option>
@@ -61,15 +63,16 @@
           <option value="">CheckOut</option>
         </select> -->
           </div>
-          <div class="card-body" (click)="upcoming()">
+          <div class="card-body" (click)="editdetail(item)">
             <h6>Booking ID : {{item.Booking_id}}</h6>
-            <p>Vehicle Type : Two Wheeler</p>
+            <p>Vehicle Type : <ng-container *ngIf="item.Vehicle_id.Vehicle_Type == '5f0c0cfc2f857d66950cf25f'">Four Wheeler</ng-container><ng-container *ngIf="item.Vehicle_id.Vehicle_Type != '5f0c0cfc2f857d66950cf25f'">Two Wheeler</ng-container></p>
             <h4>{{item.Vehicle_No}}</h4>
             <p>{{item.Customer_Phone}}</p>
-            <p>Checkin Time : 02.00 PM</p>
-            <p>Checkout Time : 03.45 PM</p>
-            <p>Check in Date :12 July 2020</p>
-            <p>Estimated Time : 1 Hour 45m</p>
+            <p>Checkin Time : {{item.Checking_time}}</p>
+            <p>Checkout Time : {{item.Checkout_time}}</p>
+            <p>Check in Date :{{item.Checking_date}}</p>
+            <p>Check out Date :{{item.Checkout_date}}</p>
+            <p>Estimated Time : {{item.total_checking_duration}}</p>
             <p>
               <li class="icon-clock"><span>6 days ago</span></li>
             </p>
@@ -77,87 +80,25 @@
         </div>
       </div>
     </ng-container>
-    <div class="col-sm-6 col-lg-3">
-      <div class="card">
-        <div class="card-header">
-          <button style="width: 100%; height:40px;" class="btn btn-success" (click)="checkinpage_change()" >CheckIn</button>
-          <!-- <select style="width: 100%; height:40px;" class="btn btn-success" >
-            <option>Upcoming</option>
-            <option>Check Out</option>
-            <option selected>Check In</option>
-          </select> -->
-        </div>
-        <div class="card-body" (click)="checkinpage()">
-          <h6>Booking ID : 123CVX</h6>
-          <p>Vehicle Type : Two Wheeler</p>
-          <h4>TN 36 X1234</h4>
-          <p>9988776655</p>
-          <p>Checkin Time : 02.00 PM</p>
-          <p>Checkout Time : 03.45 PM</p>
-
-          <p>Check in Date :12 July 2020</p>
-          <p>Estimated Time : 1 Hour 45m</p>
-          <p>
-            <li class="icon-clock"><span>6 days ago</span></li>
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-lg-3">
-      <div class="card">
-        <div class="card-header">
-          <button style="width: 100%; height:40px;" class="btn btn-success" (click)="checkoutpage()">CheckOut</button>
-          <!-- <select style="width: 100%; height:40px;" class="btn btn-success" (change)="checkoutpage()">
-            <option>Upcoming</option>
-            <option selected>Check Out</option>
-            <option>Check In</option>
-          </select> -->
-        </div>
-        <div class="card-body">
-          <div class="watermarked">
-            <h6>Booking ID : 123CVX</h6>
-            <p>Vehicle Type : Two Wheeler</p>
-            <h4>TN 36 X1234</h4>
-            <p>9988776655</p>
-            <p>Checkin Time : 02.00 PM</p>
-            <p>Checkout Time : 03.45 PM</p>
-            <p>Estimated Time : 1 Hour 45m</p>
-            <p>Check in Date :12 July 2020</p>
-            <p style="color: red;">Extended Time : 2 Hour</p>
-            <p>
-              <li class="icon-clock"><span>6 days ago</span></li>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-lg-3">
-      <div class="card">
-        <div class="card-header">
-          <button style="width: 100%; height:40px;" class="btn btn-success" (click)="checkoutpage()">CheckOut</button>
-          <!-- <select style="width: 100%; height:40px;" class="btn btn-success" (change)="checkoutpage()">
-            <option>Upcoming</option>
-            <option selected>Check Out</option>
-            <option>Check In</option>
-          </select> -->
-        </div>
-        <div class="card-body">
-          <div class="watermarked">
-            <h6 (click)="bookingacceptance(item)">Booking ID : 123CVX</h6>
-            <p>Vehicle Type : Two Wheeler</p>
-            <h4>TN 36 X1234</h4>
-            <p>9988776655</p>
-            <p>Checkin Time : 02.00 PM</p>
-            <p>Checkout Time : 03.45 PM</p>
-            <p>Estimated Time : 1 Hour 45m</p>
-            <p>Check in Date :12 July 2020</p>
-            <p>
-              <li class="icon-clock"><span>6 days ago</span></li>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
 
   </div>
 </div>
+
+<p-dialog header="Header" [(visible)]="displayBasic" [style]="{width: '50vw'}" [baseZIndex]="10000">
+  <h3 style="text-align: center;padding-top: 40px;">Are you sure?</h3>
+  <p style="text-align: center;">You Want to change the Status to </p>
+  <div style="text-align: center;">
+  <select style='width: 210px; height:40px; margin-top:10px ;'
+    class='btn btn-success' [(ngModel)]='status' (ngModelChange)='text()'>
+    <option value=undefined style="display: none;">Select</option>
+    <option value='Upcoming'>Upcoming</option>
+    <option value='Check In' >Check In</option>
+    <!-- *ngIf="status != 'Check In'" -->
+    <option value='Check Out' *ngIf="status != 'Upcoming'">Check Out</option>
+  </select>
+</div>
+  <ng-template pTemplate="footer">
+    <p-button icon="pi pi-check" (click)="edit()" label="Yes" styleClass="p-button-text"></p-button>
+    <p-button icon="pi pi-times" (click)="displayBasic=false" label="No"></p-button>
+  </ng-template>
+</p-dialog>

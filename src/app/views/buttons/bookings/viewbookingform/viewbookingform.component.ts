@@ -15,7 +15,11 @@ export class ViewbookingformComponent implements OnInit {
   Booking_List: any;
   t: any;
   rangeDates: any;
-  umpcomin_text:any = "Upcoming"
+  umpcomin_text: any = "Upcoming"
+  parking_detail: any;
+  displayBasic: boolean;
+  bookingid: any;
+  status: any;
   constructor(
     private router: Router,
 
@@ -27,9 +31,10 @@ export class ViewbookingformComponent implements OnInit {
   ngOnInit() {
     let ph = this.getFromLocal('phnumber');
     let t = this.getFromLocal('token');
+    this.parking_detail = this.getFromLocal('parking_detail');
     let data =
     {
-      "Primary_Contact": ph
+      "parkingdetails_id": "5f4798fc99c5a35d06ad04f2"
 
     }
 
@@ -40,19 +45,14 @@ export class ViewbookingformComponent implements OnInit {
         console.log(response);
       }
     );
-    this._api.BookingList(data).subscribe(
+    this._api.parking_bookinglist(data).subscribe(
       (response: any) => {
         console.log(response);
         this.Booking_List = response.Data;
       }
     );
   }
-  checkoutpage() {
-    this.router.navigate(['Home/buttons/checkout']);
-  }
-  checkinpage() {
-    this.router.navigate(['Home/buttons/checkin']);
-  }
+
   bookingacceptance(data) {
     this.saveInLocal('Booking_list', data);
     console.log(data);
@@ -82,26 +82,48 @@ export class ViewbookingformComponent implements OnInit {
   chosenDate($event) {
     console.log($event)
   }
-  upcoming() {
-    this.router.navigate(['Home/buttons/upcoming']);
+  editdetail(data) {
+    this.saveInLocal('booking_single', data);
+    if(data.Booking_status == "Upcoming"){
+      this.router.navigate(['Home/buttons/upcoming']);
+    }
+    if(data.Booking_status == "Check In"){
+      this.router.navigate(['Home/buttons/checkin']);
+    }
+    if(data.Booking_status == "Check Out"){
+      this.router.navigate(['Home/buttons/checkout']);
+    }
+   
   }
-  upcoming_change() {
-    Swal.fire({
-      title: 'Are you sure?',
-      html: "<p>You Want to change the Status to </><select style='width: 210px; height:40px; margin-top:10px' class='btn btn-success' [(ngModel)]='umpcomin_text' (change)='text()'><option value='Upcoming'>Upcoming</option><option value='Check In'>Check In</option></select> ",
-      confirmButtonText: "Yes"
-    })
+  
+  text() {
+    console.log(this.umpcomin_text)
+  }
+
+
+  upcoming_change(item) {
+    this.bookingid = item._id;
+    this.displayBasic = true;
+    this.status = item.Booking_status;
 
   }
-  checkinpage_change(){
-    Swal.fire({
-      title: 'Are you sure?',
-      html: "<p>You Want to change the Status to </><select style='width: 210px; height:40px; margin-top:10px' class='btn btn-success' ><option>Upcoming</option><option>Check Out</option></select> ",
-      confirmButtonText: "Yes"
-    })
-  }
-  text(){
-    console.log(this.umpcomin_text)
+  edit() {
+    let data = {
+      "_id": this.bookingid,
+      "Booking_status": this.status
+    }
+    console.log(data)
+    this._api.parking_statusedit(data).subscribe(
+      (response: any) => {
+        console.log(response);
+        if(response.Code ==200){
+          alert("Booking status Changed");
+          this.ngOnInit();
+          this.displayBasic = false;
+        }
+       
+      }
+    );
   }
 }
 

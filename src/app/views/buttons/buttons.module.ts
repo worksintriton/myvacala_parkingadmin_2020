@@ -37,7 +37,7 @@ import {CalendarModule} from 'primeng/calendar';
 import { UpcomingComponent } from './bookings/upcoming/upcoming.component';
 import { DataTableModule } from 'ng-angular8-datatable';
 // Angular
-
+import {DialogModule} from 'primeng/dialog';
 @NgModule({
   imports: [
     CommonModule,
@@ -47,7 +47,8 @@ import { DataTableModule } from 'ng-angular8-datatable';
     FormsModule,
     NgDatepickerModule,
     CalendarModule,
-    DataTableModule
+    DataTableModule,
+    DialogModule
   ],
   declarations: [
     AdminuserlistComponent,
