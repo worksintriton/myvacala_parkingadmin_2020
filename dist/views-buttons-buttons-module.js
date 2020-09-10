@@ -8497,6 +8497,103 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 /***/ }),
 
+/***/ "./node_modules/ng2-search-filter/ng2-search-filter.es5.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/ng2-search-filter/ng2-search-filter.es5.js ***!
+  \*****************************************************************/
+/*! exports provided: Ng2SearchPipeModule, Ng2SearchPipe */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Ng2SearchPipeModule", function() { return Ng2SearchPipeModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Ng2SearchPipe", function() { return Ng2SearchPipe; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+var Ng2SearchPipe = (function () {
+    function Ng2SearchPipe() {
+    }
+    /**
+     * @param {?} items object from array
+     * @param {?} term term's search
+     * @return {?}
+     */
+    Ng2SearchPipe.prototype.transform = function (items, term) {
+        if (!term || !items)
+            return items;
+        return Ng2SearchPipe.filter(items, term);
+    };
+    /**
+     *
+     * @param {?} items List of items to filter
+     * @param {?} term  a string term to compare with every property of the list
+     *
+     * @return {?}
+     */
+    Ng2SearchPipe.filter = function (items, term) {
+        var /** @type {?} */ toCompare = term.toLowerCase();
+        /**
+         * @param {?} item
+         * @param {?} term
+         * @return {?}
+         */
+        function checkInside(item, term) {
+            for (var /** @type {?} */ property in item) {
+                if (item[property] === null || item[property] == undefined) {
+                    continue;
+                }
+                if (typeof item[property] === 'object') {
+                    if (checkInside(item[property], term)) {
+                        return true;
+                    }
+                }
+                if (item[property].toString().toLowerCase().includes(toCompare)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return items.filter(function (item) {
+            return checkInside(item, term);
+        });
+    };
+    return Ng2SearchPipe;
+}());
+Ng2SearchPipe.decorators = [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Pipe"], args: [{
+                name: 'filter',
+                pure: false
+            },] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"] },
+];
+/**
+ * @nocollapse
+ */
+Ng2SearchPipe.ctorParameters = function () { return []; };
+var Ng2SearchPipeModule = (function () {
+    function Ng2SearchPipeModule() {
+    }
+    return Ng2SearchPipeModule;
+}());
+Ng2SearchPipeModule.decorators = [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"], args: [{
+                declarations: [Ng2SearchPipe],
+                exports: [Ng2SearchPipe]
+            },] },
+];
+/**
+ * @nocollapse
+ */
+Ng2SearchPipeModule.ctorParameters = function () { return []; };
+/**
+ * Generated bundle index. Do not edit.
+ */
+
+//# sourceMappingURL=ng2-search-filter.es5.js.map
+
+
+/***/ }),
+
 /***/ "./node_modules/ngx-slimscroll/dist/bundles/ngx-slimscroll.umd.js":
 /*!************************************************************************!*\
   !*** ./node_modules/ngx-slimscroll/dist/bundles/ngx-slimscroll.umd.js ***!
@@ -13230,6 +13327,17 @@ module.exports = "<div class=\"animated fadeIn\">\r\n  <div class=\"row\">\r\n  
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/index.js!./src/app/views/buttons/coupon-code/coupon-code.component.html":
+/*!************************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/views/buttons/coupon-code/coupon-code.component.html ***!
+  \************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"animated fadeIn\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-12\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                    <strong>Coupon Code</strong>\r\n                </div>\r\n                <div class=\"card-body\">\r\n                    <form class=\"form-horizontal\">\r\n                        <div class=\"form-group row\">\r\n                            <label class=\"col-md-3 col-form-label\" for=\"text-input\">Customers</label>\r\n                            <div class=\"col-md-6\">\r\n                                <select class=\"form-control\" [(ngModel)]=\"customers\" (ngModelChange)=\"addarray()\"\r\n                                    name=\"customers\">\r\n                                    <option value=undefined> Select Customers</option>\r\n                                    <option value=\"all\"> For all Customers</option>\r\n                                    <option value=\"selected\"> Selected Customers</option>\r\n                                </select>\r\n                            </div>\r\n                        </div>\r\n                        <div *ngIf=\"customers == 'selected'\" class=\"form-group row\">\r\n                            <label class=\"col-md-3 col-form-label\" for=\"text-input\">Select Customers</label>\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"search-hero\">\r\n                                    <input class=\"form-control\" type=\"text\" name=\"search\"\r\n                                        style=\"font-family: FontAwesome;\" [(ngModel)]=\"searchText\" autocomplete=\"off\"\r\n                                        placeholder=\"&#xf002; Search...\">\r\n                                </div>\r\n                                <table class=\"table table-striped table-bordered table-sm\" [svData]=\"user_list\"\r\n                                    #sv=\"svDataTable\" [svRowsOnPage]=\"10\" svSortBy=\"name\" svSortOrder=\"asc\">\r\n                                    <thead>\r\n                                        <tr>\r\n                                            <th>S.No</th>\r\n                                            <!-- <th>ID</th> -->\r\n                                            <th>Name</th>\r\n                                            <th>Email</th>\r\n                                            <th>Phone</th>\r\n                                            <th>Action</th>\r\n                                        </tr>\r\n\r\n                                    </thead>\r\n                                    <tbody>\r\n                                        <ng-container *ngFor=\"let item of sv.data | filter:searchText ; let i = index;\">\r\n                                            <tr>\r\n                                                <td>{{i+1}}</td>\r\n                                                <!-- <td>{{item._id}}</td> -->\r\n                                                <td>{{item.Name}}</td>\r\n                                                <td>{{item.Email}}</td>\r\n                                                <td>{{item.Phone}}</td>\r\n                                                <td><button style=\"padding: 1px 10px;\" (click)=\"add(item._id,i)\"\r\n                                                        class=\"btn \"\r\n                                                        [ngClass]=\"{'btn-danger' :  user_status[i].add == false, 'btn-success': user_status[i].add == true}\">\r\n                                                        <ng-container\r\n                                                            *ngIf=\"user_status[i].add == true || user_status[i].add == undefined\">\r\n                                                            Add</ng-container>\r\n                                                        <ng-container *ngIf=\"user_status[i].add == false\">Remove\r\n                                                        </ng-container>\r\n                                                    </button></td>\r\n                                            </tr>\r\n                                        </ng-container>\r\n                                    </tbody>\r\n                                    <tfoot>\r\n                                        <tr>\r\n                                            <td colspan=\"5\">\r\n                                                <sv-bootstrap-paginator [rowsOnPageSet]=\"[5, 10, 25]\">\r\n                                                </sv-bootstrap-paginator>\r\n                                            </td>\r\n                                        </tr>\r\n                                    </tfoot>\r\n                                </table>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"form-group row\">\r\n                            <label class=\"col-md-3 col-form-label\" for=\"text-input\">Master Service</label>\r\n                            <div class=\"col-md-6\">\r\n                                <select class=\"form-control\" [(ngModel)]=\"MasterServiceName\" name=\"MasterServiceName\">\r\n\r\n                                    <option value=\"5f1ea10d89b6693decfabf09\">Book a Parking</option>\r\n                                </select>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"form-group row\">\r\n                            <label class=\"col-md-3 col-form-label\" for=\"text-input\">Vehicle Type</label>\r\n                            <div class=\"col-md-6\">\r\n                                <select class=\"form-control\" (change)=\"vechiclt_type_select()\" [(ngModel)]=\"VehicleType\"\r\n                                    name=\"VehicleType\">\r\n                                    <option value=\"undefined\">Select Vehicle Type</option>\r\n                                    <ng-container *ngFor=\"let list of vehicle_type;\">\r\n                                        <option value=\"{{list._id}}\">{{list.Vehicle_Type}}</option>\r\n                                    </ng-container>\r\n                                </select>\r\n                            </div>\r\n                        </div>\r\n                        <!-- <div class=\"form-group row\">\r\n                            <label class=\"col-md-3 col-form-label\" for=\"text-input\">Main Service</label>\r\n                            <div class=\"col-md-6\">\r\n                                <select class=\"form-control\" [(ngModel)]=\"mainservice_id\" name=\"mainServiceId\"\r\n                                    [disabled]=\"VehicleType == undefined\">\r\n                                    <option value=undefined>Select Main Service</option>\r\n                                    <ng-container *ngFor=\"let list of mainservice_list\">\r\n                                        <option value=\"{{list._id}}\">{{list.Service_Name}}</option>\r\n                                    </ng-container>\r\n                                </select>\r\n                            </div>\r\n                        </div> -->\r\n                        <div class=\"form-group row\">\r\n                            <label class=\"col-md-3 col-form-label\" for=\"text-input\">Coupon Code</label>\r\n                            <div class=\"col-md-6\">\r\n                                <input type=\"text\" [(ngModel)]=\"Coupon_Code\" name=\"Coupon_Code\" class=\"form-control\">\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"form-group row\">\r\n                            <label class=\"col-md-3 col-form-label\" for=\"text-input\">Start Date</label>\r\n                            <div class=\"col-md-6\">\r\n                                <ng-datepicker [(ngModel)]=\"Start_Date\" name=\"date\" (ngModelChange)=\"date()\" [options]=\"options\">\r\n                                </ng-datepicker>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"form-group row\">\r\n                            <label class=\"col-md-3 col-form-label\" for=\"text-input\">Expiry Date</label>\r\n                            <div class=\"col-md-6\" >\r\n                                <ng-datepicker [(ngModel)]=\"Expiry_Date\" name=\"date\" [options]=\"options1\" [headless]=\"Start_Date == undefined\">\r\n                                </ng-datepicker>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"form-group row\">\r\n                            <label class=\"col-md-3 col-form-label\" for=\"text-input\">Value Type</label>\r\n                            <div class=\"col-md-6\">\r\n                                <select class=\"form-control\" [(ngModel)]=\"Value_Type\" name=\"Value_Type\">\r\n                                    <option value=undefined> Select Value Type</option>\r\n                                    <option value=\"Percentage\"> Percentage</option>\r\n                                    <option value=\"Amount\"> Amount</option>\r\n                                </select>\r\n                            </div>\r\n                        </div>\r\n\r\n                        <div class=\"form-group row\" *ngIf=\"Value_Type == 'Percentage'\">\r\n                            <label class=\"col-md-3 col-form-label\" for=\"text-input\">Amount</label>\r\n                            <div class=\"col-md-6\">\r\n                                <input type=\"text\" [(ngModel)]=\"amount\" (keypress)=_keyPress($event) name=\"amount\"\r\n                                    class=\"form-control\">\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"form-group row\">\r\n                            <label class=\"col-md-3 col-form-label\" for=\"text-input\">Value</label>\r\n                            <div class=\"col-md-6\">\r\n                                <input type=\"text\" [(ngModel)]=\"Value\" (keypress)=_keyPress($event) name=\"Value\"\r\n                                    class=\"form-control\">\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"form-group row\">\r\n                            <label class=\"col-md-3 col-form-label\" for=\"text-input\">Count</label>\r\n                            <div class=\"col-md-6\">\r\n                                <input type=\"text\" [(ngModel)]=\"Count\" (keypress)=_keyPress($event) name=\"count\"\r\n                                    class=\"form-control\">\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"form-group row\">\r\n                            <label class=\"col-md-3 col-form-label\" for=\"text-input\">Description</label>\r\n                            <div class=\"col-md-6\">\r\n                                <textarea name=\"Description\" [(ngModel)]=\"Description\" rows=\"4\" class=\"form-control\"\r\n                                    placeholder=\"Description\"></textarea>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"form-group\">\r\n                                    <button (click)=\"addcoupon()\" class=\"btn btn-sm btn-primary float-right mt-5\"><i\r\n                                            class=\"fa fa-save\"></i> Save</button>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n\r\n\r\n                        <h4 class=\"card-title pt-4\">Coupon Code List</h4>\r\n                        <div class=\"search-hero\">\r\n                            <input class=\"form-control\" type=\"text\" name=\"search2\"\r\n                                style=\"font-family: FontAwesome;\" [(ngModel)]=\"searchQR\" autocomplete=\"off\"\r\n                                placeholder=\"&#xf002; Search...\">\r\n                        </div>\r\n                        <table class=\"table table-striped table-bordered table-sm\" [svData]=\"coupon_list\"\r\n                            #sv=\"svDataTable\" [svRowsOnPage]=\"10\" svSortBy=\"name\" svSortOrder=\"asc\">\r\n                            <thead>\r\n                                <tr>\r\n                                    <th>S.No</th>\r\n                                    <th>Master Service</th>\r\n                                    <th>Vehicle Type</th>\r\n                                    <th>Main Service</th>\r\n                                    <th>Coupon code</th>\r\n                                    <th>Description</th>\r\n                                    <th>Coupon For</th>\r\n\r\n                                    <th>Start Date</th>\r\n                                    <th>Expiry Date</th>\r\n                                    <th>Value Type</th>\r\n                                    <th>Amount</th>\r\n                                    <th>Value</th>\r\n                                    <th>Count</th>\r\n                                    \r\n                                    <th>Action</th>\r\n                                </tr>\r\n                            </thead>\r\n                            <tbody>\r\n                                <tr *ngFor=\"let item of sv.data | filter:searchQR ; let i = index;\">\r\n                                    <td>{{i+1}}</td>\r\n                                    <td>{{item.Masterservice_id.Masterservice_Name}}</td>\r\n                                    <td>{{item.Vehicle_type_id.Vehicle_Type}}</td>\r\n                                    <td>{{item.Mainservice_id.Service_Name}}</td>\r\n                                    <td>{{item.Coupon_Code}}</td>\r\n                                    <td>{{item.Description}}</td>\r\n                                    <td>{{item.Coupon_For}}</td>\r\n                                    <td>{{item.Start_Date | date :'shortDate'}}</td>\r\n                                    <td>{{item.Expiry_Date | date :'shortDate'}}</td>\r\n                                    <td>{{item.Value_Type}}</td>\r\n                                    <td>{{item.Amount}}</td>\r\n                                    <td>{{item.Value}}</td>\r\n                                    <td>{{item.Count}}</td>\r\n                                    \r\n                                    <td>\r\n                                        <button *ngIf=\"item.Coupon_status == 'Enable'\" (click)=\"disable(item._id)\" style=\" width: 70px;\" class=\"btn btn-sm btn-primary\">Disable</button>\r\n                                        <button *ngIf=\"item.Coupon_status == 'Disable'\" (click)=\"enalble(item._id)\" style=\" width: 70px;\"\r\n                                            class=\"btn btn-sm btn-success\">Enable</button>\r\n                                            <button (click)=\"delete(item._id)\" style=\"margin-top: 5px; width: 70px;\"\r\n                                            class=\"btn btn-sm btn-danger\">Delete</button>\r\n                                    </td>\r\n                                </tr>\r\n                            </tbody>\r\n                            <tfoot>\r\n                                <tr>\r\n                                    <td colspan=\"14\">\r\n                                        <sv-bootstrap-paginator [rowsOnPageSet]=\"[5, 10, 25]\"></sv-bootstrap-paginator>\r\n                                    </td>\r\n                                </tr>\r\n                            </tfoot>\r\n                        </table>\r\n                    </form>\r\n\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <!--/.row-->\r\n</div>"
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/index.js!./src/app/views/buttons/downloads/downloads.component.html":
 /*!********************************************************************************************!*\
   !*** ./node_modules/raw-loader!./src/app/views/buttons/downloads/downloads.component.html ***!
@@ -17701,6 +17809,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _slotmanagement_slot_blocking_slot_blocking_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./slotmanagement/slot-blocking/slot-blocking.component */ "./src/app/views/buttons/slotmanagement/slot-blocking/slot-blocking.component.ts");
 /* harmony import */ var _qrcode_qrcodegeneration_qrcodegeneration_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./qrcode/qrcodegeneration/qrcodegeneration.component */ "./src/app/views/buttons/qrcode/qrcodegeneration/qrcodegeneration.component.ts");
 /* harmony import */ var _bookings_upcoming_upcoming_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./bookings/upcoming/upcoming.component */ "./src/app/views/buttons/bookings/upcoming/upcoming.component.ts");
+/* harmony import */ var _coupon_code_coupon_code_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./coupon-code/coupon-code.component */ "./src/app/views/buttons/coupon-code/coupon-code.component.ts");
+
 
 
 
@@ -17875,6 +17985,13 @@ var routes = [
                     title: 'Brand buttons'
                 }
             },
+            {
+                path: 'couponcode',
+                component: _coupon_code_coupon_code_component__WEBPACK_IMPORTED_MODULE_23__["CouponCodeComponent"],
+                data: {
+                    title: 'Coupon Code'
+                }
+            },
         ]
     }
 ];
@@ -17937,6 +18054,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ng_angular8_datatable__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ng-angular8-datatable */ "./node_modules/ng-angular8-datatable/index.js");
 /* harmony import */ var ng_angular8_datatable__WEBPACK_IMPORTED_MODULE_29___default = /*#__PURE__*/__webpack_require__.n(ng_angular8_datatable__WEBPACK_IMPORTED_MODULE_29__);
 /* harmony import */ var primeng_dialog__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! primeng/dialog */ "./node_modules/primeng/fesm5/primeng-dialog.js");
+/* harmony import */ var _coupon_code_coupon_code_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./coupon-code/coupon-code.component */ "./src/app/views/buttons/coupon-code/coupon-code.component.ts");
+/* harmony import */ var ng2_search_filter__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ng2-search-filter */ "./node_modules/ng2-search-filter/ng2-search-filter.es5.js");
 
 
 
@@ -17971,6 +18090,8 @@ __webpack_require__.r(__webpack_exports__);
 
 // Angular
 
+
+
 var ButtonsModule = /** @class */ (function () {
     function ButtonsModule() {
     }
@@ -17985,7 +18106,8 @@ var ButtonsModule = /** @class */ (function () {
                 ng2_datepicker__WEBPACK_IMPORTED_MODULE_26__["NgDatepickerModule"],
                 primeng_calendar__WEBPACK_IMPORTED_MODULE_27__["CalendarModule"],
                 ng_angular8_datatable__WEBPACK_IMPORTED_MODULE_29__["DataTableModule"],
-                primeng_dialog__WEBPACK_IMPORTED_MODULE_30__["DialogModule"]
+                primeng_dialog__WEBPACK_IMPORTED_MODULE_30__["DialogModule"],
+                ng2_search_filter__WEBPACK_IMPORTED_MODULE_32__["Ng2SearchPipeModule"]
             ],
             declarations: [
                 _admin_adminuserlist_adminuserlist_component__WEBPACK_IMPORTED_MODULE_7__["AdminuserlistComponent"],
@@ -18008,10 +18130,291 @@ var ButtonsModule = /** @class */ (function () {
                 _bookings_checkout_checkout_component__WEBPACK_IMPORTED_MODULE_24__["CheckoutComponent"],
                 _qrcode_qrcodegeneration_qrcodegeneration_component__WEBPACK_IMPORTED_MODULE_25__["QrcodegenerationComponent"],
                 _bookings_upcoming_upcoming_component__WEBPACK_IMPORTED_MODULE_28__["UpcomingComponent"],
+                _coupon_code_coupon_code_component__WEBPACK_IMPORTED_MODULE_31__["CouponCodeComponent"]
             ]
         })
     ], ButtonsModule);
     return ButtonsModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/views/buttons/coupon-code/coupon-code.component.scss":
+/*!**********************************************************************!*\
+  !*** ./src/app/views/buttons/coupon-code/coupon-code.component.scss ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ":host::ng-deep .ngx-datepicker-container .ngx-datepicker-calendar-container {\n  z-index: 9;\n}\n\n.search-hero {\n  padding-bottom: 5px;\n  margin: auto;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdmlld3MvYnV0dG9ucy9jb3Vwb24tY29kZS9EOlxcTVlfT0ZGSUNFXFxteXZhY2FsYV9wYXJraW5nYWRtaW5fMjAyMC9zcmNcXGFwcFxcdmlld3NcXGJ1dHRvbnNcXGNvdXBvbi1jb2RlXFxjb3Vwb24tY29kZS5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvdmlld3MvYnV0dG9ucy9jb3Vwb24tY29kZS9jb3Vwb24tY29kZS5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUVJLFVBQUE7QUNBSjs7QURFQTtFQUVJLG1CQUFBO0VBQ0EsWUFBQTtBQ0FKIiwiZmlsZSI6InNyYy9hcHAvdmlld3MvYnV0dG9ucy9jb3Vwb24tY29kZS9jb3Vwb24tY29kZS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIjpob3N0OjpuZy1kZWVwIC5uZ3gtZGF0ZXBpY2tlci1jb250YWluZXIgLm5neC1kYXRlcGlja2VyLWNhbGVuZGFyLWNvbnRhaW5lciB7XHJcbiAgICBcclxuICAgIHotaW5kZXg6IDk7XHJcbn1cclxuLnNlYXJjaC1oZXJvIHtcclxuICAgIC8vIG1heC13aWR0aDogNTAwcHg7XHJcbiAgICBwYWRkaW5nLWJvdHRvbTogNXB4O1xyXG4gICAgbWFyZ2luOmF1dG87XHJcbiAgfVxyXG4iLCI6aG9zdDo6bmctZGVlcCAubmd4LWRhdGVwaWNrZXItY29udGFpbmVyIC5uZ3gtZGF0ZXBpY2tlci1jYWxlbmRhci1jb250YWluZXIge1xuICB6LWluZGV4OiA5O1xufVxuXG4uc2VhcmNoLWhlcm8ge1xuICBwYWRkaW5nLWJvdHRvbTogNXB4O1xuICBtYXJnaW46IGF1dG87XG59Il19 */"
+
+/***/ }),
+
+/***/ "./src/app/views/buttons/coupon-code/coupon-code.component.ts":
+/*!********************************************************************!*\
+  !*** ./src/app/views/buttons/coupon-code/coupon-code.component.ts ***!
+  \********************************************************************/
+/*! exports provided: CouponCodeComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CouponCodeComponent", function() { return CouponCodeComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _api_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../api.service */ "./src/app/api.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var ngx_webstorage_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-webstorage-service */ "./node_modules/ngx-webstorage-service/fesm5/ngx-webstorage-service.js");
+
+
+
+
+
+
+var CouponCodeComponent = /** @class */ (function () {
+    function CouponCodeComponent(router, http, _api, storage) {
+        this.router = router;
+        this.http = http;
+        this._api = _api;
+        this.storage = storage;
+        this.Expiry_Date = undefined;
+        this.Value_Type = undefined;
+        this.validate = false;
+        this.customers = undefined;
+        this.user_arr = [];
+        this.user_status = [];
+        this.coupon_list = [];
+        this.Start_Date = undefined;
+        this.MasterServiceName = "5f1ea10d89b6693decfabf09";
+        this.VehicleType = undefined;
+        this.main_list = [];
+        this.vehicledetails_list = [];
+        this.options = {
+            minYear: 1970,
+            maxYear: 2030,
+            displayFormat: 'MMM DD YYYY',
+            barTitleFormat: 'MMMM YYYY',
+            dayNamesFormat: 'dd',
+            minDate: new Date(),
+        };
+        this.options1 = {
+            minYear: 1970,
+            maxYear: 2030,
+            displayFormat: 'MMM DD YYYY',
+            barTitleFormat: 'MMMM YYYY',
+            dayNamesFormat: 'dd',
+        };
+    }
+    CouponCodeComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this._api.coupon_list().subscribe(function (res) {
+            var list = res.Data.reverse();
+            _this.coupon_list = list.filter(function (x) { return x.Masterservice_id._id == "5f1ea10d89b6693decfabf09"; });
+        });
+        this._api.user_list().subscribe(function (response) {
+            console.log(response.Data);
+            _this.user_list = response.Data;
+            console.log(_this.user_list);
+            for (var i = 0; i < _this.user_list.length; i++) {
+                _this.user_status.push({ "add": true });
+            }
+            console.log(_this.user_status);
+        });
+        this._api.getmainservicelist().subscribe(function (response) {
+            console.log(response.Data);
+            _this.main_list = response.Data;
+            _this.mainservice_list = _this.main_list;
+            console.log("this.mainservice_list");
+            console.log(_this.mainservice_list);
+        });
+        this._api.vehiclelist().subscribe(function (response) {
+            console.log(response.Data);
+            _this.vehicle_type = response.Data;
+            console.log("dfhsjk");
+            console.log(_this.vehicle_type);
+        });
+    };
+    CouponCodeComponent.prototype._keyPress = function (event) {
+        var pattern = /[0-9\ ]/;
+        var inputChar = String.fromCharCode(event.charCode);
+        if (!pattern.test(inputChar)) {
+            event.preventDefault();
+        }
+    };
+    CouponCodeComponent.prototype.add = function (data, n) {
+        if (this.user_arr.some(function (x) { return x == data; })) {
+            this.user_arr = this.user_arr.filter(function (y) { return y != data; });
+            this.user_status[n].add = true;
+            console.log("test");
+            console.log(this.user_arr);
+        }
+        else {
+            this.user_arr.push(data);
+            this.user_status[n].add = false;
+        }
+        console.log(this.user_arr);
+    };
+    CouponCodeComponent.prototype.addarray = function () {
+        if (this.customers == "all") {
+            this.user_arr = [];
+            // for (let i = 0; i < this.user_list.length; i++) {
+            //   this.user_arr.push(this.user_list[i]._id);
+            //   console.log(this.user_arr)
+            // }
+        }
+        // else{
+        //   this.user_arr =[];
+        // }
+    };
+    CouponCodeComponent.prototype.validation = function () {
+        if ((this.Value_Type == "Percentage" ? (this.amount != undefined && this.amount != '') : true) && this.VehicleType != undefined && (this.Coupon_Code != undefined && this.Coupon_Code != '') && this.Value_Type != undefined && this.Value != undefined && this.Value != '' && this.Description != undefined && this.Description != '' && this.Count != undefined && this.Count != '' && this.customers != undefined) {
+            this.validate = true;
+        }
+    };
+    CouponCodeComponent.prototype.addcoupon = function () {
+        var _this = this;
+        this.validation();
+        if (this.validate == true) {
+            var data = {
+                "Customer_id": this.user_arr,
+                "Expiry_Date": this.Expiry_Date,
+                "Value_Type": this.Value_Type,
+                "Count": this.Count,
+                "Value": this.Value,
+                "Description": this.Description,
+                "Coupon_For": this.customers,
+                "Coupon_Code": this.Coupon_Code,
+                "Start_Date": this.Start_Date,
+                "Masterservice_id": this.MasterServiceName,
+                "Vehicle_type_id": this.VehicleType,
+                "Mainservice_id": this.mainservice_id,
+                "Amount": this.amount,
+            };
+            console.log(data);
+            this._api.coupon_codde_create(data).subscribe(function (response) {
+                console.log(response);
+                if (response.Code == 422) {
+                    alert("Please provide valid Expiry_Date");
+                }
+                else {
+                    _this.ngOnInit();
+                    alert(response.Message);
+                    _this.reset();
+                    // this.router.navigate(['/superadmin/master/create_master_service'])
+                }
+            });
+        }
+        else {
+            alert("Please fill all the fields");
+        }
+    };
+    CouponCodeComponent.prototype.reset = function () {
+        this.customers = undefined;
+        this.Value_Type = undefined;
+        this.Value = undefined;
+        this.Count = undefined;
+        this.user_arr = [];
+        this.Expiry_Date = undefined;
+        this.Description = undefined;
+        this.VehicleType = undefined;
+        this.Start_Date = new Date();
+        this.mainservice_id = undefined;
+        this.amount = undefined;
+        this.Coupon_Code = undefined;
+    };
+    CouponCodeComponent.prototype.vechiclt_type_select = function () {
+        var _this = this;
+        this.mainservice_list = this.main_list;
+        // this.vehicledetails_list = this.vihicle_list;
+        if (this.VehicleType != undefined) {
+            this.mainservice_list = this.mainservice_list.filter(function (x) { return x.Vehicle_Type_id._id == _this.VehicleType; });
+            // this.vehicledetails_list = this.vehicledetails_list.filter(x => x.Vehicle_Type == this.VehicleType);
+            console.log(this.mainservice_list);
+            this.mainservice_id = this.mainservice_list[0]._id;
+        }
+    };
+    CouponCodeComponent.prototype.disable = function (id) {
+        var _this = this;
+        var data = {
+            "_id": id,
+            Coupon_status: "Disable"
+        };
+        this._api.coupon_codde_edit(data).subscribe(function (response) {
+            console.log(response);
+            if (response.Code == 422) {
+                alert(response.Message);
+            }
+            else {
+                _this.ngOnInit();
+                alert(response.Message);
+                _this.reset();
+                // this.router.navigate(['/superadmin/master/create_master_service'])
+            }
+        });
+    };
+    CouponCodeComponent.prototype.enalble = function (id) {
+        var _this = this;
+        var data = {
+            "_id": id,
+            Coupon_status: "Enable"
+        };
+        this._api.coupon_codde_edit(data).subscribe(function (response) {
+            console.log(response);
+            if (response.Code == 422) {
+                alert(response.Message);
+            }
+            else {
+                _this.ngOnInit();
+                alert(response.Message);
+                _this.reset();
+                // this.router.navigate(['/superadmin/master/create_master_service'])
+            }
+        });
+    };
+    CouponCodeComponent.prototype.delete = function (id) {
+        var _this = this;
+        var data = {
+            "_id": id,
+        };
+        this._api.coupon_codde_delete(data).subscribe(function (response) {
+            console.log(response);
+            if (response.Code == 422) {
+                alert(response.Message);
+            }
+            else {
+                _this.ngOnInit();
+                alert(response.Message);
+                _this.reset();
+                // this.router.navigate(['/superadmin/master/create_master_service'])
+            }
+        });
+    };
+    CouponCodeComponent.prototype.date = function () {
+        console.log(this.Start_Date);
+        this.Expiry_Date = this.Start_Date;
+        this.options1.minDate = this.Start_Date;
+    };
+    CouponCodeComponent.ctorParameters = function () { return [
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
+        { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"] },
+        { type: _api_service__WEBPACK_IMPORTED_MODULE_2__["ApiService"] },
+        { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [ngx_webstorage_service__WEBPACK_IMPORTED_MODULE_5__["SESSION_STORAGE"],] }] }
+    ]; };
+    CouponCodeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-coupon-code',
+            template: __webpack_require__(/*! raw-loader!./coupon-code.component.html */ "./node_modules/raw-loader/index.js!./src/app/views/buttons/coupon-code/coupon-code.component.html"),
+            styles: [__webpack_require__(/*! ./coupon-code.component.scss */ "./src/app/views/buttons/coupon-code/coupon-code.component.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](3, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(ngx_webstorage_service__WEBPACK_IMPORTED_MODULE_5__["SESSION_STORAGE"])),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"],
+            _api_service__WEBPACK_IMPORTED_MODULE_2__["ApiService"], Object])
+    ], CouponCodeComponent);
+    return CouponCodeComponent;
 }());
 
 

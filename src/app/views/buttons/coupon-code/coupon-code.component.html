@@ -1,0 +1,243 @@
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <strong>Coupon Code</strong>
+                </div>
+                <div class="card-body">
+                    <form class="form-horizontal">
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label" for="text-input">Customers</label>
+                            <div class="col-md-6">
+                                <select class="form-control" [(ngModel)]="customers" (ngModelChange)="addarray()"
+                                    name="customers">
+                                    <option value=undefined> Select Customers</option>
+                                    <option value="all"> For all Customers</option>
+                                    <option value="selected"> Selected Customers</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div *ngIf="customers == 'selected'" class="form-group row">
+                            <label class="col-md-3 col-form-label" for="text-input">Select Customers</label>
+                            <div class="col-md-6">
+                                <div class="search-hero">
+                                    <input class="form-control" type="text" name="search"
+                                        style="font-family: FontAwesome;" [(ngModel)]="searchText" autocomplete="off"
+                                        placeholder="&#xf002; Search...">
+                                </div>
+                                <table class="table table-striped table-bordered table-sm" [svData]="user_list"
+                                    #sv="svDataTable" [svRowsOnPage]="10" svSortBy="name" svSortOrder="asc">
+                                    <thead>
+                                        <tr>
+                                            <th>S.No</th>
+                                            <!-- <th>ID</th> -->
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Phone</th>
+                                            <th>Action</th>
+                                        </tr>
+
+                                    </thead>
+                                    <tbody>
+                                        <ng-container *ngFor="let item of sv.data | filter:searchText ; let i = index;">
+                                            <tr>
+                                                <td>{{i+1}}</td>
+                                                <!-- <td>{{item._id}}</td> -->
+                                                <td>{{item.Name}}</td>
+                                                <td>{{item.Email}}</td>
+                                                <td>{{item.Phone}}</td>
+                                                <td><button style="padding: 1px 10px;" (click)="add(item._id,i)"
+                                                        class="btn "
+                                                        [ngClass]="{'btn-danger' :  user_status[i].add == false, 'btn-success': user_status[i].add == true}">
+                                                        <ng-container
+                                                            *ngIf="user_status[i].add == true || user_status[i].add == undefined">
+                                                            Add</ng-container>
+                                                        <ng-container *ngIf="user_status[i].add == false">Remove
+                                                        </ng-container>
+                                                    </button></td>
+                                            </tr>
+                                        </ng-container>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="5">
+                                                <sv-bootstrap-paginator [rowsOnPageSet]="[5, 10, 25]">
+                                                </sv-bootstrap-paginator>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label" for="text-input">Master Service</label>
+                            <div class="col-md-6">
+                                <select class="form-control" [(ngModel)]="MasterServiceName" name="MasterServiceName">
+
+                                    <option value="5f1ea10d89b6693decfabf09">Book a Parking</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label" for="text-input">Vehicle Type</label>
+                            <div class="col-md-6">
+                                <select class="form-control" (change)="vechiclt_type_select()" [(ngModel)]="VehicleType"
+                                    name="VehicleType">
+                                    <option value="undefined">Select Vehicle Type</option>
+                                    <ng-container *ngFor="let list of vehicle_type;">
+                                        <option value="{{list._id}}">{{list.Vehicle_Type}}</option>
+                                    </ng-container>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- <div class="form-group row">
+                            <label class="col-md-3 col-form-label" for="text-input">Main Service</label>
+                            <div class="col-md-6">
+                                <select class="form-control" [(ngModel)]="mainservice_id" name="mainServiceId"
+                                    [disabled]="VehicleType == undefined">
+                                    <option value=undefined>Select Main Service</option>
+                                    <ng-container *ngFor="let list of mainservice_list">
+                                        <option value="{{list._id}}">{{list.Service_Name}}</option>
+                                    </ng-container>
+                                </select>
+                            </div>
+                        </div> -->
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label" for="text-input">Coupon Code</label>
+                            <div class="col-md-6">
+                                <input type="text" [(ngModel)]="Coupon_Code" name="Coupon_Code" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label" for="text-input">Start Date</label>
+                            <div class="col-md-6">
+                                <ng-datepicker [(ngModel)]="Start_Date" name="date" (ngModelChange)="date()" [options]="options">
+                                </ng-datepicker>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label" for="text-input">Expiry Date</label>
+                            <div class="col-md-6" >
+                                <ng-datepicker [(ngModel)]="Expiry_Date" name="date" [options]="options1" [headless]="Start_Date == undefined">
+                                </ng-datepicker>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label" for="text-input">Value Type</label>
+                            <div class="col-md-6">
+                                <select class="form-control" [(ngModel)]="Value_Type" name="Value_Type">
+                                    <option value=undefined> Select Value Type</option>
+                                    <option value="Percentage"> Percentage</option>
+                                    <option value="Amount"> Amount</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row" *ngIf="Value_Type == 'Percentage'">
+                            <label class="col-md-3 col-form-label" for="text-input">Amount</label>
+                            <div class="col-md-6">
+                                <input type="text" [(ngModel)]="amount" (keypress)=_keyPress($event) name="amount"
+                                    class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label" for="text-input">Value</label>
+                            <div class="col-md-6">
+                                <input type="text" [(ngModel)]="Value" (keypress)=_keyPress($event) name="Value"
+                                    class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label" for="text-input">Count</label>
+                            <div class="col-md-6">
+                                <input type="text" [(ngModel)]="Count" (keypress)=_keyPress($event) name="count"
+                                    class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label" for="text-input">Description</label>
+                            <div class="col-md-6">
+                                <textarea name="Description" [(ngModel)]="Description" rows="4" class="form-control"
+                                    placeholder="Description"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <button (click)="addcoupon()" class="btn btn-sm btn-primary float-right mt-5"><i
+                                            class="fa fa-save"></i> Save</button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <h4 class="card-title pt-4">Coupon Code List</h4>
+                        <div class="search-hero">
+                            <input class="form-control" type="text" name="search2"
+                                style="font-family: FontAwesome;" [(ngModel)]="searchQR" autocomplete="off"
+                                placeholder="&#xf002; Search...">
+                        </div>
+                        <table class="table table-striped table-bordered table-sm" [svData]="coupon_list"
+                            #sv="svDataTable" [svRowsOnPage]="10" svSortBy="name" svSortOrder="asc">
+                            <thead>
+                                <tr>
+                                    <th>S.No</th>
+                                    <th>Master Service</th>
+                                    <th>Vehicle Type</th>
+                                    <th>Main Service</th>
+                                    <th>Coupon code</th>
+                                    <th>Description</th>
+                                    <th>Coupon For</th>
+
+                                    <th>Start Date</th>
+                                    <th>Expiry Date</th>
+                                    <th>Value Type</th>
+                                    <th>Amount</th>
+                                    <th>Value</th>
+                                    <th>Count</th>
+                                    
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of sv.data | filter:searchQR ; let i = index;">
+                                    <td>{{i+1}}</td>
+                                    <td>{{item.Masterservice_id.Masterservice_Name}}</td>
+                                    <td>{{item.Vehicle_type_id.Vehicle_Type}}</td>
+                                    <td>{{item.Mainservice_id.Service_Name}}</td>
+                                    <td>{{item.Coupon_Code}}</td>
+                                    <td>{{item.Description}}</td>
+                                    <td>{{item.Coupon_For}}</td>
+                                    <td>{{item.Start_Date | date :'shortDate'}}</td>
+                                    <td>{{item.Expiry_Date | date :'shortDate'}}</td>
+                                    <td>{{item.Value_Type}}</td>
+                                    <td>{{item.Amount}}</td>
+                                    <td>{{item.Value}}</td>
+                                    <td>{{item.Count}}</td>
+                                    
+                                    <td>
+                                        <button *ngIf="item.Coupon_status == 'Enable'" (click)="disable(item._id)" style=" width: 70px;" class="btn btn-sm btn-primary">Disable</button>
+                                        <button *ngIf="item.Coupon_status == 'Disable'" (click)="enalble(item._id)" style=" width: 70px;"
+                                            class="btn btn-sm btn-success">Enable</button>
+                                            <button (click)="delete(item._id)" style="margin-top: 5px; width: 70px;"
+                                            class="btn btn-sm btn-danger">Delete</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="14">
+                                        <sv-bootstrap-paginator [rowsOnPageSet]="[5, 10, 25]"></sv-bootstrap-paginator>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/.row-->
+</div>

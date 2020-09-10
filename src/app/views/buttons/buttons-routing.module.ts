@@ -24,6 +24,8 @@ import { SlotBookingComponent } from './slotmanagement/slot-booking/slot-booking
 import { SlotBlockingComponent } from './slotmanagement/slot-blocking/slot-blocking.component';
 import { QrcodegenerationComponent } from './qrcode/qrcodegeneration/qrcodegeneration.component';
 import { UpcomingComponent } from './bookings/upcoming/upcoming.component';
+import { CouponCodeComponent } from './coupon-code/coupon-code.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -182,7 +184,13 @@ const routes: Routes = [
         }
       },
       
-
+      {
+        path: 'couponcode',
+        component: CouponCodeComponent,
+        data: {
+          title: 'Coupon Code'
+        }
+      },
 
 
 

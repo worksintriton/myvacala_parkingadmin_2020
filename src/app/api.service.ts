@@ -171,4 +171,25 @@ export class ApiService {
   parking_statusedit(data){
     return this.http.post(this.apiUrl + 'parking/parkingbooking/edit', data);
   }
+  coupon_list() {
+    return this.http.get(this.apiUrl + 'coupons/getlist');
+  }
+  user_list() {
+    return this.http.get(this.apiUrl + 'customer/getlist');
+  }
+  getmainservicelist() {
+    return this.http.get(this.apiUrl + 'service/getlistfull');
+  }
+  vehiclelist() {
+    return this.http.get(this.apiUrl + 'vehicletype/getlist');
+  }
+  coupon_codde_create(data) {
+    return this.http.post(this.apiUrl + 'coupons/create', data);
+  }
+  coupon_codde_edit(data) {
+    return this.http.post(this.apiUrl + 'coupons/edit', data);
+  }
+  coupon_codde_delete(data) {
+    return this.http.post(this.apiUrl + 'coupons/delete', data);
+  }
 }

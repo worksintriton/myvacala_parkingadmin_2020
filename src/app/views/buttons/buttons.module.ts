@@ -38,6 +38,8 @@ import { UpcomingComponent } from './bookings/upcoming/upcoming.component';
 import { DataTableModule } from 'ng-angular8-datatable';
 // Angular
 import {DialogModule} from 'primeng/dialog';
+import { CouponCodeComponent } from './coupon-code/coupon-code.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 @NgModule({
   imports: [
     CommonModule,
@@ -48,7 +50,9 @@ import {DialogModule} from 'primeng/dialog';
     NgDatepickerModule,
     CalendarModule,
     DataTableModule,
-    DialogModule
+    DialogModule,
+    Ng2SearchPipeModule
+    
   ],
   declarations: [
     AdminuserlistComponent,
@@ -71,6 +75,7 @@ import {DialogModule} from 'primeng/dialog';
     CheckoutComponent,
     QrcodegenerationComponent,
     UpcomingComponent,
+    CouponCodeComponent
 
   
   ]

@@ -425,6 +425,11 @@ var navItems = [
         url: '/Home/buttons/QRCodeGeneration',
         icon: 'fa fa-qrcode'
     },
+    {
+        name: 'Coupon Code',
+        url: '/Home/buttons/couponcode',
+        icon: 'fa fa-clone'
+    },
 ];
 
 
@@ -561,6 +566,27 @@ var ApiService = /** @class */ (function () {
     };
     ApiService.prototype.parking_statusedit = function (data) {
         return this.http.post(this.apiUrl + 'parking/parkingbooking/edit', data);
+    };
+    ApiService.prototype.coupon_list = function () {
+        return this.http.get(this.apiUrl + 'coupons/getlist');
+    };
+    ApiService.prototype.user_list = function () {
+        return this.http.get(this.apiUrl + 'customer/getlist');
+    };
+    ApiService.prototype.getmainservicelist = function () {
+        return this.http.get(this.apiUrl + 'service/getlistfull');
+    };
+    ApiService.prototype.vehiclelist = function () {
+        return this.http.get(this.apiUrl + 'vehicletype/getlist');
+    };
+    ApiService.prototype.coupon_codde_create = function (data) {
+        return this.http.post(this.apiUrl + 'coupons/create', data);
+    };
+    ApiService.prototype.coupon_codde_edit = function (data) {
+        return this.http.post(this.apiUrl + 'coupons/edit', data);
+    };
+    ApiService.prototype.coupon_codde_delete = function (data) {
+        return this.http.post(this.apiUrl + 'coupons/delete', data);
     };
     ApiService.ctorParameters = function () { return [
         { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
