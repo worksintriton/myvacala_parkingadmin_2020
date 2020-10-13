@@ -78,15 +78,15 @@ export const navItems: NavData[] = [
     
   },
   {
-    name: 'QR Code Generation',
+    name: 'QR Code List',
     url: '/Home/buttons/QRCodeGeneration',
     icon: 'fa fa-qrcode'
   },
-  {
-    name: 'Coupon Code',
-    url: '/Home/buttons/couponcode',
-    icon: 'fa fa-clone'
-  },
+  // {
+  //   name: 'Coupon Code',
+  //   url: '/Home/buttons/couponcode',
+  //   icon: 'fa fa-clone'
+  // },
   // {
   //   name: 'Notifications',
   //   url: '/Home/buttons/notifications',

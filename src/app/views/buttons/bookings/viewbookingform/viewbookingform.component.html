@@ -68,10 +68,10 @@
             <p>Vehicle Type : <ng-container *ngIf="item.Vehicle_id.Vehicle_Type == '5f0c0cfc2f857d66950cf25f'">Four Wheeler</ng-container><ng-container *ngIf="item.Vehicle_id.Vehicle_Type != '5f0c0cfc2f857d66950cf25f'">Two Wheeler</ng-container></p>
             <h4>{{item.Vehicle_No}}</h4>
             <p>{{item.Customer_Phone}}</p>
-            <p>Checkin Time : {{item.Checking_time}}</p>
-            <p>Checkout Time : {{item.Checkout_time}}</p>
-            <p>Check in Date :{{item.Checking_date}}</p>
-            <p>Check out Date :{{item.Checkout_date}}</p>
+            <p>Checkin Time : {{item.Checking_time | slice:10}}</p>
+            <p>Checkout Time : {{item.Checkout_time | slice:10}}</p>
+            <p>Check in Date :{{item.Checking_date | slice: 0 :-11}}</p>
+            <p>Check out Date :{{item.Checkout_date | slice: 0 :-11}}</p>
             <p>Estimated Time : {{item.total_checking_duration}}</p>
             <p>
               <li class="icon-clock"><span>6 days ago</span></li>

@@ -114,6 +114,7 @@ export class LoginComponent implements OnInit {
             alert(response.Message);
             this.saveInLocal("parking_detail", response.Data);
             this.saveInLocal("OTP", response.OTP);
+            this.saveInLocal("phone", this.phonenumber);
             // this.router.navigate(['Home/buttons/view_bookings']);
             this.router.navigate(['OTPValidation']);
           }

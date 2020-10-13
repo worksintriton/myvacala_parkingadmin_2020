@@ -181,6 +181,8 @@ export class SlotBookingComponent implements OnInit {
     let data = {
       "_id": this.parking._id,
       "parking_details_slots_Bike_details": this.bike_slot,
+      "parking_details_slots_count_Bike": this.bike_slot.length,
+      
     }
     console.log(data)
     this._api.Parking_owner_edit(data).subscribe((res: any) => {
@@ -207,6 +209,7 @@ export class SlotBookingComponent implements OnInit {
     let data = {
       "_id": this.parking._id,
       "parking_details_slots_Car_details": this.car_slot,
+      "parking_details_slots_count_Car": this.car_slot.length,
     }
     console.log(data)
     this._api.Parking_owner_edit(data).subscribe((res: any) => {
@@ -265,6 +268,7 @@ export class SlotBookingComponent implements OnInit {
     let data = {
       "_id": this.parking._id,
       "parking_details_slots_Bike_details": this.bike_slot,
+      
     }
     console.log(data)
     this._api.Parking_owner_edit(data).subscribe((res: any) => {
@@ -355,5 +359,14 @@ export class SlotBookingComponent implements OnInit {
     this.Floor_val=undefined;
     this.Block_val = undefined;
     this.Slot_val = undefined;
+  }
+  
+  _keyPress(event: any) {
+    const pattern = /[0-9\ ]/;
+    let inputChar = String.fromCharCode(event.charCode);
+    if (!pattern.test(inputChar)) {
+      event.preventDefault();
+
+    }
   }
 }

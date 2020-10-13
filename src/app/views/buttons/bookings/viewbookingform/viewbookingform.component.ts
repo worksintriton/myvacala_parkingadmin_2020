@@ -32,9 +32,10 @@ export class ViewbookingformComponent implements OnInit {
     let ph = this.getFromLocal('phnumber');
     let t = this.getFromLocal('token');
     this.parking_detail = this.getFromLocal('parking_detail');
+    console.log(this.parking_detail);
     let data =
     {
-      "parkingdetails_id": "5f4798fc99c5a35d06ad04f2"
+      "parkingdetails_id": this.parking_detail._id
 
     }
 

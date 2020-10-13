@@ -14,6 +14,7 @@ export class OtpvalidationComponent implements OnInit {
   token: any;
   parking_detail: any = [];
   OTP:any;
+  ph:any;
   constructor(
     private router: Router,
 
@@ -24,6 +25,8 @@ export class OtpvalidationComponent implements OnInit {
 
   ngOnInit() {
     this.OTP = this.getFromLocal("OTP")
+    this.ph = this.getFromLocal("phone")
+    console.log(this.ph)
   }
   otpvalidation() {
     let otp = this.OTP;
@@ -63,5 +66,22 @@ export class OtpvalidationComponent implements OnInit {
   }
   getFromLocal(key): any {
     return this.storage.get(key);
+  }
+  resend(){
+    let ph = {
+      "owner_pri_contact": this.ph
+    }
+    this._api.Login(ph).subscribe(
+      (response: any) => {
+        console.log("response");
+        console.log(response);
+        if (response.Code == 200) {
+          alert(response.Message);
+        }
+        else if (response.Code == 400) {
+          alert(response.Message);
+        }
+      }
+    );
   }
 }
