@@ -33,7 +33,7 @@ export class OtpvalidationComponent implements OnInit {
     console.log(otp);
 
     if (this.otpnumber == otp) {
-      this.router.navigate(['Home/buttons/view_bookings']);
+      this.router.navigate(['Home/Admin/view_bookings']);
     }
     else {
       alert("invalid OTP");

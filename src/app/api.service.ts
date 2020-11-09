@@ -192,4 +192,7 @@ export class ApiService {
   coupon_codde_delete(data) {
     return this.http.post(this.apiUrl + 'coupons/delete', data);
   }
+  payment_list(data) {
+    return this.http.post(this.apiUrl + 'parking/parkingbooking/getlist_vendor_id', data);
+  }
 }

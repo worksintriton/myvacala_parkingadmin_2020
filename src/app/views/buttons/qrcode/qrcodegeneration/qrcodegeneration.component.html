@@ -6,6 +6,10 @@
           <strong>QR Code Generation </strong>
         </div>
         <div class="card-body">
+          <div class="search-hero">
+            <input class="form-control" type="text" name="search2" style="font-family:FontAwesome;"
+              [(ngModel)]="searchQR" autocomplete="off" placeholder="&#xf002; Search...">
+          </div>
           <!-- <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
             <div class="row">
               <div class="col-md-8">
@@ -120,7 +124,7 @@
               </tr>
           </thead>
           <tbody>
-              <tr *ngFor="let item of sv.data ; let i = index;">
+              <tr *ngFor="let item of sv.data | filter:searchQR; let i = index;">
                   <td>{{i+1}}</td>
                   <td>{{item.Vendor_id}}</td>
                   <td>{{item.Vendor_Name}}</td>

@@ -25,7 +25,7 @@
         <!-- <input type="date" class="form-control datetimepicker-input" name="todate" data-target="#reservationdate_to"
           required /> -->
         <p-calendar [(ngModel)]="rangeDates" selectionMode="range" dateFormat="dd/mm/yy" [showIcon]="true"
-          placeholder="Select Date" inputId="range"></p-calendar>
+          placeholder="Booking Date" inputId="range"></p-calendar>
       </div>
     </div>
     <div class="col-md-4">
@@ -74,7 +74,7 @@
             <p>Check out Date :{{item.Checkout_date | slice: 0 :-11}}</p>
             <p>Estimated Time : {{item.total_checking_duration}}</p>
             <p>
-              <li class="icon-clock"><span>6 days ago</span></li>
+              <li class="icon-clock"><span>{{calculateDiff(item.createdAt)}} days ago</span></li>
             </p>
           </div>
         </div>
@@ -96,9 +96,45 @@
     <!-- *ngIf="status != 'Check In'" -->
     <option value='Check Out' *ngIf="status != 'Upcoming'">Check Out</option>
   </select>
+<ng-container *ngIf="status == 'Check In'" >
+  <div class="form-group row" style="font-size: 13px;padding: 10px 30px;">
+    <label class="col-md-5 col-form-label" for="text-input">CheckIn date</label>
+    <div class="col-md-6">
+      <input type="date" placeholder="Actual Booking"  class="form-control"
+      [(ngModel)] ="Check_In_date" name="Check_In_date">
+
+    </div>
+  </div>
+  <div class="form-group row" style="font-size: 13px;padding: 10px 30px;">
+    <label class="col-md-5 col-form-label" for="text-input">CheckIn Time</label>
+    <div class="col-md-6">
+      <input type="time" [(ngModel)]="Check_In_Time"  name="Check_In_Time"
+        id="text-input" class="form-control">
+    </div>
+  </div>
+</ng-container>
+<ng-container *ngIf="status == 'Check Out'" >
+  <div class="form-group row" style="font-size: 13px;padding: 10px 30px;">
+    <label class="col-md-5 col-form-label" for="text-input">CheckOut date</label>
+    <div class="col-md-6">
+      <input type="date"  class="form-control"
+      [(ngModel)] ="Check_Out_date" name="Check_Out_date">
+
+    </div>
+  </div>
+  <div class="form-group row" style="font-size: 13px;padding: 10px 30px;">
+    <label class="col-md-5 col-form-label" for="text-input">CheckOut Time</label>
+    <div class="col-md-6">
+      <input type="time" [(ngModel)]="Check_Out_Time"  name="Check_Out_Time"
+       class="form-control">
+    </div>
+  </div>
+</ng-container >
 </div>
-  <ng-template pTemplate="footer">
-    <p-button icon="pi pi-check" (click)="edit()" label="Yes" styleClass="p-button-text"></p-button>
-    <p-button icon="pi pi-times" (click)="displayBasic=false" label="No"></p-button>
+  <ng-template pTemplate="footer" >
+    <ng-container *ngIf="((status == 'Check In' && Check_In_date != undefined && Check_In_Time != undefined) || (status == 'Check Out' && Check_Out_date != undefined && Check_Out_Time != undefined) || status == 'Upcoming')">
+      <p-button icon="pi pi-check" (click)="edit()" label="Yes" styleClass="p-button-text"></p-button>
+      <p-button icon="pi pi-times" (click)="displayBasic=false" label="No"></p-button>  
+    </ng-container>
   </ng-template>
 </p-dialog>

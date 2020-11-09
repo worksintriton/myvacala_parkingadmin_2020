@@ -30,12 +30,12 @@ const routes: Routes = [
   {
     path: '',
     data: {
-      title: 'Buttons'
+      title: 'Admin'
     },
     children: [
       {
         path: '',
-        redirectTo: 'buttons'
+        redirectTo: 'Admin'
       },
       
 
@@ -44,7 +44,7 @@ const routes: Routes = [
         path: 'Home_banner',
         component: HomeBannerComponent,
         data: {
-          title: 'Brand buttons'
+          title: 'Home_banner'
         }
       },
       {
@@ -123,28 +123,28 @@ const routes: Routes = [
         path: 'checkin',
         component: CheckinComponent,
         data: {
-          title: 'Brand buttons'
+          title: 'checkin'
         }
       },
       {
         path: 'checkout',
         component: CheckoutComponent,
         data: {
-          title: 'Brand buttons'
+          title: 'checkout'
         }
       },
       {
         path: 'slotbooking',
         component: SlotBookingComponent,
         data: {
-          title: 'Brand buttons'
+          title: 'Slot Booking'
         }
       },
       {
         path: 'slotblocking',
         component: SlotBlockingComponent,
         data: {
-          title: 'Brand buttons'
+          title: 'Slot blocking'
         }
       },
 
@@ -159,21 +159,21 @@ const routes: Routes = [
         path: 'QRCodeGeneration',
         component: QrcodegenerationComponent,
         data: {
-          title: 'Brand buttons'
+          title: 'QRCode Generation'
         }
       },
       {
         path: 'payments',
         component: PaymentsComponent,
         data: {
-          title: 'Brand buttons'
+          title: 'Payments'
         }
       },
       {
         path: 'notifications',
         component: NotificationsComponent,
         data: {
-          title: 'Brand buttons'
+          title: 'Notifications'
         }
       },
       {

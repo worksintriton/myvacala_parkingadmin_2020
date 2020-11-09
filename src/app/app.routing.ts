@@ -58,7 +58,7 @@ export const routes: Routes = [
       },
 
       {
-        path: 'buttons',
+        path: 'Admin',
         loadChildren: () => import('./views/buttons/buttons.module').then(m => m.ButtonsModule)
       },
 

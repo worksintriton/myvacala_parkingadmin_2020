@@ -826,7 +826,7 @@ var routes = [
                 }
             },
             {
-                path: 'buttons',
+                path: 'Admin',
                 loadChildren: function () { return __webpack_require__.e(/*! import() | views-buttons-buttons-module */ "views-buttons-buttons-module").then(__webpack_require__.bind(null, /*! ./views/buttons/buttons.module */ "./src/app/views/buttons/buttons.module.ts")).then(function (m) { return m.ButtonsModule; }); }
             },
             {

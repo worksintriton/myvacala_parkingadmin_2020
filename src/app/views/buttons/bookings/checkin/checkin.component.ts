@@ -38,9 +38,9 @@ export class CheckinComponent implements OnInit {
   this.Booking_Date = new Date(this.booking_single.Booked_Date_and_Time)
   console.log(this.Booking_Date);
   let array = this.booking_single.slot_details.split(",");
-  this.FloorName = array[0];
-  this.Block = array[1];
-  this.SlotNumber = array[2];
+  this.FloorName = this.booking_single.floor;
+  this.Block = this.booking_single.block;
+  this.SlotNumber = this.booking_single.slot;
   this.customerMobile =this.booking_single.Customer_id.Phone;
   this.VehicleModel = this.booking_single.Vehicle_id.Vehicle_Name;
   this.Check_In_date = new Date(this.booking_single.Checking_date);
@@ -90,7 +90,7 @@ export class CheckinComponent implements OnInit {
           if(this.Pic == ''){
             alert("Image file removed");
           }
-          this.router.navigate(['Home/buttons/view_bookings']);
+          this.router.navigate(['Home/Admin/view_bookings']);
         }
        
       }

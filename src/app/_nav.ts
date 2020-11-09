@@ -30,24 +30,24 @@ export interface NavData {
 }
 
 export const navItems: NavData[] = [
-  {
-    name: 'Dashboard',
-    url: '/Home/dashboard',
-    icon: 'icon-speedometer',
-    badge: {
-      variant: 'info',
-      text: 'NEW'
-    }
-  },
+  // {
+  //   name: 'Dashboard',
+  //   url: '/Home/dashboard',
+  //   icon: 'icon-speedometer',
+  //   badge: {
+  //     variant: 'info',
+  //     text: 'NEW'
+  //   }
+  // },
  
   {
     name: 'Bookings',
-    url: '/Home/buttons/view_bookings',
+    url: '/Home/Admin/view_bookings',
     icon: 'icon-notebook',
     // children: [
     //   {
     //     name: 'View Bookings',
-    //     url: '/Home/buttons/view_bookings',
+    //     url: '/Home/Admin/view_bookings',
     //     icon: 'icon-plus'
     //   },
     // ]
@@ -56,22 +56,22 @@ export const navItems: NavData[] = [
   
   {
     name: 'Payments',
-    url: '/Home/buttons/payments',
+    url: '/Home/Admin/payments',
     icon: 'fa fa-money'
   },
   {
     name: 'Slot Management',
-    url: '/Home/buttons/slotbooking',
+    url: '/Home/Admin/slotbooking',
     icon: 'fa fa-gear',
     // children: [
     //   {
     //     name: 'Slot Booking',
-    //     url: '/Home/buttons/slotbooking',
+    //     url: '/Home/Admin/slotbooking',
     //     icon: 'icon-notebook'
     //   },
     //   {
     //     name: 'Slot Blocking',
-    //     url: '/Home/buttons/slotblocking',
+    //     url: '/Home/Admin/slotblocking',
     //     icon: 'icon-ban'
     //   },
     // ]
@@ -79,22 +79,22 @@ export const navItems: NavData[] = [
   },
   {
     name: 'QR Code List',
-    url: '/Home/buttons/QRCodeGeneration',
+    url: '/Home/Admin/QRCodeGeneration',
     icon: 'fa fa-qrcode'
   },
   // {
   //   name: 'Coupon Code',
-  //   url: '/Home/buttons/couponcode',
+  //   url: '/Home/Admin/couponcode',
   //   icon: 'fa fa-clone'
   // },
   // {
   //   name: 'Notifications',
-  //   url: '/Home/buttons/notifications',
+  //   url: '/Home/Admin/notifications',
   //   icon: 'icon-bell'
   // },
   // {
   //   name: 'Downloads',
-  //   url: '/Home/buttons/downloads',
+  //   url: '/Home/Admin/downloads',
   //   icon: 'fa fa-download'
   // },
   
