@@ -5,23 +5,30 @@
 
         <div class="col-md-3">
           <div class="form-group">
-            <input type="text" class="form-control" name="Bookingid" placeholder="Booking ID" />
+            <input type="text"  [(ngModel)]="Bookingid" class="form-control" name="Bookingid" placeholder="Booking ID" />
           </div>
         </div>
         <div class="col-md-3">
           <div class="form-group">
-            <ng-datepicker [(ngModel)]="date" [options]="options"></ng-datepicker>
+            <ng-datepicker [(ngModel)]="date" [options]="options" #date1></ng-datepicker>
           </div>
         </div>
         <div class="col-md-3">
           <div class="form-group">
-            <ng-datepicker [(ngModel)]="date_out" [options]="option"></ng-datepicker>
+            <ng-datepicker [(ngModel)]="date_out" [options]="option" #date2></ng-datepicker>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <input type="text"  [(ngModel)]="Vehicle_No_fil"  class="form-control" name="Vehicle_No" placeholder="Vehicle No" />
           </div>
         </div>
         <div class="col-md-2">
           <div class="form-group">
             <button (click)="filter()" style="margin-top: 4px;" class="btn btn-sm btn-primary"><i
                 class="fa fa-search"></i>Search</button>
+                <button (click)="refresh()" style="margin-top: 4px;" class="btn btn-sm btn-primary">refresh</button>
+      
           </div>
         </div>
       </div>

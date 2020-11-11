@@ -2,20 +2,20 @@
   <div class="row">
     <div class="col-md-4">
       <div class="form-group">
-        <select name="service" class="form-control">
-          <option value="">Vehicle_Type</option>
-          <option value="car">Car</option>
-          <option value="bike">Bike</option>
+        <select name="service" class="form-control"  [(ngModel)]="fil_Vehicle_Type">
+          <option value=undefined style="display: none;">Vehicle_Type</option>
+          <option value="Four Wheeler">Car</option>
+          <option value="Two Wheeler">Bike</option>
         </select>
       </div>
     </div>
     <div class="col-md-4">
       <div class="form-group">
-        <select name="service" class="form-control">
-          <option value="">Status</option>
+        <select name="service" class="form-control" [(ngModel)]="fil_Status">
+          <option value=undefined  style="display: none;">Status</option>
           <option value="Upcoming">Upcoming</option>
-          <option value="checkin">Check-In</option>
-          <option value="checkout">Check-Out</option>
+          <option value="Check In">Check-In</option>
+          <option value="Check-out">Check-Out</option>
         </select>
       </div>
     </div>
@@ -24,24 +24,25 @@
       <div class="form-group">
         <!-- <input type="date" class="form-control datetimepicker-input" name="todate" data-target="#reservationdate_to"
           required /> -->
-        <p-calendar [(ngModel)]="rangeDates" selectionMode="range" dateFormat="dd/mm/yy" [showIcon]="true"
+        <p-calendar [(ngModel)]="fil_booking_date" selectionMode="range" dateFormat="dd/mm/yy" [showIcon]="true"
           placeholder="Booking Date" inputId="range"></p-calendar>
       </div>
     </div>
     <div class="col-md-4">
       <div class="form-group">
-        <input type="text" class="form-control" name="BookingId" placeholder="Booking Id" />
+        <input type="text" class="form-control" [(ngModel)]="fil_BookingId" name="BookingId" placeholder="Booking Id" />
       </div>
     </div>
 
     <div class="col-md-4">
       <div class="form-group">
-        <input type="text" class="form-control" name="VehicleNumber" placeholder="Vehicle Number" />
+        <input type="text" class="form-control"  [(ngModel)]="fil_VehicleNumber" name="VehicleNumber" placeholder="Vehicle Number" />
       </div>
     </div>
     <div class="col-md-2">
       <div class="form-group">
-        <button (click)="VehicleModal_save()" class="btn btn-sm btn-primary"><i class="fa fa-search"></i>Search</button>
+        <button (click)="filter()" class="btn btn-sm btn-primary"><i class="fa fa-search"></i>Search</button>
+        <button (click)="refresh()" style="margin-top: 4px;" class="btn btn-sm btn-primary">refresh</button>
       </div>
     </div>
   </div>
@@ -68,10 +69,15 @@
             <p>Vehicle Type : <ng-container *ngIf="item.Vehicle_id.Vehicle_Type == '5f0c0cfc2f857d66950cf25f'">Four Wheeler</ng-container><ng-container *ngIf="item.Vehicle_id.Vehicle_Type != '5f0c0cfc2f857d66950cf25f'">Two Wheeler</ng-container></p>
             <h4>{{item.Vehicle_No}}</h4>
             <p>{{item.Customer_Phone}}</p>
-            <p>Checkin Time : {{item.Checking_time | slice:10}}</p>
+            <!-- <p>Checkin Time : {{item.Checking_time | slice:10}}</p>
             <p>Checkout Time : {{item.Checkout_time | slice:10}}</p>
             <p>Check in Date :{{item.Checking_date | slice: 0 :-11}}</p>
             <p>Check out Date :{{item.Checkout_date | slice: 0 :-11}}</p>
+            <p>Estimated Time : {{item.total_checking_duration}}</p> -->
+            <p>Checkin Time : {{item.Checking_time}}</p>
+            <p>Checkout Time : {{item.Checkout_time}}</p>
+            <p>Check in Date : {{item.Checking_date}}</p>
+            <p>Check out Date : {{item.Checkout_date}}</p>
             <p>Estimated Time : {{item.total_checking_duration}}</p>
             <p>
               <li class="icon-clock"><span>{{calculateDiff(item.createdAt)}} days ago</span></li>
@@ -83,7 +89,6 @@
 
   </div>
 </div>
-
 <p-dialog header="Header" [(visible)]="displayBasic" [style]="{width: '50vw'}" [baseZIndex]="10000">
   <h3 style="text-align: center;padding-top: 40px;">Are you sure?</h3>
   <p style="text-align: center;">You Want to change the Status to </p>
@@ -94,47 +99,47 @@
     <option value='Upcoming'>Upcoming</option>
     <option value='Check In' >Check In</option>
     <!-- *ngIf="status != 'Check In'" -->
-    <option value='Check Out' *ngIf="status != 'Upcoming'">Check Out</option>
+    <option value='Check-out' *ngIf="status != 'Upcoming'">Check Out</option>
   </select>
 <ng-container *ngIf="status == 'Check In'" >
   <div class="form-group row" style="font-size: 13px;padding: 10px 30px;">
     <label class="col-md-5 col-form-label" for="text-input">CheckIn date</label>
     <div class="col-md-6">
-      <input type="date" placeholder="Actual Booking"  class="form-control"
-      [(ngModel)] ="Check_In_date" name="Check_In_date">
-
+      <input type="date" placeholder="Actual Booking" disabled="true" class="form-control"
+      [ngModel] ="Check_In_date | date:'yyyy-MM-dd'" name="ActualBooking">
     </div>
   </div>
   <div class="form-group row" style="font-size: 13px;padding: 10px 30px;">
     <label class="col-md-5 col-form-label" for="text-input">CheckIn Time</label>
     <div class="col-md-6">
-      <input type="time" [(ngModel)]="Check_In_Time"  name="Check_In_Time"
-        id="text-input" class="form-control">
+      <!-- <input type="time" [(ngModel)]="Check_In_Time"  name="Check_In_Time"
+        id="text-input" class="form-control"> -->
+        <p style="text-align: left;">{{Check_In_Time | date:'mediumTime'}}</p>
     </div>
   </div>
 </ng-container>
-<ng-container *ngIf="status == 'Check Out'" >
+<ng-container *ngIf="status == 'Check-out'" >
   <div class="form-group row" style="font-size: 13px;padding: 10px 30px;">
     <label class="col-md-5 col-form-label" for="text-input">CheckOut date</label>
     <div class="col-md-6">
-      <input type="date"  class="form-control"
-      [(ngModel)] ="Check_Out_date" name="Check_Out_date">
-
+    
+      <input type="date" placeholder="Actual Booking" disabled="true" class="form-control"
+      [ngModel] ="Check_Out_date | date:'yyyy-MM-dd'" name="ActualBooking">
     </div>
   </div>
   <div class="form-group row" style="font-size: 13px;padding: 10px 30px;">
     <label class="col-md-5 col-form-label" for="text-input">CheckOut Time</label>
     <div class="col-md-6">
-      <input type="time" [(ngModel)]="Check_Out_Time"  name="Check_Out_Time"
-       class="form-control">
+      <p style="text-align: left;">{{Check_Out_Time | date:'mediumTime'}}</p>
     </div>
   </div>
 </ng-container >
 </div>
   <ng-template pTemplate="footer" >
-    <ng-container *ngIf="((status == 'Check In' && Check_In_date != undefined && Check_In_Time != undefined) || (status == 'Check Out' && Check_Out_date != undefined && Check_Out_Time != undefined) || status == 'Upcoming')">
+    <ng-container *ngIf="((status == 'Check In' && Check_In_date != undefined && Check_In_Time != undefined) || (status == 'Check-out' && Check_Out_date != undefined && Check_Out_Time != undefined) || status == 'Upcoming')">
       <p-button icon="pi pi-check" (click)="edit()" label="Yes" styleClass="p-button-text"></p-button>
       <p-button icon="pi pi-times" (click)="displayBasic=false" label="No"></p-button>  
     </ng-container>
   </ng-template>
 </p-dialog>
+

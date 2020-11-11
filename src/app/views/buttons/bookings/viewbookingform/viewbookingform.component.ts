@@ -21,11 +21,18 @@ export class ViewbookingformComponent implements OnInit {
   bookingid: any;
   status: any;
   list: any;
-  today:any = new Date();
-  Check_In_date:any;
-  Check_In_Time:any;
-  Check_Out_date:any;
-  Check_Out_Time:any;
+  today: any = new Date();
+  Check_In_date: any = new Date();
+  Check_In_Time: any = new Date();
+  Check_Out_date: any = new Date();
+  Check_Out_Time: any = new Date();
+  fil_Vehicle_Type: any;
+  fil_Status: any;
+  fil_booking_date: any;
+  fil_BookingId: any;
+  fil_VehicleNumber: any;
+  Main_list: any;
+  data: any;
   constructor(
     private router: Router,
 
@@ -38,6 +45,12 @@ export class ViewbookingformComponent implements OnInit {
 
 
   ngOnInit() {
+    this.playAudio();
+    console.log(
+      this.Check_In_date,
+      this.Check_In_Time,
+      this.Check_Out_date,
+      this.Check_Out_Time)
     let ph = this.getFromLocal('phnumber');
     let t = this.getFromLocal('token');
     this.parking_detail = this.getFromLocal('parking_detail');
@@ -47,12 +60,12 @@ export class ViewbookingformComponent implements OnInit {
       this.getlist();
     }, 5000);
 
-    this._api.DoctorListlets().subscribe(
-      (response: any) => {
-        console.log("*****");
-        console.log(response);
-      }
-    );
+    // this._api.DoctorListlets().subscribe(
+    //   (response: any) => {
+    //     console.log("*****");
+    //     console.log(response);
+    //   }
+    // );
 
   }
   ngOnDestroy() {
@@ -85,7 +98,9 @@ export class ViewbookingformComponent implements OnInit {
     this._api.parking_bookinglist(data).subscribe(
       (response: any) => {
         console.log(response);
+        this.Main_list = response.Data;
         this.Booking_List = response.Data;
+
       }
     );
   }
@@ -124,15 +139,46 @@ export class ViewbookingformComponent implements OnInit {
     this.bookingid = item._id;
     this.displayBasic = true;
     this.status = item.Booking_status;
-
+    if (this.status == "Check In") {
+      this.Check_In_date = new Date(item.Checking_date);
+      this.Check_In_Time = item.Checking_time;
+    }
+    if (this.status == "Check-out") {
+      this.Check_Out_date = new Date(item.Checkout_date);
+      this.Check_Out_Time = item.Checkout_time;
+    }
+    console.log(this.status,this.Check_Out_date ,this.Check_Out_Time)
   }
   edit() {
-    let data = {
-      "_id": this.bookingid,
-      "Booking_status": this.status
+
+    if (this.status == "Upcoming") {
+      this.data = {
+        "_id": this.bookingid,
+        "Booking_status": this.status,
+        "Checking_date": this.Check_In_date,
+        "Checking_time": this.Check_In_Time,
+        "Checkout_date": this.Check_Out_date,
+        "Checkout_time": this.Check_Out_Time
+      }
     }
-    console.log(data)
-    this._api.parking_statusedit(data).subscribe(
+    if (this.status == "Check In") {
+      this.data = {
+        "_id": this.bookingid,
+        "Booking_status": this.status,
+        "Checking_date": new Date(),
+        "Checking_time": new Date().getTime(),
+      }
+    }
+    if (this.status == "Check-out") {
+      this.data = {
+        "_id": this.bookingid,
+        "Booking_status": this.status,
+        "Checkout_date": new Date(),
+        "Checkout_time": new Date().getTime(),
+      }
+    }
+    console.log(this.data)
+    this._api.parking_statusedit(this.data).subscribe(
       (response: any) => {
         console.log(response);
         if (response.Code == 200) {
@@ -144,12 +190,52 @@ export class ViewbookingformComponent implements OnInit {
       }
     );
   }
-  calculateDiff(data){
+  calculateDiff(data) {
     let date = new Date(data);
     let currentDate = new Date();
 
     let days = Math.floor((currentDate.getTime() - date.getTime()) / 1000 / 60 / 60 / 24);
     return days;
+  }
+  filter() {
+    this.Booking_List = this.Main_list;
+    if (this.fil_Vehicle_Type != undefined) {
+      console.log()
+      this.Booking_List = this.Booking_List.filter(x => (x.Vehicle_type_id.Vehicle_Type == this.fil_Vehicle_Type));
+    }
+    if (this.fil_Status != undefined) {
+      this.Booking_List = this.Booking_List.filter(x => (x.Booking_status == this.fil_Status));
+
+    }
+    if (this.fil_booking_date != undefined) {
+
+    }
+    if (this.fil_BookingId != undefined && this.fil_BookingId != "") {
+      this.Booking_List = this.Booking_List.filter(x => (x.Booking_id == this.fil_BookingId));
+
+    }
+    if (this.fil_VehicleNumber != undefined && this.fil_VehicleNumber != "") {
+      this.Booking_List = this.Booking_List.filter(x => (x.Vehicle_id.Vehicle_No == this.fil_VehicleNumber));
+    }
+    console.log(this.Booking_List);
+    clearInterval(this.list);
+  }
+  refresh() {
+    this.Booking_List = this.Main_list;
+    this.list = setInterval(() => {
+      this.getlist();
+    }, 5000);
+    this.fil_Vehicle_Type = undefined;
+    this.fil_Status = undefined;
+    this.fil_booking_date = undefined;
+    this.fil_BookingId = undefined;
+    this.fil_VehicleNumber = undefined;
+  }
+  playAudio(){
+    let audio = new Audio();
+    audio.src = "../../../../../assets/eventually-590.mp3";
+    audio.load();
+    audio.play();
   }
 }
 
