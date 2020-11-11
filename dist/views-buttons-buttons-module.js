@@ -17841,6 +17841,7 @@ var ViewbookingformComponent = /** @class */ (function () {
         this.bookingid = item._id;
         this.displayBasic = true;
         this.status = item.Booking_status;
+        this.status_time = item.admin_status_update_time;
         if (this.status == "Check In") {
             this.Check_In_date = new Date(item.Checking_date);
             this.Check_In_Time = item.Checking_time;
@@ -17853,46 +17854,59 @@ var ViewbookingformComponent = /** @class */ (function () {
     };
     ViewbookingformComponent.prototype.edit = function () {
         var _this = this;
-        if (this.status == "Upcoming") {
-            this.data = {
-                "_id": this.bookingid,
-                "Booking_status": this.status,
-                "Checking_date": this.Check_In_date,
-                "Checking_time": this.Check_In_Time,
-                "Checkout_date": this.Check_Out_date,
-                "Checkout_time": this.Check_Out_Time
-            };
+        console.log(this.status_updated_time(this.status_time));
+        if (this.status_updated_time(this.status_time) <= 5 && this.status != "Upcoming") {
+            alert("Sorry, you can't change the status now. please try again 5 minutes later.");
         }
-        if (this.status == "Check In") {
-            this.data = {
-                "_id": this.bookingid,
-                "Booking_status": this.status,
-                "Checking_date": new Date(),
-                "Checking_time": new Date().getTime(),
-            };
-        }
-        if (this.status == "Check-out") {
-            this.data = {
-                "_id": this.bookingid,
-                "Booking_status": this.status,
-                "Checkout_date": new Date(),
-                "Checkout_time": new Date().getTime(),
-            };
-        }
-        console.log(this.data);
-        this._api.parking_statusedit(this.data).subscribe(function (response) {
-            console.log(response);
-            if (response.Code == 200) {
-                alert("Booking status Changed");
-                _this.ngOnInit();
-                _this.displayBasic = false;
+        else {
+            if (this.status == "Upcoming") {
+                this.data = {
+                    "_id": this.bookingid,
+                    "Booking_status": this.status,
+                    "Checking_date": this.Check_In_date,
+                    "Checking_time": this.Check_In_Time,
+                    "Checkout_date": this.Check_Out_date,
+                    "Checkout_time": this.Check_Out_Time,
+                    "last_admin_update_status": this.status,
+                    "admin_status_update_time": new Date(),
+                };
             }
-        });
+            if (this.status == "Check In") {
+                this.data = {
+                    "_id": this.bookingid,
+                    "Booking_status": this.status,
+                    "Checking_date": new Date(),
+                    "Checking_time": new Date().getTime(),
+                    "last_admin_update_status": this.status,
+                    "admin_status_update_time": new Date(),
+                };
+            }
+            if (this.status == "Check-out") {
+                this.data = {
+                    "_id": this.bookingid,
+                    "Booking_status": this.status,
+                    "Checkout_date": new Date(),
+                    "Checkout_time": new Date().getTime(),
+                    "last_admin_update_status": this.status,
+                    "admin_status_update_time": new Date(),
+                };
+            }
+            console.log(this.data);
+            this._api.parking_statusedit(this.data).subscribe(function (response) {
+                console.log(response);
+                if (response.Code == 200) {
+                    alert("Booking status Changed");
+                    _this.ngOnInit();
+                    _this.displayBasic = false;
+                }
+            });
+        }
     };
     ViewbookingformComponent.prototype.calculateDiff = function (data) {
         var date = new Date(data);
         var currentDate = new Date();
         var days = Math.floor((currentDate.getTime() - date.getTime()) / 1000 / 60 / 60 / 24);
+        console.log(days);
         return days;
     };
     ViewbookingformComponent.prototype.filter = function () {
@@ -17933,6 +17947,13 @@ var ViewbookingformComponent = /** @class */ (function () {
         audio.src = "../../../../../assets/eventually-590.mp3";
         audio.load();
         audio.play();
+    };
+    ViewbookingformComponent.prototype.status_updated_time = function (data) {
+        var date = new Date(data);
+        var currentDate = new Date();
+        var days = Math.floor((currentDate.getTime() - date.getTime()) / 1000 / 60);
+        console.log(days);
+        return days;
     };
     ViewbookingformComponent.ctorParameters = function () { return [
         { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },

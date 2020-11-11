@@ -33,6 +33,7 @@ export class ViewbookingformComponent implements OnInit {
   fil_VehicleNumber: any;
   Main_list: any;
   data: any;
+  status_time: any;
   constructor(
     private router: Router,
 
@@ -139,6 +140,7 @@ export class ViewbookingformComponent implements OnInit {
     this.bookingid = item._id;
     this.displayBasic = true;
     this.status = item.Booking_status;
+    this.status_time = item.admin_status_update_time;
     if (this.status == "Check In") {
       this.Check_In_date = new Date(item.Checking_date);
       this.Check_In_Time = item.Checking_time;
@@ -147,55 +149,69 @@ export class ViewbookingformComponent implements OnInit {
       this.Check_Out_date = new Date(item.Checkout_date);
       this.Check_Out_Time = item.Checkout_time;
     }
-    console.log(this.status,this.Check_Out_date ,this.Check_Out_Time)
+    console.log(this.status, this.Check_Out_date, this.Check_Out_Time)
   }
   edit() {
-
-    if (this.status == "Upcoming") {
-      this.data = {
-        "_id": this.bookingid,
-        "Booking_status": this.status,
-        "Checking_date": this.Check_In_date,
-        "Checking_time": this.Check_In_Time,
-        "Checkout_date": this.Check_Out_date,
-        "Checkout_time": this.Check_Out_Time
-      }
+    console.log(this.status_updated_time(this.status_time))
+    if (this.status_updated_time(this.status_time) <= 5 && this.status != "Upcoming") {
+      alert("Sorry, you can't change the status now. please try again 5 minutes later.")
     }
-    if (this.status == "Check In") {
-      this.data = {
-        "_id": this.bookingid,
-        "Booking_status": this.status,
-        "Checking_date": new Date(),
-        "Checking_time": new Date().getTime(),
-      }
-    }
-    if (this.status == "Check-out") {
-      this.data = {
-        "_id": this.bookingid,
-        "Booking_status": this.status,
-        "Checkout_date": new Date(),
-        "Checkout_time": new Date().getTime(),
-      }
-    }
-    console.log(this.data)
-    this._api.parking_statusedit(this.data).subscribe(
-      (response: any) => {
-        console.log(response);
-        if (response.Code == 200) {
-          alert("Booking status Changed");
-          this.ngOnInit();
-          this.displayBasic = false;
+    else {
+      if (this.status == "Upcoming") {
+        this.data = {
+          "_id": this.bookingid,
+          "Booking_status": this.status,
+          "Checking_date": this.Check_In_date,
+          "Checking_time": this.Check_In_Time,
+          "Checkout_date": this.Check_Out_date,
+          "Checkout_time": this.Check_Out_Time,
+          "last_admin_update_status": this.status,
+          "admin_status_update_time": new Date(),
         }
-
       }
-    );
+      if (this.status == "Check In") {
+        this.data = {
+          "_id": this.bookingid,
+          "Booking_status": this.status,
+          "Checking_date": new Date(),
+          "Checking_time": new Date().getTime(),
+          "last_admin_update_status": this.status,
+          "admin_status_update_time": new Date(),
+        }
+      }
+      if (this.status == "Check-out") {
+        this.data = {
+          "_id": this.bookingid,
+          "Booking_status": this.status,
+          "Checkout_date": new Date(),
+          "Checkout_time": new Date().getTime(),
+          "last_admin_update_status": this.status,
+          "admin_status_update_time": new Date(),
+        }
+      }
+      console.log(this.data)
+      this._api.parking_statusedit(this.data).subscribe(
+        (response: any) => {
+          console.log(response);
+          if (response.Code == 200) {
+            alert("Booking status Changed");
+            this.ngOnInit();
+            this.displayBasic = false;
+          }
+
+        }
+      );
+    }
+
   }
   calculateDiff(data) {
     let date = new Date(data);
     let currentDate = new Date();
 
     let days = Math.floor((currentDate.getTime() - date.getTime()) / 1000 / 60 / 60 / 24);
+    console.log(days)
     return days;
+
   }
   filter() {
     this.Booking_List = this.Main_list;
@@ -231,11 +247,20 @@ export class ViewbookingformComponent implements OnInit {
     this.fil_BookingId = undefined;
     this.fil_VehicleNumber = undefined;
   }
-  playAudio(){
+  playAudio() {
     let audio = new Audio();
     audio.src = "../../../../../assets/eventually-590.mp3";
     audio.load();
     audio.play();
+  }
+  status_updated_time(data) {
+    let date = new Date(data);
+    let currentDate = new Date();
+
+    let days = Math.floor((currentDate.getTime() - date.getTime()) / 1000 / 60);
+    console.log(days)
+    return days;
+
   }
 }
 
